@@ -17,6 +17,9 @@ importers:
 
   app:
     dependencies:
+      '@fontsource-variable/outfit':
+        specifier: ^5.0.12
+        version: 5.0.12
       '@sanity/client':
         specifier: ^6.15.4
         version: 6.15.4
@@ -2065,6 +2068,10 @@ packages:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
     dev: false
 
+  /@fontsource-variable/outfit@5.0.12:
+    resolution: {integrity: sha512-f14wHgrD8GZnSbF7pK0F+Al3NYSz6oGaFbewvA4lVJRZcoQ6MQFu6BG6PY/elMrnx8WuklL8AncIVqPsrRIf0A==}
+    dev: false
+
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
@@ -3863,7 +3870,6 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
     dev: false
-    bundledDependencies: false
 
   /crelt@1.0.6:
     resolution: {integrity: sha512-VQ2MBenTq1fWZUH9DJNGti7kKv6EeAuYr3cLwxUWhIu1baTaXh4Ib5W2CqHVqib4/MqbYGJqiL3Zb8GJZr3l4g==}
