@@ -34,7 +34,7 @@
 
 	.head {
 		display: grid;
-		grid-template-rows: auto 3rem auto;
+		grid-template-rows: auto 4rem auto;
 		grid-template-columns: 1fr auto 1fr;
 	}
 	.banner {
@@ -51,7 +51,7 @@
 		grid-row: 2 / 4;
 		grid-column: 2;
 		display: grid;
-		gap: 1rem;
+		gap: 1rem 1.25rem;
 		grid-template-columns: auto auto auto;
 		grid-template-rows: 1fr auto;
 	}
