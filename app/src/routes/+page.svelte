@@ -25,11 +25,17 @@
 			<a class="action" href="/about">Learn More</a>
 		</div>
 	</section>
+
+	<section></section>
 </div>
 
 <style>
 	.page {
 		padding: 0rem 2rem;
+	}
+
+	section {
+		margin-bottom: 4rem;
 	}
 
 	.head {
@@ -42,8 +48,9 @@
 		grid-column: 1 / 4;
 		width: 100%;
 		height: 30rem;
+		max-height: 50vh;
 		object-fit: cover;
-		object-position: 50% 70%;
+		object-position: 50% 65%;
 		border-radius: 2rem;
 		border: var(--border);
 	}

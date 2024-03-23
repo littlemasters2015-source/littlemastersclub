@@ -16,10 +16,10 @@
 
 <div class="container">
 	<header>
-		<div class="title">
+		<a class="title" href="/">
 			<img class="logo" src={logo} alt="Little Masters Club" />
 			<h1>Little Masters Club | <span>小大师聚乐部</span></h1>
-		</div>
+		</a>
 		<nav>
 			<a href="/">Home</a>
 			<a href="/about">About</a>
@@ -41,7 +41,7 @@
 
 <style>
 	header {
-		padding: 1rem 2rem;
+		padding: 0.75rem 2rem 0.75rem 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -50,6 +50,8 @@
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		text-decoration: none;
+		color: inherit;
 	}
 	nav {
 		display: flex;
@@ -57,7 +59,7 @@
 	}
 	nav a {
 		text-decoration: none;
-		color: var(--txt);
+		color: inherit;
 		font-weight: 500;
 		font-size: 1.2rem;
 	}
