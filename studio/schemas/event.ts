@@ -23,6 +23,14 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'startTime',
+      type: 'datetime',
+    }),
+    defineField({
+      name: 'endTime',
+      type: 'datetime',
+    }),
+    defineField({
       name: 'image',
       type: 'image',
       options: {

@@ -2,7 +2,7 @@
 	import { isPreviewing, VisualEditing } from '@sanity/visual-editing/svelte';
 	import { page } from '$app/stores';
 	import LiveMode from '../components/LiveMode.svelte';
-	import '../global.css';
+	import '../global.scss';
 	import '@fontsource-variable/outfit';
 	import logo from '$lib/assets/lmc-logo.jpg';
 </script>
@@ -39,7 +39,7 @@
 	<LiveMode />
 {/if}
 
-<style>
+<style lang="scss">
 	header {
 		padding: 0.75rem 2rem 0.75rem 2rem;
 		display: flex;
@@ -78,8 +78,8 @@
 	.logo {
 		height: 3.5rem;
 		width: 3.5rem;
+		@include border;
 		border-radius: 1rem;
-		border: var(--border);
 	}
 
 	.preview-toggle {

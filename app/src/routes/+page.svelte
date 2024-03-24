@@ -1,5 +1,36 @@
 <script lang="ts">
 	import banner from '$lib/assets/banner.jpg';
+	import support from '$lib/assets/signin.jpg';
+	import eventsImg from '$lib/assets/hands.jpg';
+
+	import { useQuery } from '@sanity/svelte-loader';
+	import { urlFor } from '$lib/sanity/image';
+	import type { PageData } from './$types';
+	import type { Event } from '$lib/sanity/queries';
+
+	export let data: PageData;
+	const q = useQuery(data);
+
+	console.log(q);
+
+	$: ({ data: events } = $q);
+
+	function formatTimeRange(startTime: string, endTime: string): string {
+		const start = new Date(startTime);
+		const end = new Date(endTime);
+		return `${start.toLocaleDateString('en-US', {
+			month: 'short',
+			day: 'numeric'
+		})}, ${start.toLocaleTimeString('en-US', {
+			hour: 'numeric',
+			minute: '2-digit',
+			hour12: true
+		})} - ${end.toLocaleTimeString('en-US', {
+			hour: 'numeric',
+			minute: '2-digit',
+			hour12: true
+		})}`;
+	}
 </script>
 
 <div class="page">
@@ -21,81 +52,196 @@
 					motivation, develop their skills, and give them an opportunity to shine.
 				</p>
 			</div>
-			<a class="action" href="/join">Get Involved</a>
-			<a class="action" href="/about">Learn More</a>
+			<a class="action big" href="/join">Get Involved</a>
+			<a class="action big" href="/about">Learn More</a>
 		</div>
 	</section>
 
-	<section></section>
+	<section class="support">
+		<img src={support} alt="support" />
+		<div class="box">
+			<h2>Support Us</h2>
+			<p>
+				We rely on the generosity of our community to provide children with engaging projects and
+				events. Your support is greatly appreciated!
+			</p>
+			<a class="action" href="/donate">Donate</a>
+		</div>
+	</section>
+
+	<section>
+		<h2>Upcoming Events</h2>
+		<div class="events-container">
+			<div class="events-list">
+				{#each events as event}
+					<a class="box event" href={`${event.slug}`}>
+						{#if event.image}
+							<img src={urlFor(event.image).url()} alt={event.title} />
+						{/if}
+						<div class="info">
+							<h3>{event.title}</h3>
+							{#if event.startTime && event.endTime}
+								<p>{formatTimeRange(event.startTime, event.endTime)}</p>
+							{/if}
+							<p>{event.description}</p>
+						</div>
+					</a>
+				{/each}
+			</div>
+			<img src={eventsImg} alt="events" />
+		</div>
+	</section>
 </div>
 
-<style>
+<style lang="scss">
 	.page {
 		padding: 0rem 2rem;
 	}
-
 	section {
-		margin-bottom: 4rem;
+		margin: auto;
+		margin-bottom: 6rem;
+		max-width: 66rem;
 	}
-
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		@include border;
+	}
+	p {
+		font-size: 1.1rem;
+	}
 	.head {
 		display: grid;
-		grid-template-rows: auto 4rem auto;
+		grid-template-rows: auto 3rem auto;
 		grid-template-columns: 1fr auto 1fr;
+		max-width: unset;
 	}
 	.banner {
 		grid-row: 1 / 3;
 		grid-column: 1 / 4;
-		width: 100%;
 		height: 30rem;
 		max-height: 50vh;
-		object-fit: cover;
-		object-position: 50% 65%;
-		border-radius: 2rem;
-		border: var(--border);
+	}
+	.banner-img {
+		height: 100%;
+		object-position: 50% 70%;
 	}
 	.container {
+		max-width: 66rem;
 		grid-row: 2 / 4;
 		grid-column: 2;
 		display: grid;
-		gap: 1rem 1.25rem;
+		gap: 1.25rem;
 		grid-template-columns: auto auto auto;
 		grid-template-rows: 1fr auto;
 	}
 	.box {
 		background-color: var(--bg);
-		border-radius: 2rem;
-		border: var(--border);
-		padding: 2rem;
+		@include border;
+		padding: 1.75rem;
+
+		h2 {
+			font-size: 1.5rem;
+			margin: 0;
+		}
 	}
 	.title {
 		grid-row: 1;
 		grid-column: 1 / 3;
 		max-width: 21rem;
+		padding: 2.2rem;
 	}
-	h1 {
+	.title h1 {
 		margin: 0;
-		font-size: 3rem;
+		font-size: 2.75rem;
 	}
 	.description {
 		grid-row: 1 / 3;
 		grid-column: 3;
-		font-size: 1.2rem;
 		max-width: 44rem;
 		width: 100%;
+		p {
+			margin: 0;
+			font-size: 1.2rem;
+		}
 	}
-	.description p {
-		margin: 0;
-	}
-	a {
+	a.action {
+		display: inline-block;
 		text-align: center;
 		text-decoration: none;
 		color: var(--txt);
 		font-size: 1.2rem;
 		font-weight: 500;
-		padding: 1rem 1.5rem;
+		padding: 0.75rem 1.5rem;
 		background-color: var(--primary);
-		border-radius: 2rem;
-		border: var(--border);
+		@include border;
+	}
+	.support {
+		display: flex;
+		gap: 1.25rem;
+		height: 18rem;
+		img {
+			width: 60%;
+			object-fit: cover;
+		}
+		p {
+			margin: 1rem 0;
+		}
+		.box {
+			width: 40%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
+	}
+	h2 {
+		font-size: 2rem;
+		margin: 1rem 0;
+	}
+	.events-container {
+		display: flex;
+		gap: 1.25rem;
+
+		img {
+			width: 30%;
+		}
+		.events-list {
+			width: 70%;
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem;
+		}
+	}
+	.event {
+		display: block;
+		text-decoration: none;
+		color: var(--txt);
+		padding: 0;
+		position: relative;
+		height: 11rem;
+		background-color: var(--bg-2);
+
+		img {
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			height: 11rem;
+			width: 11rem;
+		}
+
+		.info {
+			padding: 1.5rem;
+			margin-left: 11rem;
+
+			h3 {
+				margin: 0;
+				font-size: 1.5rem;
+			}
+			p {
+				margin: 1rem 0;
+			}
+		}
 	}
 </style>

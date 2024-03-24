@@ -15,3 +15,19 @@ export interface Post {
 	mainImage?: ImageAsset;
 	body: PortableTextBlock[];
 }
+
+export const eventQuery = groq`*[_type == "event" && slug.current == $slug][0]`;
+
+export const eventsQuery = groq`*[_type == "event" && defined(slug.current)] | order(startTime desc)`;
+
+export interface Event {
+	_type: 'event';
+	_createdAt: string;
+	title?: string;
+	slug: Slug;
+	description?: string;
+	startTime?: string;
+	endTime?: string;
+	image?: ImageAsset;
+	body: PortableTextBlock[];
+}
