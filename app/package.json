@@ -15,6 +15,7 @@
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/svelte-loader": "^1.11.9",
 		"@sanity/visual-editing": "^1.8.7",
+		"bits-ui": "^0.21.2",
 		"groq": "^3.36.4"
 	},
 	"devDependencies": {

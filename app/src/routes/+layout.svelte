@@ -6,6 +6,25 @@
 	import '@fontsource-variable/outfit';
 	import logo from '$lib/assets/lmc-logo.jpg';
 	import SearchIcon from '~icons/ph/magnifying-glass-bold';
+	import { DropdownMenu } from 'bits-ui';
+
+	let dropdownHoverOpen = false;
+	let dropdownToggleOpen = false;
+	$: dropdownOpen = dropdownHoverOpen || dropdownToggleOpen;
+	let timeout: NodeJS.Timeout;
+
+	function openDropdown() {
+		dropdownHoverOpen = true;
+		clearTimeout(timeout);
+	}
+	function closeDropdown() {
+		timeout = setTimeout(() => {
+			dropdownHoverOpen = false;
+		}, 200);
+	}
+	function toggleDropdown() {
+		dropdownToggleOpen = !dropdownToggleOpen;
+	}
 </script>
 
 {#if $isPreviewing}
@@ -23,6 +42,44 @@
 		</a>
 		<nav>
 			<a href="/">Home</a>
+			<DropdownMenu.Root open={dropdownOpen}>
+				<DropdownMenu.Trigger asChild let:builder>
+					<button
+						use:builder.action
+						{...builder}
+						on:mouseenter={openDropdown}
+						on:mouseleave={closeDropdown}
+						on:click={toggleDropdown}
+					>
+						About
+					</button>
+				</DropdownMenu.Trigger>
+
+				<DropdownMenu.Content asChild let:builder>
+					<div
+						use:builder.action
+						{...builder}
+						class="dropdown"
+						on:mouseenter={openDropdown}
+						on:mouseleave={closeDropdown}
+						role="menu"
+						tabindex="0"
+					>
+						<DropdownMenu.Item asChild let:builder>
+							<a use:builder.action {...builder} class="dropdown-link" href="/about">About Us</a>
+						</DropdownMenu.Item>
+						<DropdownMenu.Item asChild let:builder>
+							<a use:builder.action {...builder} class="dropdown-link" href="/contact">Contact Us</a
+							>
+						</DropdownMenu.Item>
+						<DropdownMenu.Item asChild let:builder>
+							<a use:builder.action {...builder} class="dropdown-link" href="/board">
+								Board Members
+							</a>
+						</DropdownMenu.Item>
+					</div>
+				</DropdownMenu.Content>
+			</DropdownMenu.Root>
 			<a href="/about">About</a>
 			<a href="/events">Events</a>
 			<a href="/programs">Programs</a>
@@ -54,13 +111,18 @@
 	}
 	nav {
 		@include flex(row, null, center);
-		gap: 2rem;
+		gap: 0.5rem;
 	}
 	nav a {
 		text-decoration: none;
 		color: inherit;
 		font-weight: 500;
 		font-size: 1.2rem;
+		padding: 0.5rem 0.75rem;
+		transition: 0.2s;
+		&:hover {
+			// transform: translateY(3px);
+		}
 	}
 	h1 {
 		margin: 0;
@@ -83,6 +145,21 @@
 		height: 2rem;
 		font-size: 1.2rem;
 		@include flex(row, center, center);
+	}
+	:global([data-menu-content]) {
+		display: flex;
+		flex-direction: column;
+		background-color: var(--bg);
+		border-radius: 0.25rem;
+		padding: 1rem;
+		@include border;
+	}
+	.dropdown-link {
+		text-decoration: none;
+		color: inherit;
+		font-weight: 500;
+		font-size: 1.2rem;
+		padding: 0.5rem 0.75rem;
 	}
 
 	.preview-toggle {
@@ -107,19 +184,16 @@
 		text-decoration: none;
 		z-index: 50;
 	}
-
 	.preview-toggle:hover {
 		background-color: #ef4444;
 		color: #ffffff;
 	}
-
 	.preview-toggle span:first-child {
 		display: block;
 	}
 	.preview-toggle:hover span:first-child {
 		display: none;
 	}
-
 	.preview-toggle span:last-child {
 		display: none;
 	}
