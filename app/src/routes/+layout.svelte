@@ -7,24 +7,6 @@
 	import logo from '$lib/assets/lmc-logo.jpg';
 	import SearchIcon from '~icons/ph/magnifying-glass-bold';
 	import { DropdownMenu } from 'bits-ui';
-
-	let dropdownHoverOpen = false;
-	let dropdownToggleOpen = false;
-	$: dropdownOpen = dropdownHoverOpen || dropdownToggleOpen;
-	let timeout: NodeJS.Timeout;
-
-	function openDropdown() {
-		dropdownHoverOpen = true;
-		clearTimeout(timeout);
-	}
-	function closeDropdown() {
-		timeout = setTimeout(() => {
-			dropdownHoverOpen = false;
-		}, 200);
-	}
-	function toggleDropdown() {
-		dropdownToggleOpen = !dropdownToggleOpen;
-	}
 </script>
 
 {#if $isPreviewing}
@@ -42,42 +24,21 @@
 		</a>
 		<nav>
 			<a href="/">Home</a>
-			<DropdownMenu.Root open={dropdownOpen}>
-				<DropdownMenu.Trigger asChild let:builder>
-					<button
-						use:builder.action
-						{...builder}
-						on:mouseenter={openDropdown}
-						on:mouseleave={closeDropdown}
-						on:click={toggleDropdown}
-					>
-						About
-					</button>
+			<DropdownMenu.Root>
+				<DropdownMenu.Trigger>
+					<span>About</span>
 				</DropdownMenu.Trigger>
 
-				<DropdownMenu.Content asChild let:builder>
-					<div
-						use:builder.action
-						{...builder}
-						class="dropdown"
-						on:mouseenter={openDropdown}
-						on:mouseleave={closeDropdown}
-						role="menu"
-						tabindex="0"
-					>
-						<DropdownMenu.Item asChild let:builder>
-							<a use:builder.action {...builder} class="dropdown-link" href="/about">About Us</a>
-						</DropdownMenu.Item>
-						<DropdownMenu.Item asChild let:builder>
-							<a use:builder.action {...builder} class="dropdown-link" href="/contact">Contact Us</a
-							>
-						</DropdownMenu.Item>
-						<DropdownMenu.Item asChild let:builder>
-							<a use:builder.action {...builder} class="dropdown-link" href="/board">
-								Board Members
-							</a>
-						</DropdownMenu.Item>
-					</div>
+				<DropdownMenu.Content>
+					<DropdownMenu.Item asChild let:builder>
+						<a use:builder.action {...builder} class="dropdown-link" href="/about">About Us</a>
+					</DropdownMenu.Item>
+					<DropdownMenu.Item asChild let:builder>
+						<a use:builder.action {...builder} class="dropdown-link" href="/contact">Contact Us</a>
+					</DropdownMenu.Item>
+					<DropdownMenu.Item asChild let:builder>
+						<a use:builder.action {...builder} class="dropdown-link" href="/board">Board Members</a>
+					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 			<a href="/about">About</a>
