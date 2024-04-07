@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { isPreviewing, VisualEditing } from '@sanity/visual-editing/svelte';
 	import { page } from '$app/stores';
-	import LiveMode from '../components/LiveMode.svelte';
+	import LiveMode from '../lib/components/LiveMode.svelte';
 	import '../global.scss';
 	import '@fontsource-variable/outfit';
 	import logo from '$lib/assets/lmc-logo.jpg';
 	import SearchIcon from '~icons/ph/magnifying-glass-bold';
-	import { DropdownMenu } from 'bits-ui';
+	import NavDropdown from '$lib/components/NavDropdown.svelte';
 </script>
 
 {#if $isPreviewing}
@@ -24,30 +24,36 @@
 		</a>
 		<nav>
 			<a href="/">Home</a>
-			<DropdownMenu.Root>
-				<DropdownMenu.Trigger class="nav-dropdown-trigger">
-					<span>About</span>
-				</DropdownMenu.Trigger>
-
-				<DropdownMenu.Content class="nav-dropdown-content">
-					<DropdownMenu.Item asChild let:builder>
-						<a use:builder.action {...builder} class="nav-dropdown-link" href="/about">About Us</a>
-					</DropdownMenu.Item>
-					<DropdownMenu.Item asChild let:builder>
-						<a use:builder.action {...builder} class="nav-dropdown-link" href="/contact">
-							Contact Us
-						</a>
-					</DropdownMenu.Item>
-					<DropdownMenu.Item asChild let:builder>
-						<a use:builder.action {...builder} class="nav-dropdown-link" href="/board">
-							Board Members
-						</a>
-					</DropdownMenu.Item>
-				</DropdownMenu.Content>
-			</DropdownMenu.Root>
-			<a href="/events">Events</a>
-			<a href="/programs">Programs</a>
-			<a href="/join">Join</a>
+			<NavDropdown
+				title="About"
+				data={[
+					{ name: 'About Us', href: '/about' },
+					{ name: 'Contact Us', href: '/contact' },
+					{ name: 'Board Members', href: '/board' }
+				]}
+			/>
+			<NavDropdown
+				title="Events"
+				data={[
+					{ name: 'Events', href: '/events' },
+					{ name: 'Event Calendar', href: '/calendar' }
+				]}
+			/>
+			<NavDropdown
+				title="Programs"
+				data={[
+					{ name: 'All Programs', href: '/programs' },
+					{ name: 'Culture', href: '/programs?category=culture' }
+				]}
+			/>
+			<NavDropdown
+				title="Join"
+				data={[
+					{ name: 'Get Involved', href: '/join' },
+					{ name: 'Volunteer', href: '/volunteer' },
+					{ name: 'Resources', href: '/resources' }
+				]}
+			/>
 			<button class="search"><SearchIcon /></button>
 		</nav>
 	</header>
@@ -84,51 +90,30 @@
 		vertical-align: text-top;
 	}
 	.logo {
-		height: 3.5rem;
-		width: 3.5rem;
+		height: 3.25rem;
+		width: 3.25rem;
 		@include border;
 		border-radius: 1rem;
 	}
 	nav {
 		@include flex(row, null, center);
-		gap: 0.5rem;
+		gap: 0.25rem;
 	}
-	nav a,
-	:global(.nav-dropdown-trigger),
-	:global(.nav-dropdown-link) {
+	nav a {
 		text-decoration: none;
 		color: inherit;
 		font-weight: 500;
 		font-size: 1.2rem;
-	}
-	nav a,
-	:global(.nav-dropdown-trigger) {
-		padding: 1rem;
+		padding: 0.75rem 1.25rem;
 		transition: 0.1s;
+		border-radius: 2rem;
+		border: 2px solid transparent;
 	}
-	nav a:hover,
-	:global(.nav-dropdown-trigger:hover),
-	:global(.nav-dropdown-trigger[data-state='open']) {
-		transform: translateY(4px);
-	}
-	:global(.nav-dropdown-link) {
-		padding: 0.5rem;
-		transition: 0.1s;
-	}
-	:global(.nav-dropdown-link:hover) {
-		transform: translateX(6px);
-	}
-	:global(.nav-dropdown-content) {
-		background: var(--bg);
-		@include border;
-		border-radius: 1.5rem;
-		padding: 0.75rem;
-		display: flex;
-		flex-direction: column;
+	nav a:hover {
+		border-color: var(--txt);
 	}
 	.search {
-		width: 2rem;
-		height: 2rem;
+		padding: 0.75rem;
 		font-size: 1.2rem;
 		@include flex(row, center, center);
 	}
