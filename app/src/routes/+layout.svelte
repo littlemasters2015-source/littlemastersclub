@@ -25,23 +25,26 @@
 		<nav>
 			<a href="/">Home</a>
 			<DropdownMenu.Root>
-				<DropdownMenu.Trigger>
+				<DropdownMenu.Trigger class="nav-dropdown-trigger">
 					<span>About</span>
 				</DropdownMenu.Trigger>
 
-				<DropdownMenu.Content>
+				<DropdownMenu.Content class="nav-dropdown-content">
 					<DropdownMenu.Item asChild let:builder>
-						<a use:builder.action {...builder} class="dropdown-link" href="/about">About Us</a>
+						<a use:builder.action {...builder} class="nav-dropdown-link" href="/about">About Us</a>
 					</DropdownMenu.Item>
 					<DropdownMenu.Item asChild let:builder>
-						<a use:builder.action {...builder} class="dropdown-link" href="/contact">Contact Us</a>
+						<a use:builder.action {...builder} class="nav-dropdown-link" href="/contact">
+							Contact Us
+						</a>
 					</DropdownMenu.Item>
 					<DropdownMenu.Item asChild let:builder>
-						<a use:builder.action {...builder} class="dropdown-link" href="/board">Board Members</a>
+						<a use:builder.action {...builder} class="nav-dropdown-link" href="/board">
+							Board Members
+						</a>
 					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
-			<a href="/about">About</a>
 			<a href="/events">Events</a>
 			<a href="/programs">Programs</a>
 			<a href="/join">Join</a>
@@ -70,21 +73,6 @@
 		text-decoration: none;
 		color: inherit;
 	}
-	nav {
-		@include flex(row, null, center);
-		gap: 0.5rem;
-	}
-	nav a {
-		text-decoration: none;
-		color: inherit;
-		font-weight: 500;
-		font-size: 1.2rem;
-		padding: 0.5rem 0.75rem;
-		transition: 0.2s;
-		&:hover {
-			// transform: translateY(3px);
-		}
-	}
 	h1 {
 		margin: 0;
 		font-size: 1.6rem;
@@ -101,26 +89,48 @@
 		@include border;
 		border-radius: 1rem;
 	}
+	nav {
+		@include flex(row, null, center);
+		gap: 0.5rem;
+	}
+	nav a,
+	:global(.nav-dropdown-trigger),
+	:global(.nav-dropdown-link) {
+		text-decoration: none;
+		color: inherit;
+		font-weight: 500;
+		font-size: 1.2rem;
+	}
+	nav a,
+	:global(.nav-dropdown-trigger) {
+		padding: 1rem;
+		transition: 0.1s;
+	}
+	nav a:hover,
+	:global(.nav-dropdown-trigger:hover),
+	:global(.nav-dropdown-trigger[data-state='open']) {
+		transform: translateY(4px);
+	}
+	:global(.nav-dropdown-link) {
+		padding: 0.5rem;
+		transition: 0.1s;
+	}
+	:global(.nav-dropdown-link:hover) {
+		transform: translateX(6px);
+	}
+	:global(.nav-dropdown-content) {
+		background: var(--bg);
+		@include border;
+		border-radius: 1.5rem;
+		padding: 0.75rem;
+		display: flex;
+		flex-direction: column;
+	}
 	.search {
 		width: 2rem;
 		height: 2rem;
 		font-size: 1.2rem;
 		@include flex(row, center, center);
-	}
-	:global([data-menu-content]) {
-		display: flex;
-		flex-direction: column;
-		background-color: var(--bg);
-		border-radius: 0.25rem;
-		padding: 1rem;
-		@include border;
-	}
-	.dropdown-link {
-		text-decoration: none;
-		color: inherit;
-		font-weight: 500;
-		font-size: 1.2rem;
-		padding: 0.5rem 0.75rem;
 	}
 
 	.preview-toggle {
