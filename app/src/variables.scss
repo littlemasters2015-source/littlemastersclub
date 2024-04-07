@@ -2,3 +2,10 @@
 	border: 2px solid var(--txt);
 	border-radius: 2rem;
 }
+
+@mixin flex($direction: row, $justify: null, $align: null) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}

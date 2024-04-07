@@ -3,34 +3,15 @@
 	import support from '$lib/assets/signin.jpg';
 	import eventsImg from '$lib/assets/hands.jpg';
 
+	import { formatTimeRange } from '$lib/utils';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
-	import type { Event } from '$lib/sanity/queries';
 
 	export let data: PageData;
 	const q = useQuery(data);
 
-	console.log(q);
-
 	$: ({ data: events } = $q);
-
-	function formatTimeRange(startTime: string, endTime: string): string {
-		const start = new Date(startTime);
-		const end = new Date(endTime);
-		return `${start.toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric'
-		})}, ${start.toLocaleTimeString('en-US', {
-			hour: 'numeric',
-			minute: '2-digit',
-			hour12: true
-		})} - ${end.toLocaleTimeString('en-US', {
-			hour: 'numeric',
-			minute: '2-digit',
-			hour12: true
-		})}`;
-	}
 </script>
 
 <div class="page">
@@ -108,9 +89,6 @@
 		object-fit: cover;
 		@include border;
 	}
-	p {
-		font-size: 1.1rem;
-	}
 	.head {
 		display: grid;
 		grid-template-rows: auto 3rem auto;
@@ -120,12 +98,8 @@
 	.banner {
 		grid-row: 1 / 3;
 		grid-column: 1 / 4;
-		height: 30rem;
-		max-height: 50vh;
-	}
-	.banner-img {
-		height: 100%;
-		object-position: 50% 70%;
+		height: 40vh;
+		object-position: 50% 65%;
 	}
 	.container {
 		max-width: 66rem;

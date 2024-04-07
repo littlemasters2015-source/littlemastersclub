@@ -11,6 +11,9 @@
 
 html {
 	height: 100%;
+	scrollbar-width: thin;
+	scrollbar-color: var(--bg-3) transparent;
+	scrollbar-gutter: stable;
 }
 
 body {
@@ -33,4 +36,25 @@ h5 {
 
 p {
 	line-height: 1.5;
+	font-size: 1.1rem;
+}
+
+ul {
+	font-size: 1.1rem;
+}
+
+li {
+	margin: 0.5rem 0;
+}
+
+button {
+	border: none;
+	font: inherit;
+	color: inherit;
+	background: none;
+	padding: 0;
+
+	&:hover {
+		cursor: pointer;
+	}
 }

@@ -5,6 +5,7 @@
 	import '../global.scss';
 	import '@fontsource-variable/outfit';
 	import logo from '$lib/assets/lmc-logo.jpg';
+	import SearchIcon from '~icons/ph/magnifying-glass-bold';
 </script>
 
 {#if $isPreviewing}
@@ -26,6 +27,7 @@
 			<a href="/events">Events</a>
 			<a href="/programs">Programs</a>
 			<a href="/programs">Join</a>
+			<button class="search"><SearchIcon /></button>
 		</nav>
 	</header>
 	<main>
@@ -42,19 +44,16 @@
 <style lang="scss">
 	header {
 		padding: 0.75rem 2rem 0.75rem 2rem;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		@include flex(row, space-between, center);
 	}
 	.title {
-		display: flex;
-		align-items: center;
+		@include flex(row, null, center);
 		gap: 1rem;
 		text-decoration: none;
 		color: inherit;
 	}
 	nav {
-		display: flex;
+		@include flex(row, null, center);
 		gap: 2rem;
 	}
 	nav a {
@@ -63,7 +62,6 @@
 		font-weight: 500;
 		font-size: 1.2rem;
 	}
-
 	h1 {
 		margin: 0;
 		font-size: 1.6rem;
@@ -74,12 +72,17 @@
 		margin-top: 0.2rem;
 		vertical-align: text-top;
 	}
-
 	.logo {
 		height: 3.5rem;
 		width: 3.5rem;
 		@include border;
 		border-radius: 1rem;
+	}
+	.search {
+		width: 2rem;
+		height: 2rem;
+		font-size: 1.2rem;
+		@include flex(row, center, center);
 	}
 
 	.preview-toggle {
