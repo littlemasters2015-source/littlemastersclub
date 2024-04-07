@@ -31,3 +31,52 @@
 		{/each}
 	</div>
 </div>
+
+<style lang="scss">
+	.page {
+		padding: 0rem 2rem;
+		max-width: 70rem;
+		margin: auto;
+	}
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		@include border;
+	}
+	.events-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+	.event {
+		display: block;
+		text-decoration: none;
+		color: var(--txt);
+		padding: 0;
+		position: relative;
+		height: 11rem;
+		background-color: var(--bg-2);
+
+		img {
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			height: 11rem;
+			width: 11rem;
+		}
+
+		.info {
+			padding: 1.5rem;
+			margin-left: 11rem;
+
+			h3 {
+				margin: 0;
+				font-size: 1.5rem;
+			}
+			p {
+				margin: 1rem 0;
+			}
+		}
+	}
+</style>

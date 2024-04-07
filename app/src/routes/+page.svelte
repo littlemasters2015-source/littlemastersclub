@@ -51,7 +51,7 @@
 	</section>
 
 	<section>
-		<h2>Upcoming Events</h2>
+		<h2 class="large">Upcoming Events</h2>
 		<div class="events-container">
 			<div class="events-list">
 				{#each events as event}
@@ -110,16 +110,6 @@
 		grid-template-columns: auto auto auto;
 		grid-template-rows: 1fr auto;
 	}
-	.box {
-		background-color: var(--bg);
-		@include border;
-		padding: 1.75rem;
-
-		h2 {
-			font-size: 1.5rem;
-			margin: 0;
-		}
-	}
 	.title {
 		grid-row: 1;
 		grid-column: 1 / 3;
@@ -170,7 +160,7 @@
 			align-items: flex-start;
 		}
 	}
-	h2 {
+	h2.large {
 		font-size: 2rem;
 		margin: 1rem 0;
 	}

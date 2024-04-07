@@ -26,7 +26,7 @@
 			<a href="/about">About</a>
 			<a href="/events">Events</a>
 			<a href="/programs">Programs</a>
-			<a href="/programs">Join</a>
+			<a href="/join">Join</a>
 			<button class="search"><SearchIcon /></button>
 		</nav>
 	</header>

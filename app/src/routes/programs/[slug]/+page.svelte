@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import { useQuery } from '@sanity/svelte-loader';
-	import { formatTimeRange } from '$lib/utils';
+	import { formatDate } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
 
@@ -16,9 +16,9 @@
 	{#if event.image}
 		<img src={urlFor(event.image).url()} alt="Image for {event.title}" />
 	{/if}
-	{#if event.startTime && event.endTime}
-		<p>{formatTimeRange(event.startTime, event.endTime)}</p>
-	{/if}
+	<p class="date">
+		{formatDate(event._createdAt)}
+	</p>
 	{#if event.body}
 		<div class="content">
 			<PortableText components={{}} value={event.body} />
