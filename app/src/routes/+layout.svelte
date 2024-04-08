@@ -60,7 +60,81 @@
 	<main>
 		<slot />
 	</main>
-	<footer class="footer"></footer>
+	<footer>
+		<div class="footer-inner">
+			<div class="footer-left">
+				<a class="footer-title" href="/">
+					<img class="footer-logo" src={logo} alt="Little Masters Club" />
+					<h2>Little Masters Club<br /><span>小大师聚乐部</span></h2>
+				</a>
+				<p>
+					Little Masters Club is a 501(c)(3) nonprofit organization that seeks to provide an
+					encouraging environment for kids to be learners, mentors, team players, and leaders.
+				</p>
+				<h4>Address</h4>
+				<span>15015 Main Street Suite 208, Bellevue WA 98007</span>
+				<h4>Email</h4>
+				<a href="mailto:info@littlemastersclub.org">info@littlemastersclub.org</a>
+			</div>
+			<div class="footer-links">
+				<div class="footer-links-column">
+					<div class="footer-group">
+						<h3>Socials</h3>
+						<a href="https://twitter.com/LMC_US" target="_blank" rel="noopener noreferrer">
+							Twitter
+						</a>
+						<a
+							href="https://www.facebook.com/LittleMastersClubUS/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Facebook
+						</a>
+						<a
+							href="https://www.instagram.com/littlemastersclub/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Instagram
+						</a>
+						<a
+							href="https://www.youtube.com/channel/UCiaJbTxkI-6_Kl9YnLE5Fvg"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							YouTube
+						</a>
+					</div>
+				</div>
+				<div class="footer-links-column">
+					<div class="footer-group">
+						<h3>About</h3>
+						<a href="/about">About Us</a>
+						<a href="/contact">Contact Us</a>
+						<a href="/board">Board Members</a>
+					</div>
+					<div class="footer-group">
+						<h3>Events</h3>
+						<a href="/events">Events</a>
+						<a href="/calendar">Event Calendar</a>
+					</div>
+				</div>
+				<div class="footer-links-column">
+					<div class="footer-group">
+						<h3>Programs</h3>
+						<a href="/programs">All Programs</a>
+						<a href="/programs?category=culture">Culture</a>
+					</div>
+					<div class="footer-group">
+						<h3>Join</h3>
+						<a href="/join">Get Involved</a>
+						<a href="/volunteer">Volunteer</a>
+						<a href="/resources">Resources</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 </div>
 
 {#if $isPreviewing}
@@ -77,7 +151,6 @@
 		@include flex(row, null, center);
 		gap: 1rem;
 		text-decoration: none;
-		color: inherit;
 	}
 	h1 {
 		margin: 0;
@@ -101,7 +174,6 @@
 	}
 	nav a {
 		text-decoration: none;
-		color: inherit;
 		font-weight: 500;
 		font-size: 1.2rem;
 		padding: 0.75rem 1.25rem;
@@ -116,6 +188,63 @@
 		padding: 0.75rem;
 		font-size: 1.2rem;
 		@include flex(row, center, center);
+	}
+	footer {
+		padding: 0 1.5rem;
+		margin-top: 6rem;
+	}
+	.footer-inner {
+		// background: var(--bg-2);
+		@include border;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		border-bottom: none;
+		padding: 2rem 0rem 3rem 2rem;
+		max-width: 80rem;
+		margin: 0 auto;
+		@include flex(row, null, null);
+		gap: 2rem;
+	}
+	.footer-logo {
+		height: 5rem;
+		width: 5rem;
+		@include border;
+		border-radius: 1rem;
+	}
+	.footer-title {
+		@include flex(row, null, center);
+		gap: 1rem;
+		text-decoration: none;
+		margin-bottom: 1.5rem;
+		h2 {
+			margin: 0;
+		}
+	}
+	.footer-left {
+		width: 27rem;
+		h4 {
+			margin: 1rem 0 0.5rem 0;
+		}
+	}
+	.footer-links {
+		flex: 1;
+		@include flex(row, space-evenly, null);
+	}
+	.footer-links-column {
+		@include flex(column, null, null);
+		gap: 3rem;
+		a {
+			font-size: 1.1rem;
+			text-decoration: none;
+		}
+	}
+	.footer-group {
+		@include flex(column, null, start);
+		gap: 1rem;
+		width: 10rem;
+		h3 {
+			margin: 0;
+		}
 	}
 
 	.preview-toggle {

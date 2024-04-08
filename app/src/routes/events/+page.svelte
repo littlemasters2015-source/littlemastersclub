@@ -52,7 +52,6 @@
 	.event {
 		display: block;
 		text-decoration: none;
-		color: var(--txt);
 		padding: 0;
 		position: relative;
 		height: 11rem;

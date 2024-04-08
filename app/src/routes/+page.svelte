@@ -134,7 +134,6 @@
 		display: inline-block;
 		text-align: center;
 		text-decoration: none;
-		color: var(--txt);
 		font-size: 1.2rem;
 		font-weight: 500;
 		padding: 0.75rem 1.5rem;
@@ -186,7 +185,6 @@
 	.event {
 		display: block;
 		text-decoration: none;
-		color: var(--txt);
 		padding: 0;
 		position: relative;
 		height: 11rem;

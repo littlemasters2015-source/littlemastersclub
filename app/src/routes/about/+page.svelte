@@ -110,7 +110,6 @@
 <style lang="scss">
 	.page {
 		margin: auto;
-		margin-bottom: 6rem;
 		max-width: 55rem;
 		padding: 0rem 1.5rem;
 	}
