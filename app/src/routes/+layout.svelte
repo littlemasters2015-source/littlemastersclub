@@ -143,9 +143,17 @@
 {/if}
 
 <style lang="scss">
+	.container {
+		@include flex(column);
+		min-height: 100vh;
+	}
+	main {
+		@include flex(column);
+		flex: 1;
+	}
 	header {
-		padding: 0.75rem 2rem 0.75rem 2rem;
 		@include flex(row, space-between, center);
+		padding: 0.75rem 2rem 0.75rem 2rem;
 	}
 	.title {
 		@include flex(row, null, center);
@@ -209,7 +217,7 @@
 		height: 5rem;
 		width: 5rem;
 		@include border;
-		border-radius: 1rem;
+		border-radius: 1.5rem;
 	}
 	.footer-title {
 		@include flex(row, null, center);
@@ -228,14 +236,18 @@
 	}
 	.footer-links {
 		flex: 1;
-		@include flex(row, space-evenly, null);
+		@include flex(row, space-evenly);
 	}
 	.footer-links-column {
-		@include flex(column, null, null);
+		@include flex(column);
 		gap: 3rem;
 		a {
 			font-size: 1.1rem;
 			text-decoration: none;
+			font-weight: 400;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	.footer-group {

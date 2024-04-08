@@ -55,7 +55,7 @@
 		<div class="events-container">
 			<div class="events-list">
 				{#each events as event}
-					<a class="box event" href={`${event.slug}`}>
+					<a class="box event" href={`/events/${event.slug.current}`}>
 						{#if event.image}
 							<img src={urlFor(event.image).url()} alt={event.title} />
 						{/if}
