@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'program',
@@ -25,6 +25,17 @@ export default defineType({
     defineField({
       name: 'description',
       type: 'string',
+    }),
+    defineField({
+      name: 'categories',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          name: 'category',
+          type: 'reference',
+          to: [{type: 'category'}],
+        }),
+      ],
     }),
     defineField({
       name: 'image',

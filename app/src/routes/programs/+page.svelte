@@ -8,15 +8,13 @@
 	const q = useQuery(data);
 
 	$: ({ data: programs } = $q);
-
-	$: console.log(programs);
 </script>
 
 <div class="page">
 	<h1>Programs</h1>
 	<div class="programs-container">
 		{#each programs as program}
-			<a class="box program" href={`/programs/${program.slug.current}`}>
+			<a class="program" href={`/programs/${program.slug.current}`}>
 				{#if program.image}
 					<img src={urlFor(program.image).url()} alt={program.title} />
 				{/if}
@@ -28,3 +26,36 @@
 		{/each}
 	</div>
 </div>
+
+<style lang="scss">
+	.page {
+		padding: 0 2rem;
+	}
+	.programs-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+		gap: 2rem;
+	}
+	.program {
+		@include border;
+		text-decoration: none;
+		img {
+			aspect-ratio: 16/9;
+			object-fit: cover;
+			width: calc(100% + 4px);
+			@include border;
+			position: relative;
+			top: -2px;
+			left: -2px;
+		}
+	}
+	.info {
+		padding: 0.75rem 1.5rem 1rem 1.5rem;
+		h2 {
+			margin: 0;
+		}
+		p {
+			margin: 0.75rem 0;
+		}
+	}
+</style>

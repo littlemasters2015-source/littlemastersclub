@@ -64,7 +64,7 @@
 							{#if event.startTime && event.endTime}
 								<p>{formatTimeRange(event.startTime, event.endTime)}</p>
 							{/if}
-							<p>{event.description}</p>
+							<p class="description">{event.description}</p>
 						</div>
 					</a>
 				{/each}
@@ -189,6 +189,7 @@
 		position: relative;
 		height: 11rem;
 		background-color: var(--bg-2);
+		overflow: hidden;
 
 		img {
 			position: absolute;
@@ -199,7 +200,7 @@
 		}
 
 		.info {
-			padding: 1.5rem;
+			padding: 1.25rem 1.5rem;
 			margin-left: 11rem;
 
 			h3 {
@@ -207,7 +208,10 @@
 				font-size: 1.5rem;
 			}
 			p {
-				margin: 1rem 0;
+				margin: 0.75rem 0;
+			}
+			.description {
+				@include line-clamp(2);
 			}
 		}
 	}

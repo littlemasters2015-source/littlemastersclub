@@ -37,6 +37,8 @@ export const programQuery = groq`*[_type == "program" && slug.current == $slug &
 
 export const programsQuery = groq`*[_type == "program" && defined(slug.current) && published == true]`;
 
+export const programsCategoryQuery = groq`*[_type == "program" && defined(slug.current) && published == true && references(*[ name == $category]._id)]`;
+
 export interface Program {
 	_type: 'program';
 	_createdAt: string;
@@ -44,6 +46,14 @@ export interface Program {
 	title?: string;
 	slug: Slug;
 	description?: string;
+	categories?: { _ref: string }[];
 	image?: ImageAsset;
 	body: PortableTextBlock[];
+}
+
+export const categoriesQuery = groq`*[_type == "category" && defined(name)]`;
+
+export interface Category {
+	_type: 'category';
+	name: string;
 }

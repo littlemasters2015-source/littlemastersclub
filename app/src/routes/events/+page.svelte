@@ -8,8 +8,6 @@
 	const q = useQuery(data);
 
 	$: ({ data: events } = $q);
-
-	$: console.log(events);
 </script>
 
 <div class="page">

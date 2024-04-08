@@ -198,17 +198,15 @@
 		@include flex(row, center, center);
 	}
 	footer {
-		padding: 0 1.5rem;
+		padding: 0 2rem;
 		margin-top: 6rem;
 	}
 	.footer-inner {
-		// background: var(--bg-2);
 		@include border;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 		border-bottom: none;
 		padding: 2rem 0rem 3rem 2rem;
-		max-width: 80rem;
 		margin: 0 auto;
 		@include flex(row, null, null);
 		gap: 2rem;
@@ -240,7 +238,7 @@
 	}
 	.footer-links-column {
 		@include flex(column);
-		gap: 3rem;
+		gap: 4rem;
 		a {
 			font-size: 1.1rem;
 			text-decoration: none;
