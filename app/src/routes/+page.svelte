@@ -139,11 +139,7 @@
 		padding: 0.75rem 1.5rem;
 		background-color: var(--primary);
 		@include border;
-		transition: 0.1s;
-		&:hover {
-			transform: translate(-2px, -2px);
-			box-shadow: 2px 2px 0px 0px var(--txt);
-		}
+		@include elevate;
 	}
 	.support {
 		display: flex;
@@ -190,6 +186,7 @@
 		height: 11rem;
 		background-color: var(--bg-2);
 		overflow: hidden;
+		@include elevate;
 
 		img {
 			position: absolute;

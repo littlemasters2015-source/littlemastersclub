@@ -3,6 +3,16 @@
 	border-radius: 2rem;
 }
 
+@mixin elevate {
+	transition:
+		transform 0.1s,
+		box-shadow 0.1s;
+	&:hover {
+		transform: translate(-2px, -2px);
+		box-shadow: 2px 2px 0px 0px var(--txt);
+	}
+}
+
 @mixin flex($direction: row, $justify: null, $align: null) {
 	display: flex;
 	flex-direction: $direction;

@@ -33,7 +33,8 @@
 <style lang="scss">
 	.page {
 		padding: 0rem 2rem;
-		max-width: 70rem;
+		max-width: 60rem;
+		width: 100%;
 		margin: auto;
 	}
 	img {
@@ -43,8 +44,7 @@
 		@include border;
 	}
 	.events-container {
-		display: flex;
-		flex-direction: column;
+		@include flex(column);
 		gap: 1.25rem;
 	}
 	.event {
@@ -54,6 +54,7 @@
 		position: relative;
 		height: 11rem;
 		background-color: var(--bg-2);
+		overflow: hidden;
 
 		img {
 			position: absolute;
@@ -64,7 +65,7 @@
 		}
 
 		.info {
-			padding: 1.5rem;
+			padding: 1.25rem 1.5rem;
 			margin-left: 11rem;
 
 			h3 {
@@ -72,7 +73,10 @@
 				font-size: 1.5rem;
 			}
 			p {
-				margin: 1rem 0;
+				margin: 0.75rem 0;
+			}
+			.description {
+				@include line-clamp(2);
 			}
 		}
 	}
