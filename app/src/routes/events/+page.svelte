@@ -14,7 +14,7 @@
 	<h1>Upcoming Events</h1>
 	<div class="events-container">
 		{#each events as event}
-			<a class="box event" href={`/events/${event.slug.current}`}>
+			<a class="event" href={`/events/${event.slug.current}`}>
 				{#if event.image}
 					<img src={urlFor(event.image).url()} alt={event.title} />
 				{/if}
@@ -48,6 +48,8 @@
 		gap: 1.25rem;
 	}
 	.event {
+		@include elevate;
+		@include border;
 		display: block;
 		text-decoration: none;
 		padding: 0;
@@ -68,7 +70,7 @@
 			padding: 1.25rem 1.5rem;
 			margin-left: 11rem;
 
-			h3 {
+			h2 {
 				margin: 0;
 				font-size: 1.5rem;
 			}

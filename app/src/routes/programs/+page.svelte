@@ -38,6 +38,7 @@
 	}
 	.program {
 		@include border;
+		@include elevate;
 		text-decoration: none;
 		img {
 			aspect-ratio: 16/9;

@@ -23,7 +23,7 @@
 			<h1>Little Masters Club | <span>小大师聚乐部</span></h1>
 		</a>
 		<nav>
-			<a href="/">Home</a>
+			<a class="nav-dropdown-trigger" class:active={$page.url.pathname === '/'} href="/">Home</a>
 			<NavDropdown
 				title="About"
 				data={[
@@ -31,6 +31,7 @@
 					{ name: 'Contact Us', href: '/contact' },
 					{ name: 'Board Members', href: '/board' }
 				]}
+				path={$page.url.pathname}
 			/>
 			<NavDropdown
 				title="Events"
@@ -38,6 +39,7 @@
 					{ name: 'Events', href: '/events' },
 					{ name: 'Event Calendar', href: '/calendar' }
 				]}
+				path={$page.url.pathname}
 			/>
 			<NavDropdown
 				title="Programs"
@@ -45,6 +47,7 @@
 					{ name: 'All Programs', href: '/programs' },
 					{ name: 'Culture', href: '/programs?category=culture' }
 				]}
+				path={$page.url.pathname}
 			/>
 			<NavDropdown
 				title="Join"
@@ -53,6 +56,7 @@
 					{ name: 'Volunteer', href: '/volunteer' },
 					{ name: 'Resources', href: '/resources' }
 				]}
+				path={$page.url.pathname}
 			/>
 			<button class="search"><SearchIcon /></button>
 		</nav>
@@ -179,18 +183,6 @@
 	nav {
 		@include flex(row, null, center);
 		gap: 0.25rem;
-	}
-	nav a {
-		text-decoration: none;
-		font-weight: 500;
-		font-size: 1.2rem;
-		padding: 0.75rem 1.25rem;
-		transition: 0.1s;
-		border-radius: 2rem;
-		border: 2px solid transparent;
-	}
-	nav a:hover {
-		border-color: var(--txt);
 	}
 	.search {
 		padding: 0.75rem;

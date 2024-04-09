@@ -5,10 +5,13 @@
 
 	export let title: string;
 	export let data: { name: string; href: string }[];
+	export let path: string;
+
+	$: isActive = data.some(({ href }) => path.startsWith(href));
 </script>
 
 <DD.Root preventScroll={false}>
-	<DD.Trigger class="nav-dropdown-trigger">{title}</DD.Trigger>
+	<DD.Trigger class={'nav-dropdown-trigger' + (isActive ? ' active' : '')}>{title}</DD.Trigger>
 	<DD.Content class="nav-dropdown-content" transition={fade} transitionConfig={{ duration: 50 }}>
 		{#each data as { name, href }}
 			<DD.Item asChild let:builder>
@@ -35,6 +38,7 @@
 		border: 2px solid transparent;
 	}
 	:global(.nav-dropdown-trigger:hover),
+	:global(.nav-dropdown-trigger.active),
 	:global(.nav-dropdown-trigger[data-state='open']) {
 		border-color: var(--txt);
 	}
