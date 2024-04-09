@@ -183,6 +183,9 @@
 	nav {
 		@include flex(row, null, center);
 		gap: 0.25rem;
+		a:active {
+			background-color: var(--bg-2);
+		}
 	}
 	.search {
 		padding: 0.75rem;

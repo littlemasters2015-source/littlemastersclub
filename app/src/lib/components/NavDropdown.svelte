@@ -43,7 +43,7 @@
 		border-color: var(--txt);
 	}
 	:global(.nav-dropdown-trigger[data-state='open']) {
-		background: var(--bg-2);
+		background-color: var(--bg-2);
 	}
 	:global(.nav-dropdown-link) {
 		@include flex(row, null, center);
@@ -66,7 +66,7 @@
 	}
 	:global(.nav-dropdown-content) {
 		margin-top: 0.5rem;
-		background: var(--bg);
+		background-color: var(--bg);
 		@include border;
 		border-radius: 2rem;
 		padding: 0.75rem 1.25rem 0.75rem 0.75rem;

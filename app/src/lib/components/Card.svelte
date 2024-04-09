@@ -56,7 +56,7 @@
 	.card .card__cover--none {
 		width: 100%;
 		height: 231px;
-		background: var(--black);
+		background-color: var(--black);
 	}
 
 	.card .card__title {

@@ -52,7 +52,7 @@
 	}
 
 	.post .post__cover--none {
-		background: var(--black);
+		background-color: var(--black);
 	}
 
 	.post .post__container {

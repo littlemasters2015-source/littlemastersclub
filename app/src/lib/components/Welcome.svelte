@@ -102,7 +102,7 @@
 			position: absolute;
 			width: 375px;
 			height: 115px;
-			background: var(--magenta-100);
+			background-color: var(--magenta-100);
 			filter: blur(82px);
 			transform: rotate(-19deg);
 			z-index: -1;
