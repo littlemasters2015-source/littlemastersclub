@@ -20,6 +20,12 @@ export const eventQuery = groq`*[_type == "event" && slug.current == $slug && pu
 
 export const eventsQuery = groq`*[_type == "event" && defined(slug.current) && published == true] | order(startTime desc)`;
 
+export interface Detail {
+	_type: 'detail';
+	title: string;
+	value: string;
+}
+
 export interface Event {
 	_type: 'event';
 	_createdAt: string;
@@ -29,6 +35,7 @@ export interface Event {
 	description?: string;
 	startTime?: string;
 	endTime?: string;
+	details: Detail[];
 	image?: ImageAsset;
 	body: PortableTextBlock[];
 }

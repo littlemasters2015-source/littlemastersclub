@@ -1,18 +1,38 @@
-export function formatTimeRange(startTime: string, endTime: string): string {
-	const start = new Date(startTime);
-	const end = new Date(endTime);
-	return `${start.toLocaleDateString('en-US', {
-		month: 'short',
+export function formatDateTimeRange(start: string, end: string): string {
+	return `${formatDateRange(start, end, true)}, ${formatTimeRange(start, end)}`;
+}
+
+export function formatDateRange(start: string, end: string, short: boolean = false): string {
+	const startDate = new Date(start);
+	const endDate = new Date(end);
+
+	const options: Intl.DateTimeFormatOptions = {
+		year: short ? undefined : 'numeric',
+		month: short ? 'short' : 'short',
 		day: 'numeric'
-	})}, ${start.toLocaleTimeString('en-US', {
+	};
+
+	const startString = startDate.toLocaleDateString('en-US', options);
+	const endString = endDate.toLocaleDateString('en-US', options);
+	if (startString === endString) {
+		return startString;
+	}
+	return `${startString} - ${endString}`;
+}
+
+export function formatTimeRange(start: string, end: string): string {
+	const startDate = new Date(start);
+	const endDate = new Date(end);
+	const options: Intl.DateTimeFormatOptions = {
 		hour: 'numeric',
-		minute: '2-digit',
-		hour12: true
-	})} - ${end.toLocaleTimeString('en-US', {
-		hour: 'numeric',
-		minute: '2-digit',
-		hour12: true
-	})}`;
+		minute: '2-digit'
+	};
+	const startString = startDate.toLocaleTimeString('en-US', options);
+	const endString = endDate.toLocaleTimeString('en-US', options);
+	if (startString === endString) {
+		return startString;
+	}
+	return `${startString} - ${endString}`;
 }
 
 export function formatDate(date: string): string {

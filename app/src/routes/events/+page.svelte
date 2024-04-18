@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatTimeRange } from '$lib/utils';
+	import { formatDateTimeRange } from '$lib/utils';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
@@ -21,7 +21,7 @@
 				<div class="info">
 					<h2>{event.title}</h2>
 					{#if event.startTime && event.endTime}
-						<p>{formatTimeRange(event.startTime, event.endTime)}</p>
+						<p>{formatDateTimeRange(event.startTime, event.endTime)}</p>
 					{/if}
 					<p>{event.description}</p>
 				</div>

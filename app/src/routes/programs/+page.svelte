@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { formatTimeRange } from '$lib/utils';
+	import { formatDateTimeRange } from '$lib/utils';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';

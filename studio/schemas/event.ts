@@ -1,6 +1,21 @@
 import {defineField, defineType} from 'sanity'
 
-export default defineType({
+export const detail = defineType({
+  name: 'detail',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'value',
+      type: 'string',
+    }),
+  ],
+})
+
+export const event = defineType({
   name: 'event',
   title: 'Events',
   type: 'document',
@@ -33,6 +48,11 @@ export default defineType({
     defineField({
       name: 'endTime',
       type: 'datetime',
+    }),
+    defineField({
+      name: 'details',
+      type: 'array',
+      of: [{type: 'detail'}],
     }),
     defineField({
       name: 'image',

@@ -3,7 +3,7 @@
 	import support from '$lib/assets/signin.jpg';
 	import eventsImg from '$lib/assets/hands.jpg';
 
-	import { formatTimeRange } from '$lib/utils';
+	import { formatDateTimeRange } from '$lib/utils';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
@@ -62,7 +62,7 @@
 						<div class="info">
 							<h3>{event.title}</h3>
 							{#if event.startTime && event.endTime}
-								<p>{formatTimeRange(event.startTime, event.endTime)}</p>
+								<p>{formatDateTimeRange(event.startTime, event.endTime)}</p>
 							{/if}
 							<p class="description">{event.description}</p>
 						</div>
