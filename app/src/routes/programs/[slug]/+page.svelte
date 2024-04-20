@@ -26,5 +26,10 @@
 	{/if}
 </div>
 
-<style>
+<style lang="scss">
+	
+	div{
+		margin-left: 7%;
+		margin-right: 7%;
+	}
 </style>
