@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div class="page">
 	<h1>Volunteer Awards Q&A and Application Guideline</h1>
 	<p>Welcome to the Little Masters Clubs(LMC), where everyone is a volunteer. Volunteering goes a long way towards creating a healthy community.  You’re setting a great example which delivers a powerful message that encourages others to take action. Volunteers are rewarded as below. LMC thanks you for your contribution and will try our best to recognize your efforts.</p>
