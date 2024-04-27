@@ -41,7 +41,7 @@
 	.programs-container {
 		box-sizing: border-box;
 		display: grid;
-
+		//grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
 
 		gap: 2rem;
 		
