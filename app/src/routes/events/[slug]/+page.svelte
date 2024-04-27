@@ -25,9 +25,11 @@
 			<p>
 				<b>Time:</b>&nbsp; {formatTimeRange(event.startTime, event.endTime)}
 			</p>
-			{#each event.details as detail}
-				<p><b>{detail.title}:</b>&nbsp; {detail.value}</p>
-			{/each}
+			{#if event.details}
+				{#each event.details as detail}
+					<p><b>{detail.title}:</b>&nbsp; {detail.value}</p>
+				{/each}
+			{/if}
 		</div>
 	{/if}
 	<br />
