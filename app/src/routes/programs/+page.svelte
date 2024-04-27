@@ -10,8 +10,9 @@
 	$: ({ data: programs } = $q);
 </script>
 
+
+<h1>Programs</h1>
 <div class="page">
-	<h1>Programs</h1>
 	<div class="programs-container">
 		{#each programs as program}
 			<a class="program" href={`/programs/${program.slug.current}`}>
@@ -28,23 +29,36 @@
 </div>
 
 <style lang="scss">
+	h1{
+		margin-left:80px;
+	}
 	.page {
 		padding: 0 2rem;
+		float: center;
+		width: 33.33333%;
 	}
+
 	.programs-container {
+		box-sizing: border-box;
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+
+
 		gap: 2rem;
+		
+
 	}
+
 	.program {
+		margin-left: 50px;
 		@include border;
 		@include elevate;
 		text-decoration: none;
 		img {
+			border: 2px solid;
 			aspect-ratio: 16/9;
 			object-fit: cover;
 			width: calc(100% + 4px);
-			@include border;
+			border-radius: 30px 30px 0px 0px;
 			position: relative;
 			top: -2px;
 			left: -2px;
@@ -57,6 +71,17 @@
 		}
 		p {
 			margin: 0.75rem 0;
+		}
+
+		@media only screen and (max-width: 900px){
+			.programs-container{
+				width: 50%;
+			}
+		}
+		@media only screen and (max-width: 500px){
+			.programs-container{
+				width: 100%;
+			}
 		}
 	}
 </style>
