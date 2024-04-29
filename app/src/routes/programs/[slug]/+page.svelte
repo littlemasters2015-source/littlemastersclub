@@ -28,6 +28,15 @@
 
 <style lang="scss">
 	
+
+	img{
+		max-width: 800px;
+		display:block;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 30px;
+		margin-bottom: 40px;
+	}
 	div{
 		margin-left: 7%;
 		margin-right: 7%;

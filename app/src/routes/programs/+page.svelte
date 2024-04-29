@@ -26,30 +26,34 @@
 			</a>
 		{/each}
 	</div>
+	
 </div>
 
 <style lang="scss">
 	h1{
-		margin-left:80px;
+		margin-left:90px;
+		margin-bottom: 40px;
 	}
 	.page {
 		padding: 0 2rem;
-		float: center;
-		width: 33.33333%;
+		
+		
 	}
-
 	.programs-container {
-		box-sizing: border-box;
-		display: grid;
-		//grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
 
+		margin-left: 80px;
+		margin-right: 80px;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr));
 		gap: 2rem;
 		
 
 	}
 
 	.program {
-		margin-left: 50px;
+		margin-bottom: 30px;
+		margin-left: 15px;
+		margin-right: 15px;
 		@include border;
 		@include elevate;
 		text-decoration: none;
@@ -65,6 +69,7 @@
 		}
 	}
 	.info {
+
 		padding: 0.75rem 1.5rem 1rem 1.5rem;
 		h2 {
 			margin: 0;
@@ -73,15 +78,6 @@
 			margin: 0.75rem 0;
 		}
 
-		@media only screen and (max-width: 900px){
-			.programs-container{
-				width: 50%;
-			}
-		}
-		@media only screen and (max-width: 500px){
-			.programs-container{
-				width: 100%;
-			}
-		}
+
 	}
 </style>
