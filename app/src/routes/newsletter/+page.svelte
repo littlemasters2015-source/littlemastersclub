@@ -14,15 +14,12 @@
 	<h1>Newsletter</h1>
 	<div class="newsletters-container">
 		{#each newsletters as newsletter}
-			<a class="newsletter" href={`/newsletters/${newsletter.slug.current}`}>
+			<a class="newsletter" href={`/newsletter/${newsletter.slug.current}`}>
 				{#if newsletter.image}
 					<img src={urlFor(newsletter.image).url()} alt={newsletter.title} />
 				{/if}
 				<div class="info">
 					<h2>{newsletter.title}</h2>
-					{#if newsletter.startTime && newsletter.endTime}
-						<p>{formatDateTimeRange(newsletter.startTime, newsletter.endTime)}</p>
-					{/if}
 					<p>{newsletter.description}</p>
 				</div>
 			</a>

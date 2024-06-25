@@ -27,17 +27,15 @@
 </div>
 
 <style lang="scss">
-	
-
-	img{
+	img {
 		max-width: 800px;
-		display:block;
+		display: block;
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 30px;
 		margin-bottom: 40px;
 	}
-	div{
+	div {
 		margin-left: 7%;
 		margin-right: 7%;
 	}

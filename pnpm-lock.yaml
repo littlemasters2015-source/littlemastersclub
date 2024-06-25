@@ -36,8 +36,8 @@ importers:
         specifier: ^0.21.10
         version: 0.21.10(svelte@4.2.18)
       groq:
-        specifier: ^3.47.1
-        version: 3.47.1
+        specifier: ^3.48.0
+        version: 3.48.0
     devDependencies:
       '@iconify-json/ph':
         specifier: ^1.1.13
@@ -49,8 +49,8 @@ importers:
         specifier: ^2.0.13
         version: 2.0.13
       '@sanity/types':
-        specifier: ^3.47.1
-        version: 3.47.1
+        specifier: ^3.48.0
+        version: 3.48.0
       '@sveltejs/adapter-auto':
         specifier: ^3.2.2
         version: 3.2.2(@sveltejs/kit@2.5.17(@sveltejs/vite-plugin-svelte@3.1.1(svelte@4.2.18)(vite@5.3.1(@types/node@20.14.8)(sass@1.77.6)))(svelte@4.2.18)(vite@5.3.1(@types/node@20.14.8)(sass@1.77.6)))
@@ -1707,6 +1707,9 @@ packages:
   '@sanity/types@3.47.1':
     resolution: {integrity: sha512-R2uODu5cgoNq5K5gG4s617GBLZzXb2kcLTJbUrm8Njd9iyP9N7J80J7Qy7dNF7J5ooS635YSQjPSQHTVzEtoTQ==}
 
+  '@sanity/types@3.48.0':
+    resolution: {integrity: sha512-U9at+ePKc9IyKN1q0bdhJjcb2J/vKhKupCfUbAR1gSlvKAFix9nYXGuwa/uvd5zAOju4jGRyx7/MEg0egEqprA==}
+
   '@sanity/ui@2.4.0':
     resolution: {integrity: sha512-K7bxEqFAAHzvM+fuMhaIgF9MpvClbvW0V61qwEI4vE20XKqfmhvjdlEAMEU/stMNBFEdX7tVdXb0D4xtVuciBg==}
     engines: {node: '>=14.0.0'}
@@ -3295,6 +3298,10 @@ packages:
 
   groq@3.47.1:
     resolution: {integrity: sha512-8yMBfAsvKP8gYA8KQV83SjVgmChvqMNoPo1SmLdkCYs7IWRNsi1nU0l7YM6QsnOj8IWCM1TeEcvyC9iclgoaFQ==}
+    engines: {node: '>=18'}
+
+  groq@3.48.0:
+    resolution: {integrity: sha512-0l4wqGpaT4JPiVD34hlhQ9fV3I6tcj0O1tieJcOF33NcgjhrW7uXYEzWWQ8aHXzGDWhP7kMAz1HGaXNqTo+s4Q==}
     engines: {node: '>=18'}
 
   gunzip-maybe@1.4.2:
@@ -7106,7 +7113,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@sanity/insert-menu@1.0.6(@sanity/types@3.47.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@sanity/insert-menu@1.0.6(@sanity/types@3.47.1(debug@4.3.4))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
       '@sanity/icons': 3.2.0(react@18.3.1)
       '@sanity/types': 3.47.1(debug@4.3.4)
@@ -7252,13 +7259,6 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@sanity/types@3.47.1':
-    dependencies:
-      '@sanity/client': 6.20.1
-      '@types/react': 18.3.3
-    transitivePeerDependencies:
-      - debug
-
   '@sanity/types@3.47.1(debug@3.2.7)':
     dependencies:
       '@sanity/client': 6.20.1(debug@3.2.7)
@@ -7269,6 +7269,13 @@ snapshots:
   '@sanity/types@3.47.1(debug@4.3.4)':
     dependencies:
       '@sanity/client': 6.20.1(debug@4.3.4)
+      '@types/react': 18.3.3
+    transitivePeerDependencies:
+      - debug
+
+  '@sanity/types@3.48.0':
+    dependencies:
+      '@sanity/client': 6.20.1
       '@types/react': 18.3.3
     transitivePeerDependencies:
       - debug
@@ -9331,6 +9338,8 @@ snapshots:
 
   groq@3.47.1: {}
 
+  groq@3.48.0: {}
+
   gunzip-maybe@1.4.2:
     dependencies:
       browserify-zlib: 0.1.4
@@ -10675,7 +10684,7 @@ snapshots:
       '@sanity/icons': 3.2.0(react@18.3.1)
       '@sanity/image-url': 1.0.2
       '@sanity/import': 3.37.3
-      '@sanity/insert-menu': 1.0.6(@sanity/types@3.47.1)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      '@sanity/insert-menu': 1.0.6(@sanity/types@3.47.1(debug@4.3.4))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@sanity/logos': 2.1.11(@sanity/color@3.0.6)(react@18.3.1)
       '@sanity/migrate': 3.47.1
       '@sanity/mutator': 3.47.1

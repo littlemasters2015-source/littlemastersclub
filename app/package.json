@@ -16,13 +16,13 @@
 		"@sanity/svelte-loader": "^1.11.32",
 		"@sanity/visual-editing": "^2.1.5",
 		"bits-ui": "^0.21.10",
-		"groq": "^3.47.1"
+		"groq": "^3.48.0"
 	},
 	"devDependencies": {
 		"@iconify-json/ph": "^1.1.13",
 		"@portabletext/svelte": "^2.1.11",
 		"@portabletext/types": "^2.0.13",
-		"@sanity/types": "^3.47.1",
+		"@sanity/types": "^3.48.0",
 		"@sveltejs/adapter-auto": "^3.2.2",
 		"@sveltejs/adapter-vercel": "5",
 		"@sveltejs/kit": "^2.5.17",

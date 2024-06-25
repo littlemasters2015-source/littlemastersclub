@@ -9,8 +9,6 @@ export const load: PageServerLoad = async (event) => {
 	const params = { slug };
 	const initial = await loadQuery<Event>(query, params);
 
-	console.log(initial);
-
 	if (!initial.data) {
 		error(404, {
 			message: 'Event not found'

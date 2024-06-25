@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import { useQuery } from '@sanity/svelte-loader';
-	import { formatDateRange, formatTimeRange } from '$lib/utils';
+	import { formatDateRange, formatTimeRange, isValidUrl } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
 
@@ -16,24 +16,30 @@
 	{#if event.image}
 		<img src={urlFor(event.image).url()} alt="Image for {event.title}" />
 	{/if}
+	<h2>Details</h2>
 	{#if event.startTime && event.endTime}
-		<div class="details">
-			<h2>Details</h2>
+		<p>
+			<b>Date:</b>&nbsp; {formatDateRange(event.startTime, event.endTime)}
+		</p>
+		<p>
+			<b>Time:</b>&nbsp; {formatTimeRange(event.startTime, event.endTime)}
+		</p>
+	{/if}
+	{#if event.details}
+		{#each event.details as detail}
 			<p>
-				<b>Date:</b>&nbsp; {formatDateRange(event.startTime, event.endTime)}
+				<b>{detail.title}:</b>
+				{#if isValidUrl(detail.value)}
+					&nbsp;<a href={detail.value}>{detail.value}</a>
+				{:else}
+					&nbsp;{detail.value}
+				{/if}
 			</p>
-			<p>
-				<b>Time:</b>&nbsp; {formatTimeRange(event.startTime, event.endTime)}
-			</p>
-			{#if event.details}
-				{#each event.details as detail}
-					<p><b>{detail.title}:</b>&nbsp; {detail.value}</p>
-				{/each}
-			{/if}
-		</div>
+		{/each}
 	{/if}
 	<br />
 	{#if event.body}
+		<h2>Description</h2>
 		<div class="content">
 			<PortableText components={{}} value={event.body} />
 		</div>
@@ -53,25 +59,5 @@
 		max-height: 30rem;
 		object-fit: cover;
 		margin: 0 0 1rem 0;
-	}
-	.details {
-		@include border;
-		padding: 2rem;
-		h2 {
-			margin: 0;
-		}
-		p:last-child {
-			margin-bottom: 0;
-		}
-	}
-	.content {
-		@include border;
-		padding: 2rem;
-	}
-	:global(.content :first-child) {
-		margin-top: 0;
-	}
-	:global(.content :last-child) {
-		margin-bottom: 0;
 	}
 </style>

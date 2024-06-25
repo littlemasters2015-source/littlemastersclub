@@ -1,4 +1,4 @@
-import { eventQuery as query, type Event } from '$lib/sanity/queries';
+import { newsletterQuery as query, type Newsletter } from '$lib/sanity/queries';
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
 
@@ -7,13 +7,11 @@ export const load: PageServerLoad = async (event) => {
 	const { slug } = event.params;
 
 	const params = { slug };
-	const initial = await loadQuery<Event>(query, params);
-
-	console.log(initial);
+	const initial = await loadQuery<Newsletter>(query, params);
 
 	if (!initial.data) {
 		error(404, {
-			message: 'Event not found'
+			message: 'Newsletter not found'
 		});
 	}
 
