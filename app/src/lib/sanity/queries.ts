@@ -40,6 +40,22 @@ export interface Event {
 	body: PortableTextBlock[];
 }
 
+export const newsletterQuery = groq`*[_type == "newsletter" && slug.current == $slug && published == true][0]`;
+
+export const newslettersQuery = groq`*[_type == "newsletter" && defined(slug.current) && published == true] | order(date desc)`;
+
+export interface Newsletter {
+	_type: 'newsletter';
+	_createdAt: string;
+	published: boolean;
+	title?: string;
+	slug: Slug;
+	description?: string;
+	date?: string;
+	image?: ImageAsset;
+	body: PortableTextBlock[];
+}
+
 export const programQuery = groq`*[_type == "program" && slug.current == $slug && published == true][0]`;
 
 export const programsQuery = groq`*[_type == "program" && defined(slug.current) && published == true]`;

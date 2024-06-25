@@ -41,6 +41,13 @@
 				]}
 				path={$page.url.pathname}
 			/>
+			<a
+				class="nav-dropdown-trigger"
+				class:active={$page.url.pathname === '/newsletter'}
+				href="/newsletter"
+			>
+				Newsletter
+			</a>
 			<NavDropdown
 				title="Programs"
 				data={[
@@ -182,7 +189,7 @@
 	}
 	nav {
 		@include flex(row, null, center);
-		gap: 0.25rem;
+		gap: 0.5rem;
 		a:active {
 			background-color: var(--bg-2);
 		}
