@@ -32,7 +32,7 @@
 		font-size: 1.2rem;
 	}
 	:global(.nav-dropdown-trigger) {
-		padding: 0.75rem 1.25rem;
+		padding: 0.75rem 1rem;
 		transition: 0.1s;
 		border-radius: 2rem;
 		border: 2px solid transparent;

@@ -25,15 +25,6 @@
 		<nav>
 			<a class="nav-dropdown-trigger" class:active={$page.url.pathname === '/'} href="/">Home</a>
 			<NavDropdown
-				title="About"
-				data={[
-					{ name: 'About Us', href: '/about' },
-					{ name: 'Contact Us', href: '/contact' },
-					{ name: 'Board Members', href: '/board' }
-				]}
-				path={$page.url.pathname}
-			/>
-			<NavDropdown
 				title="Events"
 				data={[
 					{ name: 'Events', href: '/events' },
@@ -57,11 +48,30 @@
 				path={$page.url.pathname}
 			/>
 			<NavDropdown
-				title="Join"
+				title="Get Involved"
 				data={[
-					{ name: 'Get Involved', href: '/join' },
-					{ name: 'Volunteer', href: '/volunteer' },
-					{ name: 'Resources', href: '/resources' }
+					{ name: 'Join', href: '/join' },
+					{ name: 'Donate', href: '/donate' },
+					{ name: 'Volunteer', href: '/volunteer' }
+				]}
+				path={$page.url.pathname}
+			/>
+			<NavDropdown
+				title="Resources"
+				data={[
+					{ name: 'Project Proposal', href: '/project-proposal' },
+					{ name: 'Susu Scholarship', href: '/susu-scholarship' },
+					{ name: 'Microsoft Giving', href: '/microsoft-giving' }
+				]}
+				path={$page.url.pathname}
+			/>
+			<NavDropdown
+				title="About"
+				data={[
+					{ name: 'About Us', href: '/about' },
+					{ name: 'Contact Us', href: '/contact' },
+					{ name: 'Board Members', href: '/board' },
+					{ name: 'Privacy Policy', href: '/privacy-policy' }
 				]}
 				path={$page.url.pathname}
 			/>
