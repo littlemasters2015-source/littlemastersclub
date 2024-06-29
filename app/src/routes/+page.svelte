@@ -38,6 +38,19 @@
 		</div>
 	</section>
 
+	<section class="youtube">
+		<iframe
+			width="1056"
+			height="594"
+			src="https://www.youtube-nocookie.com/embed/AyDXMj-lnzU?si=d3so5hBTkQydBJIT"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			referrerpolicy="strict-origin-when-cross-origin"
+			allowfullscreen
+		/>
+	</section>
+
 	<section class="support">
 		<img src={support} alt="support" />
 		<div class="box">
@@ -210,6 +223,13 @@
 			.description {
 				@include line-clamp(2);
 			}
+		}
+	}
+	.youtube {
+		@include border;
+		overflow: hidden;
+		iframe {
+			display: block;
 		}
 	}
 </style>

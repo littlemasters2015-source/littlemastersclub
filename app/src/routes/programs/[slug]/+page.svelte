@@ -27,17 +27,27 @@
 </div>
 
 <style lang="scss">
+<<<<<<< HEAD
 	
 
 	img{
 		max-width: 800px;
 		display:block;
+=======
+	img {
+		max-width: 800px;
+		display: block;
+>>>>>>> 0a59fa120592cc4ce480d420ecaa7e7c80a8a524
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 30px;
 		margin-bottom: 40px;
 	}
+<<<<<<< HEAD
 	div{
+=======
+	div {
+>>>>>>> 0a59fa120592cc4ce480d420ecaa7e7c80a8a524
 		margin-left: 7%;
 		margin-right: 7%;
 	}
