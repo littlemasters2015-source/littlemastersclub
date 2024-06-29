@@ -37,6 +37,9 @@
 		width: 100%;
 		margin: auto;
 	}
+	h1{
+		margin-bottom: 40px;
+	}
 	img {
 		width: 100%;
 		height: auto;
@@ -44,6 +47,7 @@
 		@include border;
 	}
 	.events-container {
+		
 		@include flex(column);
 		gap: 1.25rem;
 	}
