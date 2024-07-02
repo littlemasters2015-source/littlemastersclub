@@ -24,6 +24,13 @@ body {
 	font-weight: 300;
 }
 
+.page {
+	margin: auto;
+	max-width: 55rem;
+	padding: 0rem 2rem;
+	flex: 1;
+}
+
 h1,
 h2,
 h3,
@@ -83,11 +90,6 @@ button {
 		cursor: pointer;
 	}
 }
-
-.page {
-	flex: 1;
-}
-
 .box {
 	background-color: var(--bg);
 	@include border;

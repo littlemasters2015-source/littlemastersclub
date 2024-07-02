@@ -15,7 +15,6 @@
 <style lang="scss">
 	.page {
 		@include flex(column, center, center);
-		flex: 1;
 	}
 
 	.errorCode {
