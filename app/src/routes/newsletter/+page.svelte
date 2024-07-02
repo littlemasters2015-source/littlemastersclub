@@ -29,8 +29,10 @@
 
 <style lang="scss">
 	.page {
+		padding: 0rem 2rem;
 		max-width: 60rem;
 		width: 100%;
+		margin: auto;
 	}
 	img {
 		width: 100%;

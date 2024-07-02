@@ -32,8 +32,10 @@
 
 <style lang="scss">
 	.page {
-		width: 100%;
+		padding: 0rem 2rem;
 		max-width: 60rem;
+		width: 100%;
+		margin: auto;
 	}
 	h1{
 		margin-bottom: 40px;
