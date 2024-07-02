@@ -41,13 +41,4 @@
 </div>
 
 <style lang="scss">
-	h1 {
-		text-align: center;
-		padding-bottom: 20px;
-	}
-	.page {
-		margin: auto;
-		max-width: 55rem;
-		padding: 0rem 1.5rem;
-	}
 </style>

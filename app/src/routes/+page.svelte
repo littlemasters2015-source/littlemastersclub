@@ -89,7 +89,8 @@
 
 <style lang="scss">
 	.page {
-		padding: 0rem 2rem;
+		max-width: unset;
+		margin: 0;
 	}
 	section {
 		margin: auto;

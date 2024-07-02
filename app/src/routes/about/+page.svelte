@@ -2,13 +2,12 @@
 </script>
 
 <div class="page">
-	<h1>About</h1>
+	<h1>About Us</h1>
 	<p>
-		Little Masters Club is a 501(c)(3) nonprofit organization that seeks to provide an encouraging
-		environment for kids to be learners, mentors, team players, and leaders. We promote “learning by
-		doing” through a multitude of fun projects. Our goal is to connect children to their community,
-		invoke their compassion and motivation, develop their skills through our projects, and give them
-		an opportunity to shine.
+		Little Masters Club (LMC) is a 501(c)(3) non-profit organization that seeks to provide an
+		encouraging environment and open platform for kids to be learners, mentors, team players, and
+		leaders. Our goal is to invoke the kids’ passion of serving our community, build up their
+		leadership and teamwork skills, and encourage them to flourish in a multicultural society.
 	</p>
 	<p>
 		We know children learn better when they’re interested in the subject, with their friends, and
@@ -23,6 +22,14 @@
 		successful adults. A strong community and meaningful support are fundamental building blocks of
 		happiness. We strive to create just that for our kids to flourish in and become well-rounded
 		individuals.
+	</p>
+	<h2>What We Do</h2>
+	<p>
+		Little Masters Club is a 501(c)(3) nonprofit organization that seeks to provide an encouraging
+		environment for kids to be learners, mentors, team players, and leaders. We promote “learning by
+		doing” through a multitude of fun projects. Our goal is to connect children to their community,
+		invoke their compassion and motivation, develop their skills through our projects, and give them
+		an opportunity to shine.
 	</p>
 	<h2>Our Goals</h2>
 	<p>We aim to help our children grow their sense of:</p>
@@ -47,13 +54,6 @@
 		Parents initiate a program and set up the environment to support. Kids lead and implement the
 		program.
 	</p>
-	<h2>Linkage to China</h2>
-	<p>
-		Little Masters Club has strong linkage to China. We have branches in Beijing, JingDeZhen,
-		Shenzhen. This offers a great opportunity for learning Chinese culture and building
-		relationships with someone in China. We run many programs related to China, examples include
-		GEST ( Gansu Education Support Team), Online Teaching, Community Study of Chinese Rural Regions.
-	</p>
 	<h2>Why Join?</h2>
 	<ul>
 		<li>Learn international culture in a relaxing and encouraging environment</li>
@@ -75,9 +75,9 @@
 	<p>Follow us on social media to stay updated on our latest events and projects!</p>
 	<ul>
 		<!-- Twitter: LMC_US https://twitter.com/LMC_US Facebook: @LittleMastersClubUS
-		https://www.facebook.com/LittleMastersClubUS/ Instagram: littlemastersclub
-		https://www.instagram.com/littlemastersclub/ YouTube: Little Masters
-		https://www.youtube.com/channel/UCiaJbTxkI-6_Kl9YnLE5Fvg -->
+			https://www.facebook.com/LittleMastersClubUS/ Instagram: littlemastersclub
+			https://www.instagram.com/littlemastersclub/ YouTube: Little Masters
+			https://www.youtube.com/channel/UCiaJbTxkI-6_Kl9YnLE5Fvg -->
 		<li>
 			<a href="https://twitter.com/LMC_US" target="_blank" rel="noopener noreferrer"
 				>Twitter: LMC_US</a
@@ -106,11 +106,3 @@
 		</li>
 	</ul>
 </div>
-
-<style lang="scss">
-	.page {
-		margin: auto;
-		max-width: 55rem;
-		padding: 0rem 1.5rem;
-	}
-</style>

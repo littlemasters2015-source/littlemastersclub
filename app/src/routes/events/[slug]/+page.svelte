@@ -47,12 +47,6 @@
 </div>
 
 <style lang="scss">
-	.page {
-		padding: 0rem 2rem;
-		max-width: 58rem;
-		width: 100%;
-		margin: auto;
-	}
 	img {
 		@include border;
 		width: 100%;
