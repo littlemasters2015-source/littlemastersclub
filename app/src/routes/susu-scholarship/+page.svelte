@@ -1,4 +1,12 @@
+<script lang="ts">
 
+    import su1 from '$lib/assets/susu1.png';
+    import su2 from '$lib/assets/susu2.png';
+    import su3 from '$lib/assets/susu3.jpg';
+    import su4 from '$lib/assets/susu4.jpg';
+    
+    
+</script>
 
 
 <div class="page">
@@ -46,7 +54,7 @@
     <h2>Past Award Winners</h2>
     <h3>Winners of 2023</h3>
 	<ul>
-		<li><b>Scholarship Award: </b> Esther Fang, Bailing Hou, Maggie Yan Corey Zhang</li>
+		<li><b>Scholarship Award: </b> Esther Fang, Bailing Hou, Maggie Yan, Corey Zhang</li>
 		<li><b>Honorable Award: </b> Katie Chen, Yingying Luo</li>
 	</ul>
 
@@ -74,7 +82,17 @@
         The Committee is committed to the fairness of this scholarship process, but reserves the right to review 
         and adjust the awards at any time when necessary.</p>
 
+
+	
+
 </div>
+
+	<img alt="Susu" src={su1} class = "img"/>
+	<img alt="Susu" src={su2} class = "img"/>
+	<img alt="Susu" src={su3} class = "img"/>
+	<img alt="Susu" src={su4} class = "img"/>
+
+
 
 <style lang="scss">
 	.page {
@@ -82,4 +100,14 @@
 		max-width: 55rem;
 		padding: 0rem 1.5rem;
 	}
+	.img{
+		display: block;
+		width: 100%;
+		max-width: 55rem;
+		height: auto;
+  		margin-left: auto;
+  		margin-right: auto;
+		padding:20px 1.5rem;
+    }
+
 </style>
