@@ -9,7 +9,7 @@
 	</p>
 	<p>
 		Check out our volunteer <a
-			href="https://docs.google.com/document/d/1GE4JfPTiDYaE_XyC3Ly9F7Jnsf0g41kMfWqbc5l647E/edit"
+			href="https://docs.google.com/document/d/1GE4JfPTiDYaE_XyC3Ly9F7Jnsf0g41kMfWqbc5l647E/edit" target="_blank" rel="noopener noreferrer"
 		>
 			Q&A
 		</a> page on how to log volunteer hours and qualify for different levels of service reward !
@@ -24,7 +24,7 @@
 	</p>
 	<p>
 		For details, <a
-			href="https://docs.google.com/document/d/1HEZU8heumlp-JraGGOsri1QLQPNmomRP-ryI2Aye6j0/edit#heading=h.gjdgxs"
+			href="https://docs.google.com/document/d/1HEZU8heumlp-JraGGOsri1QLQPNmomRP-ryI2Aye6j0/edit#heading=h.gjdgxs" target="_blank" rel="noopener noreferrer"
 		>
 			click here</a
 		>
