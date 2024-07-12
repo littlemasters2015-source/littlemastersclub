@@ -1,44 +1,41 @@
 <script lang="ts">
-
-    import su1 from '$lib/assets/susu1.png';
-    import su2 from '$lib/assets/susu2.png';
-    import su3 from '$lib/assets/susu3.jpg';
-    import su4 from '$lib/assets/susu4.jpg';
-    
-    
+	import su1 from '$lib/assets/susu1.png';
+	import su2 from '$lib/assets/susu2.png';
+	import su3 from '$lib/assets/susu3.jpg';
+	import su4 from '$lib/assets/susu4.jpg';
 </script>
-
 
 <div class="page">
 	<h1>Susu Scholarship</h1>
 
-	<p> 
-		Welcome to the LMC Susu Scholarship. This scholarship was established in the Fall of 2023 to honor 
-        the life of Yuhua Su (Susu), and to continue her legacy of love, volunteering and giving to the LMC 
-        family and the community. It is a testament to the bond we built as a community, and how this bond 
-        cannot be broken, even when faced with death. Together we can make our community a better place!
+	<p>
+		Welcome to the LMC Susu Scholarship. This scholarship was established in the Fall of 2023 to
+		honor the life of Yuhua Su (Susu), and to continue her legacy of love, volunteering and giving
+		to the LMC family and the community. It is a testament to the bond we built as a community, and
+		how this bond cannot be broken, even when faced with death. Together we can make our community a
+		better place!
 	</p>
 	<p>
-		The LMC Susu Scholarship is an annual based scholarship that focuses on rewarding high school students, 
-        who demonstrate academic excellence, have significant volunteering contributions to the LMC community, 
-        and are an inspiration to more youths to volunteer for LMC.
+		The LMC Susu Scholarship is an annual based scholarship that focuses on rewarding high school
+		students, who demonstrate academic excellence, have significant volunteering contributions to
+		the LMC community, and are an inspiration to more youths to volunteer for LMC.
 	</p>
 	<h2>Conditions of Eligibility</h2>
-	<p>
-		To be eligible for the scholarship, applicants must:
-	</p>
-    <ul>
+	<p>To be eligible for the scholarship, applicants must:</p>
+	<ul>
 		<li>Be a Junior or Senior high schooler in the broader Seattle area</li>
 		<li>Have a cumulative GPA of 3.0 or higher</li>
 		<li>Have completed at least 30 hours of volunteer service in LMC</li>
 	</ul>
 	<h2>Mandatory Application Checklist</h2>
-    <ul>
+	<ul>
 		<li>Copy of your transcript to demonstrate your academy in current school year</li>
-		<li>A personal statement (500 words or less) describing your volunteer experience 
-            and how it has impacted your life and the lives of others.</li>
+		<li>
+			A personal statement (500 words or less) describing your volunteer experience and how it has
+			impacted your life and the lives of others.
+		</li>
 	</ul>
-	<h2>Selection Process    </h2>
+	<h2>Selection Process</h2>
 	<p>The scholarship committee will select recipients based on the following criteria:</p>
 	<ul>
 		<li>Academic achievement</li>
@@ -47,12 +44,14 @@
 	</ul>
 	<h2>Award</h2>
 	<p>Each scholarship recipients will receive a one-time scholarship award and a certificate.</p>
-    <h2>How to Apply    </h2>
-	<p>The application window opens between July 1 and Sept 15 each year. The application form 
-        will be live during that window. The scholarship recipient will be notified by Sept 30. 
-        The timeline is subject to change.</p>
-    <h2>Past Award Winners</h2>
-    <h3>Winners of 2023</h3>
+	<h2>How to Apply</h2>
+	<p>
+		The application window opens between July 1 and Sept 15 each year. The application form will be
+		live during that window. The scholarship recipient will be notified by Sept 30. The timeline is
+		subject to change.
+	</p>
+	<h2>Past Award Winners</h2>
+	<h3>Winners of 2023</h3>
 	<ul>
 		<li><b>Scholarship Award: </b> Esther Fang, Bailing Hou, Maggie Yan, Corey Zhang</li>
 		<li><b>Honorable Award: </b> Katie Chen, Yingying Luo</li>
@@ -60,39 +59,40 @@
 
 	<h2>How to Support the Scholarship</h2>
 	<p>
-		We want to grow the impact of this scholarship and expand our ways to recognize youths 
-        who leave a mark in our community. Your support will allow us to add new initiatives and 
-        impact the lives of many excellent youths. We are very grateful for your support. All your 
-        donations will be used in this scholarship only.
+		We want to grow the impact of this scholarship and expand our ways to recognize youths who leave
+		a mark in our community. Your support will allow us to add new initiatives and impact the lives
+		of many excellent youths. We are very grateful for your support. All your donations will be used
+		in this scholarship only.
 	</p>
-    <h3>To Donate:</h3>
-    <ul>
-		<li>Click the Search and Enter <b>Little Masters Club</b> as the cause in your company’s benevity.org 
-            site, and follow the donation link and add a memo for “LMC Susu Scholarship”</li>
+	<h3>To Donate:</h3>
+	<ul>
+		<li>
+			Click the Search and Enter <b>Little Masters Club</b> as the cause in your company’s benevity.org
+			site, and follow the donation link and add a memo for “LMC Susu Scholarship”
+		</li>
 		<li>Or Zelle to sususcholarship@littlemastersclub.org</li>
 	</ul>
 	<p>
-		<b>Questions?</b> Please contact <a href="mailto:sususcholarship@littlemastersclub.org"> sususcholarship@littlemastersclub.org</a>
+		<b>Questions?</b> Please contact
+		<a href="mailto:sususcholarship@littlemastersclub.org">
+			sususcholarship@littlemastersclub.org</a
+		>
 	</p>
 
-	<p><b>Disclaimer:</b> Funding of the Susu Scholarship comes from generous donation from Mrs. Susu’s family 
-        and friends, and general public donation and company match to this specific funding account. The 
-        application review and selection committee of Susu Scholarship (“the Committee” hereafter) is 
-        composed of Susu’s family members and friends (with no LMC board members and project leads participation). 
-        The Committee is committed to the fairness of this scholarship process, but reserves the right to review 
-        and adjust the awards at any time when necessary.</p>
-
-
-	
-
+	<p>
+		<b>Disclaimer:</b> Funding of the Susu Scholarship comes from generous donation from Mrs. Susu’s
+		family and friends, and general public donation and company match to this specific funding account.
+		The application review and selection committee of Susu Scholarship (“the Committee” hereafter) is
+		composed of Susu’s family members and friends (with no LMC board members and project leads participation).
+		The Committee is committed to the fairness of this scholarship process, but reserves the right to
+		review and adjust the awards at any time when necessary.
+	</p>
 </div>
 
-	<img alt="Susu" src={su1} class = "img"/>
-	<img alt="Susu" src={su2} class = "img"/>
-	<img alt="Susu" src={su3} class = "img"/>
-	<img alt="Susu" src={su4} class = "img"/>
-
-
+<img alt="Susu" src={su1} class="img" />
+<img alt="Susu" src={su2} class="img" />
+<img alt="Susu" src={su3} class="img" />
+<img alt="Susu" src={su4} class="img" />
 
 <style lang="scss">
 	.page {
@@ -100,14 +100,12 @@
 		max-width: 55rem;
 		padding: 0rem 1.5rem;
 	}
-	.img{
+	.img {
 		display: block;
 		width: 100%;
 		max-width: 55rem;
 		height: auto;
-  		margin-left: auto;
-  		margin-right: auto;
-		padding:20px 1.5rem;
-    }
-
+		margin: auto;
+		padding: 1rem 1.5rem;
+	}
 </style>
