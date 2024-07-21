@@ -1,5 +1,5 @@
 <div class="page">
-	<div class="divide"><b>Give to Little Masters Club</b></div>
+	<h1>Give to Little Masters Club</h1>
 	<p>
 		Little Masters Club is a 100% volunteer based organization. All community contributions go
 		towards our projects.
@@ -10,32 +10,27 @@
 		kind donation.
 	</p>
 
-	<!-- links not linked  -->
-	<div class="give">
-		1. To donate by Paypal, simply click <a href="https://www.paypal.me/littlemastersclub">
-			here
-		</a> and enter the dollar amount you'd like to donate. Please tell us in the note where we should
-		send the donation receipt, or whether your contribution should go to any specific program. (Little
-		Masters Club EIN: 46-1912940)
-	</div>
+	<h2>How to Donate</h2>
 
-	<div class="give">
-		2. 微软捐款直通车：<a href="https://www.paypal.me/littlemastersclub">
-			https://microsoft.benevity.org/cause/840-461912940
-		</a>
-	</div>
-	<div class="give">3. amazon links</div>
-	<div class="give">
-		4. Mail us cash or check! We will keep a record of your donations, so your company can match
-		them! Send donations to:
-	</div>
-	<div class="give">
-		Yun Chen 15822 SE 44th Ct Bellevue, WA 98006, 并发email 到 <a
-			href="mailto:treasurer@littlemastersclub.org"
-		>
-			treasurer@littlemastersclub.org</a
-		> 告知义工。
-	</div>
+	<h3>Paypal</h3>
+
+	<p>
+		To donate by Paypal, simply click <a href="https://www.paypal.me/littlemastersclub">here</a>
+		and enter the amount you'd like to donate. Please tell us in the note where we should send the donation
+		receipt, or whether your contribution should go to any specific program. (Little Masters Club EIN:
+		46-1912940)
+	</p>
+	<p>
+		Or, you can Zelle or Paypal your donation to the following email address:
+		treasurer@littlemastersclub.org
+	</p>
+
+	<h3>Cash or Check</h3>
+
+	<p>
+		You can also mail us cash or a check. We will keep a record of your donations, so your company
+		can match them! Send donations to: Little Masters Club, P.O. Box 52732, Bellevue, WA 98015.
+	</p>
 </div>
 
 <style>

@@ -39,6 +39,3 @@
 		We may amend this privacy policy from time to time; please review it periodically.
 	</p>
 </div>
-
-<style lang="scss">
-</style>
