@@ -2,6 +2,7 @@ import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {presentationTool} from 'sanity/presentation'
+import {structure} from './structure'
 
 import {schemaTypes} from './schemas'
 
@@ -14,7 +15,7 @@ export default defineConfig({
   projectId,
   dataset,
   plugins: [
-    structureTool(),
+    structureTool({structure}),
     presentationTool({
       previewUrl: {
         origin: process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:5173',

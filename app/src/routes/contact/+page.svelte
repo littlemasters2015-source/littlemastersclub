@@ -1,6 +1,9 @@
 <div class="page">
 	<h1>Contact Us</h1>
-
+	<p>
+		We appreciate any feedback or ideas you may have. Please feel free to contact us through the
+		following methods:
+	</p>
 	<ul>
 		<li>WeChat: LittleMastersClub</li>
 		<li>

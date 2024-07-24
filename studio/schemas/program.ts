@@ -10,6 +10,18 @@ export default defineType({
       type: 'boolean',
     }),
     defineField({
+      name: 'status',
+      title: 'Status',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Current', value: 'current'},
+          {title: 'Old', value: 'old'},
+        ],
+        layout: 'radio',
+      },
+    }),
+    defineField({
       name: 'title',
       type: 'string',
     }),
@@ -50,4 +62,8 @@ export default defineType({
       type: 'blockContent',
     }),
   ],
+  initialValue: {
+    published: false,
+    status: 'current',
+  },
 })
