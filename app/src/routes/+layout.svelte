@@ -41,7 +41,10 @@
 			</a>
 			<NavDropdown
 				title="Programs"
-				data={[{ name: 'All Programs', href: '/programs' }]}
+				data={[
+					{ name: 'All Programs', href: '/programs' },
+					{ name: 'Old Programs', href: '/programs?status=old' }
+				]}
 				path={$page.url.pathname}
 			/>
 			<NavDropdown

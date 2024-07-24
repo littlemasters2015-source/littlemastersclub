@@ -1,10 +1,11 @@
 import { programsQuery as query, type Program } from '$lib/sanity/queries';
 import type { PageServerLoad } from './$types';
-
+import { programsOldQuery } from '$lib/sanity/queries';
 import { programsCategoryQuery } from '$lib/sanity/queries';
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
+
 	const initial = await loadQuery<Program[]>(query);
 
 	return {

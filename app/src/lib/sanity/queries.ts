@@ -62,10 +62,13 @@ export const programsQuery = groq`*[_type == "program" && defined(slug.current) 
 
 export const programsCategoryQuery = groq`*[_type == "program" && defined(slug.current) && published == true && references(*[ name == $category]._id)]`;
 
+export const programsOldQuery = groq`*[_type == "program" && defined(slug.current) && published == true && status == "old"]`;
+
 export interface Program {
 	_type: 'program';
 	_createdAt: string;
 	published: boolean;
+	status: 'old' | 'current';
 	title?: string;
 	slug: Slug;
 	description?: string;

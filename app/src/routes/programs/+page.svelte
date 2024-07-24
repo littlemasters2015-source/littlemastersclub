@@ -1,19 +1,39 @@
 <script lang="ts">
-	import { formatDateTimeRange } from '$lib/utils';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
+	import { page } from '$app/stores';
 
 	export let data: PageData;
 	const q = useQuery(data);
 
 	$: ({ data: programs } = $q);
+
+	let title: string = 'Programs';
+
+	$: {
+		if ($page.url.searchParams.get('status') === 'old') {
+			title = 'Old Programs';
+		}
+	}
+
+	$: filteredPrograms = programs.filter((program) => {
+		if ($page.url.searchParams.get('status') === 'old') {
+			return program.status === 'old';
+		}
+		if ($page.url.searchParams.get('category')) {
+			return program.categories?.some(
+				(category) => category._ref === $page.url.searchParams.get('category')
+			);
+		}
+		return true;
+	});
 </script>
 
 <div class="page">
-	<h1>Programs</h1>
+	<h1>{title}</h1>
 	<div class="programs-container">
-		{#each programs as program}
+		{#each filteredPrograms as program}
 			<a class="program" href={`/programs/${program.slug.current}`}>
 				{#if program.image}
 					<img src={urlFor(program.image).url()} alt={program.title} />
