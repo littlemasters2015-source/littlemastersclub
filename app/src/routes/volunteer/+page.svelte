@@ -1,14 +1,18 @@
 <div class="page">
 	<h1>Volunteer</h1>
 	<p>
-		Welcome to the Little Masters Clubs(LMC), where everyone is a volunteer. Volunteering goes a
-		long way towards creating a healthy community. You’re setting a great example which delivers a
+		Welcome to Little Masters Club (LMC), where everyone is a volunteer. Volunteering goes a long
+		way towards creating a healthy community. By doing so, you set a great example which delivers a
 		powerful message that encourages others to take action. Volunteers are rewarded as below. LMC
-		thanks you for your contribution and will try our best to recognize your efforts.
+		thanks you for your contribution and we will try our best to recognize your efforts.
 	</p>
 
 	<h2>Volunteer Awards</h2>
-	<p>description here</p>
+	<p>
+		As a PVSA certified organization, LMC annually awards the President's Volunteer Service Award,
+		as well as the LMC Volunteer Service Award to volunteers ineligible for the PVSA. You are
+		required to have 80% of your volunteer hours come from LMC for these awards.
+	</p>
 	<p>
 		For more details, <a
 			href="https://docs.google.com/document/d/1HEZU8heumlp-JraGGOsri1QLQPNmomRP-ryI2Aye6j0/edit#heading=h.gjdgxs"
@@ -31,7 +35,7 @@
 
 	<h2>Microsoft Giving</h2>
 	<p>
-		If you are a Microsoft employee, Microsoft will match your volunteer time. For more details,
-		please see the <a href="/microsoft-giving">Microsoft Giving page</a>.
+		If you are a Microsoft employee, Microsoft will match your volunteer time with a donation. For
+		more details, please see the <a href="/microsoft-giving">Microsoft Giving page</a>.
 	</p>
 </div>
