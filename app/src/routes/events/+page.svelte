@@ -43,7 +43,8 @@
 	}
 	.events-container {
 		gap: 1.25rem;
-		@include flex(column);
+		display: flex;
+		flex-direction: column;
 	}
 	.event {
 		display: block;

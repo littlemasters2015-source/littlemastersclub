@@ -27,7 +27,6 @@
 					encouraging environment for kids to be learners, mentors, team players, and leaders. We
 					promote “learning by doing” through a multitude of fun projects.
 				</p>
-				<br />
 				<p>
 					Our goal is to connect children to their community, invoke their compassion and
 					motivation, develop their skills, and give them an opportunity to shine.
@@ -121,24 +120,26 @@
 		grid-column: 2;
 		display: grid;
 		gap: 1.25rem;
-		grid-template-columns: auto auto auto;
+		grid-template-columns: auto auto 1fr;
 		grid-template-rows: 1fr auto;
 	}
 	.title {
 		grid-row: 1;
 		grid-column: 1 / 3;
 		max-width: 21rem;
-		padding: 2.2rem;
+		padding: 1.75rem 2rem;
 	}
 	.title h1 {
 		margin: 0;
-		font-size: 2.75rem;
+		font-size: 3rem;
 	}
 	.description {
 		grid-row: 1 / 3;
 		grid-column: 3;
-		max-width: 44rem;
-		width: 100%;
+		gap: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		p {
 			margin: 0;
 			font-size: 1.2rem;
@@ -229,9 +230,9 @@
 
 	.youtube {
 		overflow: hidden;
+		@include border;
 		iframe {
 			display: block;
 		}
-		@include border;
 	}
 </style>

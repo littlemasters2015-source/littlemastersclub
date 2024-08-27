@@ -62,6 +62,7 @@
 		display: flex;
 		flex-direction: column;
 		text-decoration: none;
+		@include border;
 		img {
 			aspect-ratio: 16/9;
 			object-fit: cover;
@@ -71,7 +72,6 @@
 			left: -2px;
 			@include border;
 		}
-		@include border;
 		@include elevate;
 	}
 	.info {

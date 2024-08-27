@@ -1,8 +1,6 @@
 @mixin border {
-	& {
-		border: 2px solid var(--txt);
-		border-radius: 2rem;
-	}
+	border: 2px solid var(--txt);
+	border-radius: 2rem;
 }
 
 @mixin elevate {
@@ -14,15 +12,6 @@
 			transform: translate(-2px, -2px);
 			box-shadow: 2px 2px 0px 0px var(--txt);
 		}
-	}
-}
-
-@mixin flex($direction: row, $justify: null, $align: null) {
-	& {
-		display: flex;
-		flex-direction: $direction;
-		justify-content: $justify;
-		align-items: $align;
 	}
 }
 

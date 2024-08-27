@@ -40,7 +40,8 @@
 	}
 	.newsletters-container {
 		gap: 1.25rem;
-		@include flex(column);
+		display: flex;
+		flex-direction: column;
 	}
 	.newsletter {
 		display: block;

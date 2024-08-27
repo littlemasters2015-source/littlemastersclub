@@ -166,20 +166,25 @@
 <style lang="scss">
 	.container {
 		min-height: 100vh;
-		@include flex(column);
+		display: flex;
+		flex-direction: column;
 	}
 	main {
 		flex: 1;
-		@include flex(column);
+		display: flex;
+		flex-direction: column;
 	}
 	header {
 		padding: 0.75rem 2rem 0.75rem 2rem;
-		@include flex(row, space-between, center);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 	.title {
 		gap: 1rem;
 		text-decoration: none;
-		@include flex(row, null, center);
+		display: flex;
+		align-items: center;
 	}
 	h1 {
 		margin: 0;
@@ -199,29 +204,29 @@
 	}
 	nav {
 		gap: 0.5rem;
-		a:active {
-			background-color: var(--bg-2);
-		}
-		@include flex(row, null, center);
+		display: flex;
+		align-items: center;
 	}
 	.search {
 		padding: 0.75rem;
 		font-size: 1.2rem;
-		@include flex(row, center, center);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	footer {
 		padding: 0 2rem;
 		margin-top: 6rem;
 	}
 	.footer-inner {
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		border-bottom: none;
 		padding: 2rem 0rem 3rem 2rem;
 		margin: 0 auto;
 		gap: 2rem;
-		@include flex(row, null, null);
+		display: flex;
 		@include border;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		border-bottom: none;
 	}
 	.footer-logo {
 		height: 5rem;
@@ -233,10 +238,11 @@
 		gap: 1rem;
 		text-decoration: none;
 		margin-bottom: 1.5rem;
+		display: flex;
+		align-items: center;
 		h2 {
 			margin: 0;
 		}
-		@include flex(row, null, center);
 	}
 	.footer-left {
 		width: 27rem;
@@ -246,27 +252,30 @@
 	}
 	.footer-links {
 		flex: 1;
-		@include flex(row, space-evenly);
+		display: flex;
+		justify-content: space-evenly;
 	}
 	.footer-links-column {
 		gap: 4rem;
+		display: flex;
+		flex-direction: column;
 		a {
-			font-size: 1.1rem;
 			text-decoration: none;
 			font-weight: 400;
 			&:hover {
 				text-decoration: underline;
 			}
 		}
-		@include flex(column);
 	}
 	.footer-group {
 		gap: 1rem;
 		width: 10rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 		h3 {
 			margin: 0;
 		}
-		@include flex(column, null, start);
 	}
 
 	.preview-toggle {

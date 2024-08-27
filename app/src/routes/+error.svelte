@@ -14,7 +14,10 @@
 
 <style lang="scss">
 	.page {
-		@include flex(column, center, center);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.errorCode {
