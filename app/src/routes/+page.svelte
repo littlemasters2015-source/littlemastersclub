@@ -3,9 +3,9 @@
 	import support from '$lib/assets/signin.jpg';
 	import eventsImg from '$lib/assets/hands.jpg';
 
-	import { formatDateTimeRange } from '$lib/utils';
+	import EventPreview from '$lib/components/EventPreview.svelte';
+
 	import { useQuery } from '@sanity/svelte-loader';
-	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -67,18 +67,7 @@
 		<div class="events-container">
 			<div class="events-list">
 				{#each events as event}
-					<a class="box event" href={`/events/${event.slug.current}`}>
-						{#if event.image}
-							<img src={urlFor(event.image).url()} alt={event.title} />
-						{/if}
-						<div class="info">
-							<h3>{event.title}</h3>
-							{#if event.startTime && event.endTime}
-								<p>{formatDateTimeRange(event.startTime, event.endTime)}</p>
-							{/if}
-							<p class="description">{event.description}</p>
-						</div>
-					</a>
+					<EventPreview {event} />
 				{/each}
 			</div>
 			<img src={eventsImg} alt="events" />
@@ -192,40 +181,6 @@
 			flex-direction: column;
 			gap: 1.25rem;
 		}
-	}
-	.event {
-		display: block;
-		text-decoration: none;
-		padding: 0;
-		position: relative;
-		height: 11rem;
-		background-color: var(--bg-2);
-		overflow: hidden;
-
-		img {
-			position: absolute;
-			top: -2px;
-			left: -2px;
-			height: 11rem;
-			width: 11rem;
-		}
-
-		.info {
-			padding: 1.25rem 1.5rem;
-			margin-left: 11rem;
-
-			h3 {
-				margin: 0;
-				font-size: 1.5rem;
-			}
-			p {
-				margin: 0.75rem 0;
-			}
-			.description {
-				@include line-clamp(2);
-			}
-		}
-		@include elevate;
 	}
 
 	.youtube {

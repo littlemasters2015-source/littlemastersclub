@@ -29,7 +29,7 @@
 		text-decoration: none;
 		color: inherit;
 		font-weight: 500;
-		font-size: 1.1rem;
+		font-size: 1.125rem;
 	}
 	:global(.nav-dropdown-trigger) {
 		padding: 0.75rem 1rem;
