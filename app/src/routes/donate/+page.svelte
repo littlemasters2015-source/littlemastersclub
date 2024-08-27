@@ -32,6 +32,3 @@
 		can match them! Send donations to: Little Masters Club, P.O. Box 52732, Bellevue, WA 98015.
 	</p>
 </div>
-
-<style>
-</style>

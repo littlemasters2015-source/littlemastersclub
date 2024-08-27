@@ -42,12 +42,10 @@
 		@include border;
 	}
 	.events-container {
-		@include flex(column);
 		gap: 1.25rem;
+		@include flex(column);
 	}
 	.event {
-		@include elevate;
-		@include border;
 		display: block;
 		text-decoration: none;
 		padding: 0;
@@ -79,5 +77,7 @@
 				@include line-clamp(2);
 			}
 		}
+		@include elevate;
+		@include border;
 	}
 </style>

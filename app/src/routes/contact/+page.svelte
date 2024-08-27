@@ -20,9 +20,3 @@
 		</li>
 	</ul>
 </div>
-
-<style>
-	.page {
-		width: 100%;
-	}
-</style>

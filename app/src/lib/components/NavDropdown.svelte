@@ -46,10 +46,10 @@
 		background-color: var(--bg-2);
 	}
 	:global(.nav-dropdown-link) {
-		@include flex(row, null, center);
 		padding: 0.5rem;
 		transition: 0.15s;
 		transform: translateX(-1.25rem);
+		@include flex(row, null, center);
 	}
 	:global(.nav-dropdown-link:hover) {
 		transform: translateX(0);
@@ -67,10 +67,10 @@
 	:global(.nav-dropdown-content) {
 		margin-top: 0.5rem;
 		background-color: var(--bg);
-		@include border;
 		border-radius: 2rem;
 		padding: 0.75rem 1.25rem 0.75rem 0.75rem;
 		display: flex;
 		flex-direction: column;
+		@include border;
 	}
 </style>

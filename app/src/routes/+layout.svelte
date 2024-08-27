@@ -32,13 +32,13 @@
 				]}
 				path={$page.url.pathname}
 			/>
-			<a
+			<!-- <a
 				class="nav-dropdown-trigger"
 				class:active={$page.url.pathname === '/newsletter'}
 				href="/newsletter"
 			>
 				Newsletter
-			</a>
+			</a> -->
 			<NavDropdown
 				title="Programs"
 				data={[
@@ -165,21 +165,21 @@
 
 <style lang="scss">
 	.container {
-		@include flex(column);
 		min-height: 100vh;
+		@include flex(column);
 	}
 	main {
-		@include flex(column);
 		flex: 1;
+		@include flex(column);
 	}
 	header {
-		@include flex(row, space-between, center);
 		padding: 0.75rem 2rem 0.75rem 2rem;
+		@include flex(row, space-between, center);
 	}
 	.title {
-		@include flex(row, null, center);
 		gap: 1rem;
 		text-decoration: none;
+		@include flex(row, null, center);
 	}
 	h1 {
 		margin: 0;
@@ -194,15 +194,15 @@
 	.logo {
 		height: 3.25rem;
 		width: 3.25rem;
-		@include border;
 		border-radius: 1rem;
+		@include border;
 	}
 	nav {
-		@include flex(row, null, center);
 		gap: 0.5rem;
 		a:active {
 			background-color: var(--bg-2);
 		}
+		@include flex(row, null, center);
 	}
 	.search {
 		padding: 0.75rem;
@@ -214,29 +214,29 @@
 		margin-top: 6rem;
 	}
 	.footer-inner {
-		@include border;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
 		border-bottom: none;
 		padding: 2rem 0rem 3rem 2rem;
 		margin: 0 auto;
-		@include flex(row, null, null);
 		gap: 2rem;
+		@include flex(row, null, null);
+		@include border;
 	}
 	.footer-logo {
 		height: 5rem;
 		width: 5rem;
-		@include border;
 		border-radius: 1.5rem;
+		@include border;
 	}
 	.footer-title {
-		@include flex(row, null, center);
 		gap: 1rem;
 		text-decoration: none;
 		margin-bottom: 1.5rem;
 		h2 {
 			margin: 0;
 		}
+		@include flex(row, null, center);
 	}
 	.footer-left {
 		width: 27rem;
@@ -249,7 +249,6 @@
 		@include flex(row, space-evenly);
 	}
 	.footer-links-column {
-		@include flex(column);
 		gap: 4rem;
 		a {
 			font-size: 1.1rem;
@@ -259,14 +258,15 @@
 				text-decoration: underline;
 			}
 		}
+		@include flex(column);
 	}
 	.footer-group {
-		@include flex(column, null, start);
 		gap: 1rem;
 		width: 10rem;
 		h3 {
 			margin: 0;
 		}
+		@include flex(column, null, start);
 	}
 
 	.preview-toggle {

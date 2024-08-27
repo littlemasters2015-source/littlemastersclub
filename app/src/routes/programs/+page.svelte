@@ -55,24 +55,24 @@
 	.programs-container {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-		gap: 2rem;
+		gap: 1.25rem;
 	}
 
 	.program {
-		@include border;
-		@include elevate;
 		display: flex;
 		flex-direction: column;
 		text-decoration: none;
 		img {
-			@include border;
 			aspect-ratio: 16/9;
 			object-fit: cover;
 			width: calc(100% + 4px);
 			position: relative;
 			top: -2px;
 			left: -2px;
+			@include border;
 		}
+		@include border;
+		@include elevate;
 	}
 	.info {
 		padding: 1rem 1.5rem;

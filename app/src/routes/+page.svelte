@@ -200,7 +200,6 @@
 		height: 11rem;
 		background-color: var(--bg-2);
 		overflow: hidden;
-		@include elevate;
 
 		img {
 			position: absolute;
@@ -225,12 +224,14 @@
 				@include line-clamp(2);
 			}
 		}
+		@include elevate;
 	}
+
 	.youtube {
-		@include border;
 		overflow: hidden;
 		iframe {
 			display: block;
 		}
+		@include border;
 	}
 </style>

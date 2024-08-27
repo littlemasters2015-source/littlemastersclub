@@ -24,10 +24,10 @@
 
 <style lang="scss">
 	img {
-		@include border;
 		width: 100%;
 		max-height: 30rem;
 		object-fit: cover;
 		margin: 0 0 1rem 0;
+		@include border;
 	}
 </style>
