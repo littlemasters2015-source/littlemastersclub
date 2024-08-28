@@ -28,15 +28,10 @@
 
 <style lang="scss">
 	img {
-		max-width: 800px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 30px;
-		margin-bottom: 40px;
-	}
-	div {
-		margin-left: 7%;
-		margin-right: 7%;
+		@include border;
+		width: 100%;
+		max-height: 30rem;
+		object-fit: cover;
+		margin: 0 0 1rem 0;
 	}
 </style>

@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import { useQuery } from '@sanity/svelte-loader';
-	import { formatDateRange, formatTimeRange, isValidUrl } from '$lib/utils';
+	import { isValidUrl } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
+	import DateTimeRange from '$lib/components/DateTimeRange.svelte';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -19,10 +20,7 @@
 	<h2>Details</h2>
 	{#if event.startTime && event.endTime}
 		<p>
-			<b>Date:</b>&nbsp; {formatDateRange(event.startTime, event.endTime)}
-		</p>
-		<p>
-			<b>Time:</b>&nbsp; {formatTimeRange(event.startTime, event.endTime)}
+			<b>Date & Time:</b>&nbsp; <DateTimeRange start={event.startTime} end={event.endTime} />
 		</p>
 	{/if}
 	{#if event.details}

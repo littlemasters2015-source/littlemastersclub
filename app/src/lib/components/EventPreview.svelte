@@ -7,7 +7,7 @@
 	console.log(typeof event.startTime);
 </script>
 
-<a class="box" href={`/events/${event.slug.current}`}>
+<a href={`/events/${event.slug.current}`}>
 	{#if event.image}
 		<img src={urlFor(event.image).url()} alt={event.title} />
 	{/if}
@@ -26,11 +26,11 @@
 	a {
 		display: flex;
 		text-decoration: none;
-		padding: 0;
 		position: relative;
 		height: 11rem;
 		background-color: var(--bg-2);
 		overflow: hidden;
+		@include border;
 		@include elevate;
 	}
 
@@ -59,7 +59,7 @@
 	}
 
 	p {
-		margin: 0.75rem 0;
+		margin: 0.75rem 0 0 0;
 	}
 	.description {
 		@include line-clamp(2);

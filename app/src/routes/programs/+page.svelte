@@ -3,6 +3,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
+	import { stegaClean } from '@sanity/client/stega';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -36,7 +37,7 @@
 		{#each filteredPrograms as program}
 			<a class="program" href={`/programs/${program.slug.current}`}>
 				{#if program.image}
-					<img src={urlFor(program.image).url()} alt={program.title} />
+					<img src={urlFor(program.image).url()} alt={stegaClean(program.title)} />
 				{/if}
 				<div class="info">
 					<h2>{program.title}</h2>
@@ -62,25 +63,34 @@
 		display: flex;
 		flex-direction: column;
 		text-decoration: none;
+		align-items: stretch;
+		padding: none;
+		overflow: hidden;
 		@include border;
+
 		img {
-			aspect-ratio: 16/9;
 			object-fit: cover;
 			width: calc(100% + 4px);
+			aspect-ratio: 16/9;
 			position: relative;
 			top: -2px;
 			left: -2px;
 			@include border;
 		}
+
 		@include elevate;
 	}
+
 	.info {
-		padding: 1rem 1.5rem;
+		padding: 1rem 1.25rem 1.5rem 1.25rem;
+
 		h2 {
 			margin: 0;
+			font-size: 1.5rem;
+			@include line-clamp(1);
 		}
 		p {
-			margin: 0.75rem 0;
+			margin: 0.75rem 0 0 0;
 		}
 	}
 </style>
