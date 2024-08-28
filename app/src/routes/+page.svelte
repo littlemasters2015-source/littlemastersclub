@@ -4,6 +4,11 @@
 	import eventsImg from '$lib/assets/hands.jpg';
 
 	import EventPreview from '$lib/components/EventPreview.svelte';
+	import emblaCarouselSvelte from 'embla-carousel-svelte';
+	import type { EmblaCarouselType } from 'embla-carousel';
+	import Autoplay from 'embla-carousel-autoplay';
+	import ArrowLeftIcon from '~icons/ph/arrow-left';
+	import ArrowRightIcon from '~icons/ph/arrow-right';
 
 	import { useQuery } from '@sanity/svelte-loader';
 	import type { PageData } from './$types';
@@ -12,11 +17,44 @@
 	const q = useQuery(data);
 
 	$: ({ data: events } = $q);
+
+	let emblaApi: EmblaCarouselType;
+	let options = { loop: true };
+	let plugins = [Autoplay({ delay: 4000 })];
+
+	function onInit(event: CustomEvent<EmblaCarouselType>) {
+		emblaApi = event.detail;
+		console.log(emblaApi.slideNodes());
+	}
 </script>
 
 <div class="page">
 	<section class="head">
-		<img class="banner" src={banner} alt="banner" />
+		<div class="embla">
+			<div
+				class="embla__viewport"
+				use:emblaCarouselSvelte={{ options, plugins }}
+				on:emblaInit={onInit}
+			>
+				<div class="embla__container">
+					<div class="embla__slide">
+						<img class="banner" src={banner} alt="banner" />
+					</div>
+					<div class="embla__slide">
+						<img class="banner" src={banner} alt="banner" />
+					</div>
+					<div class="embla__slide">
+						<img class="banner" src={banner} alt="banner" />
+					</div>
+				</div>
+			</div>
+			<button class="embla__prev" on:click={() => emblaApi.scrollPrev()}>
+				<ArrowLeftIcon style="font-size: 1.5rem;" />
+			</button>
+			<button class="embla__next" on:click={() => emblaApi.scrollNext()}>
+				<ArrowRightIcon style="font-size: 1.5rem;" />
+			</button>
+		</div>
 		<div class="container">
 			<div class="box title">
 				<h1>Every Kid is a Master.</h1>
@@ -51,7 +89,7 @@
 	</section>
 
 	<section class="support">
-		<img src={support} alt="support" />
+		<img class="image" src={support} alt="support" />
 		<div class="box">
 			<h2>Support Us</h2>
 			<p>
@@ -97,11 +135,57 @@
 		grid-template-columns: 1fr auto 1fr;
 		max-width: unset;
 	}
-	.banner {
+	.embla {
+		position: relative;
 		grid-row: 1 / 3;
 		grid-column: 1 / 4;
 		height: 40vh;
-		object-position: 50% 65%;
+		overflow: hidden;
+		@include border;
+	}
+	.embla__viewport {
+		height: 100%;
+	}
+	.embla__container {
+		display: flex;
+		height: 100%;
+	}
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
+	}
+	.embla__slide img {
+		border-radius: 0;
+		border: none;
+		height: 100%;
+	}
+	.embla__prev,
+	.embla__next {
+		position: absolute;
+		left: 1.25rem;
+		top: calc(50% - 1.75rem);
+		bottom: 0;
+		background-color: var(--bg);
+		border-radius: 50%;
+		width: 3.5rem;
+		height: 3.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		@include border;
+		@include elevate;
+		& {
+			transition: 0.2s;
+		}
+	}
+	.embla__next {
+		left: unset;
+		right: 1.25rem;
+	}
+	.embla:hover .embla__prev,
+	.embla:hover .embla__next {
+		opacity: 1;
 	}
 	.container {
 		max-width: 66rem;
@@ -111,6 +195,7 @@
 		gap: 1.25rem;
 		grid-template-columns: auto auto 1fr;
 		grid-template-rows: 1fr auto;
+		z-index: 1;
 	}
 	.title {
 		grid-row: 1;

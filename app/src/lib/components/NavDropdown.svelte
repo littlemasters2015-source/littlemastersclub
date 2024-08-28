@@ -36,14 +36,14 @@
 		transition: 0.1s;
 		border-radius: 2rem;
 		border: 2px solid transparent;
-		transition:
-			transform 0.1s,
-			box-shadow 0.1s;
 	}
 	:global(.nav-dropdown-trigger:hover),
 	:global(.nav-dropdown-trigger.active),
 	:global(.nav-dropdown-trigger[data-state='open']) {
 		border-color: var(--txt);
+	}
+	:global(.nav-dropdown-trigger[data-state='open']) {
+		background-color: var(--bg-2);
 	}
 	:global(.nav-dropdown-trigger:hover),
 	:global(.nav-dropdown-trigger[data-state='open']) {
@@ -78,7 +78,5 @@
 		display: flex;
 		flex-direction: column;
 		@include border;
-		// transform: translate(-2px, -2px);
-		// box-shadow: 2px 2px 0px 0px var(--txt);
 	}
 </style>
