@@ -1,6 +1,7 @@
 <script>
 	import DateTimeRange from '$lib/components/DateTimeRange.svelte';
 	import { urlFor } from '$lib/sanity/image';
+	import { stegaClean } from '@sanity/client/stega';
 
 	export let event;
 
@@ -9,7 +10,7 @@
 
 <a href={`/events/${event.slug.current}`}>
 	{#if event.image}
-		<img src={urlFor(event.image).url()} alt={event.title} />
+		<img src={urlFor(event.image).url()} alt="Image for {stegaClean(event.title)}" />
 	{/if}
 	<div class="info">
 		<h3>{event.title}</h3>

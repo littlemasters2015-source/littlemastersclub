@@ -83,3 +83,12 @@ export interface Category {
 	_type: 'category';
 	name: string;
 }
+
+export const boardMembersQuery = groq`*[_type == "boardMember" && published == true]`;
+
+export interface BoardMember {
+	_type: 'boardMember';
+	name: string;
+	image?: ImageAsset;
+	body: PortableTextBlock[];
+}

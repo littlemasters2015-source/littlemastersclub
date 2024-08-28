@@ -37,7 +37,7 @@
 		{#each filteredPrograms as program}
 			<a class="program" href={`/programs/${program.slug.current}`}>
 				{#if program.image}
-					<img src={urlFor(program.image).url()} alt={stegaClean(program.title)} />
+					<img src={urlFor(program.image).url()} alt="Image for {stegaClean(program.title)}" />
 				{/if}
 				<div class="info">
 					<h2>{program.title}</h2>

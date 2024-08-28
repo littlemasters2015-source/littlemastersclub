@@ -4,24 +4,25 @@
 	import { formatDate } from '$lib/utils';
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
+	import { stegaClean } from '@sanity/client/stega';
 
 	export let data: PageData;
 	const q = useQuery(data);
 
-	$: ({ data: event } = $q);
+	$: ({ data: program } = $q);
 </script>
 
 <div class="page">
-	<h1>{event.title}</h1>
-	{#if event.image}
-		<img src={urlFor(event.image).url()} alt="Image for {event.title}" />
+	<h1>{program.title}</h1>
+	{#if program.image}
+		<img src={urlFor(program.image).url()} alt="Image for {stegaClean(program.title)}" />
 	{/if}
 	<p class="date">
-		{formatDate(event._createdAt)}
+		{formatDate(program._createdAt)}
 	</p>
-	{#if event.body}
+	{#if program.body}
 		<div class="content">
-			<PortableText components={{}} value={event.body} />
+			<PortableText components={{}} value={program.body} />
 		</div>
 	{/if}
 </div>

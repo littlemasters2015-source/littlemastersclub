@@ -5,6 +5,7 @@
 	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
 	import DateTimeRange from '$lib/components/DateTimeRange.svelte';
+	import { stegaClean } from '@sanity/client/stega';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -15,7 +16,7 @@
 <div class="page">
 	<h1>{event.title}</h1>
 	{#if event.image}
-		<img src={urlFor(event.image).url()} alt="Image for {event.title}" />
+		<img src={urlFor(event.image).url()} alt="Image for {stegaClean(event.title)}" />
 	{/if}
 	<h2>Details</h2>
 	{#if event.startTime && event.endTime}
