@@ -12,10 +12,14 @@
 
 	let title: string = 'Programs';
 
-	$: {
-		if ($page.url.searchParams.get('status') === 'old') {
-			title = 'Old Programs';
-		}
+	$: if ($page.url.searchParams.get('status') === 'old') {
+		title = 'Old Programs';
+	} else if ($page.url.searchParams.get('category')) {
+		const category = $page.url.searchParams.get('category') || '';
+		const capitalized = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
+		title = `${capitalized} Programs`;
+	} else {
+		title = 'Programs';
 	}
 
 	$: filteredPrograms = programs.filter((program) => {
