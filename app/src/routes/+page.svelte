@@ -1,7 +1,7 @@
 <script lang="ts">
-	import banner from '$lib/assets/banner.jpg';
-	import support from '$lib/assets/signin.jpg';
-	import eventsImg from '$lib/assets/hands.jpg';
+	import banner from '$lib/assets/banner.jpg?as=lg';
+	import support from '$lib/assets/signin.jpg?as=md';
+	import eventsImg from '$lib/assets/hands.jpg?as=md';
 
 	import EventPreview from '$lib/components/EventPreview.svelte';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
@@ -9,6 +9,7 @@
 	import Autoplay from 'embla-carousel-autoplay';
 	import ArrowLeftIcon from '~icons/ph/arrow-left';
 	import ArrowRightIcon from '~icons/ph/arrow-right';
+	import Img from '@zerodevx/svelte-img';
 
 	import { useQuery } from '@sanity/svelte-loader';
 	import type { PageData } from './$types';
@@ -38,13 +39,13 @@
 			>
 				<div class="embla__container">
 					<div class="embla__slide">
-						<img class="banner" src={banner} alt="banner" />
+						<Img class="image" src={banner} alt="banner" />
 					</div>
 					<div class="embla__slide">
-						<img class="banner" src={banner} alt="banner" />
+						<Img class="image" src={banner} alt="banner" />
 					</div>
 					<div class="embla__slide">
-						<img class="banner" src={banner} alt="banner" />
+						<Img class="image" src={banner} alt="banner" />
 					</div>
 				</div>
 			</div>
@@ -89,7 +90,7 @@
 	</section>
 
 	<section class="support">
-		<img class="image" src={support} alt="support" />
+		<Img class="image" src={support} alt="support" />
 		<div class="box">
 			<h2>Support Us</h2>
 			<p>
@@ -108,7 +109,7 @@
 					<EventPreview {event} />
 				{/each}
 			</div>
-			<img src={eventsImg} alt="events" />
+			<Img class="image" src={eventsImg} alt="events" />
 		</div>
 	</section>
 </div>
@@ -123,11 +124,24 @@
 		margin-bottom: 6rem;
 		max-width: 66rem;
 	}
-	img {
-		width: 100%;
-		height: auto;
+	.page :global(.image) {
 		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+	.page :global(picture) {
 		@include border;
+	}
+	.events-container :global(picture) {
+		width: 30%;
+	}
+	.support :global(picture) {
+		width: 60%;
+	}
+	.embla :global(picture) {
+		border-radius: 0;
+		border: none;
+		height: 100%;
 	}
 	.head {
 		display: grid;
@@ -154,7 +168,7 @@
 		flex: 0 0 100%;
 		min-width: 0;
 	}
-	.embla__slide img {
+	.embla__slide :global(.banner) {
 		border-radius: 0;
 		border: none;
 		height: 100%;

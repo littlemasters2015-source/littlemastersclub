@@ -4,9 +4,10 @@
 	import LiveMode from '../lib/components/LiveMode.svelte';
 	import '../global.scss';
 	import '@fontsource-variable/outfit';
-	import logo from '$lib/assets/lmc-logo.jpg';
-	import SearchIcon from '~icons/ph/magnifying-glass-bold';
+	import logo from '$lib/assets/logo.jpg?as=logo';
+	// import SearchIcon from '~icons/ph/magnifying-glass-bold';
 	import NavDropdown from '$lib/components/NavDropdown.svelte';
+	import Img from '@zerodevx/svelte-img';
 </script>
 
 {#if $isPreviewing}
@@ -19,7 +20,7 @@
 <div class="container">
 	<header>
 		<a class="title" href="/">
-			<img class="logo" src={logo} alt="Little Masters Club" />
+			<Img class="logo" src={logo} alt="Little Masters Club Logo" />
 			<h1>Little Masters Club | <span>小大师聚乐部</span></h1>
 		</a>
 		<nav>
@@ -75,7 +76,7 @@
 				]}
 				path={$page.url.pathname}
 			/>
-			<button class="search"><SearchIcon /></button>
+			<!-- <button class="search"><SearchIcon /></button> -->
 		</nav>
 	</header>
 	<main>
@@ -85,7 +86,7 @@
 		<div class="footer-inner">
 			<div class="footer-left">
 				<a class="footer-title" href="/">
-					<img class="footer-logo" src={logo} alt="Little Masters Club" />
+					<Img class="footer-logo" src={logo} alt="Little Masters Club" />
 					<h2>Little Masters Club<br /><span>小大师聚乐部</span></h2>
 				</a>
 				<p>
@@ -196,7 +197,7 @@
 		margin-top: 0.2rem;
 		vertical-align: text-top;
 	}
-	.logo {
+	:global(.logo) {
 		height: 3.25rem;
 		width: 3.25rem;
 		border-radius: 1rem;
@@ -228,11 +229,11 @@
 		border-bottom-right-radius: 0;
 		border-bottom: none;
 	}
-	.footer-logo {
+	:global(.footer-logo) {
 		height: 5rem;
 		width: 5rem;
-		border-radius: 1.5rem;
 		@include border;
+		border-radius: 50%;
 	}
 	.footer-title {
 		gap: 1rem;
