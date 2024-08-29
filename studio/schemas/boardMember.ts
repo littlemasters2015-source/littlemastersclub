@@ -14,6 +14,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'order',
+      title: 'order (lowest first)',
+      type: 'number',
+    }),
+    defineField({
       name: 'image',
       type: 'image',
       options: {

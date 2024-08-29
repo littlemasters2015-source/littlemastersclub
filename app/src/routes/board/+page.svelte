@@ -48,13 +48,15 @@
 		img {
 			aspect-ratio: 5 / 6;
 			object-fit: cover;
-			width: 20rem;
+			width: 40%;
+			max-width: 20rem;
 			height: auto;
 			@include border;
 		}
 	}
 
 	.info {
+		flex: 1;
 		h2 {
 			margin: 0;
 		}
