@@ -79,9 +79,14 @@
 		:global(picture) {
 			width: calc(100% + 4px);
 			aspect-ratio: 16/9;
+			height: auto;
 			position: relative;
 			top: -2px;
 			left: -2px;
+		}
+
+		:global(img) {
+			aspect-ratio: 16 / 9;
 		}
 
 		@include elevate;
