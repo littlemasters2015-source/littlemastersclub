@@ -32,11 +32,8 @@
 </div>
 
 <style lang="scss">
-	img {
-		width: 100%;
+	.page :global(img) {
 		max-height: 30rem;
-		object-fit: cover;
 		margin: 0 0 1rem 0;
-		@include border;
 	}
 </style>
