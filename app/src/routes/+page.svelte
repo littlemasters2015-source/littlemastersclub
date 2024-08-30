@@ -39,13 +39,13 @@
 			>
 				<div class="embla__container">
 					<div class="embla__slide">
-						<Img class="image" src={banner} alt="banner" />
+						<Img src={banner} alt="banner" />
 					</div>
 					<div class="embla__slide">
-						<Img class="image" src={banner} alt="banner" />
+						<Img src={banner} alt="banner" />
 					</div>
 					<div class="embla__slide">
-						<Img class="image" src={banner} alt="banner" />
+						<Img src={banner} alt="banner" />
 					</div>
 				</div>
 			</div>
@@ -90,7 +90,7 @@
 	</section>
 
 	<section class="support">
-		<Img class="image" src={support} alt="support" />
+		<Img src={support} alt="support" />
 		<div class="box">
 			<h2>Support Us</h2>
 			<p>
@@ -109,7 +109,7 @@
 					<EventPreview {event} />
 				{/each}
 			</div>
-			<Img class="image" src={eventsImg} alt="events" />
+			<Img src={eventsImg} alt="events" />
 		</div>
 	</section>
 </div>
@@ -124,14 +124,6 @@
 		margin-bottom: 6rem;
 		max-width: 66rem;
 	}
-	.page :global(.image) {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-	}
-	.page :global(picture) {
-		@include border;
-	}
 	.events-container :global(picture) {
 		width: 30%;
 	}
@@ -139,9 +131,11 @@
 		width: 60%;
 	}
 	.embla :global(picture) {
+		height: 100%;
+	}
+	.embla :global(img) {
 		border-radius: 0;
 		border: none;
-		height: 100%;
 	}
 	.head {
 		display: grid;

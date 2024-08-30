@@ -43,7 +43,7 @@
 			<NavDropdown
 				title="Programs"
 				data={[
-					{ name: 'All Programs', href: '/programs' },
+					{ name: 'Programs', href: '/programs' },
 					{ name: 'Old Programs', href: '/programs?status=old' }
 				]}
 				path={$page.url.pathname}
@@ -200,8 +200,7 @@
 	:global(.logo) {
 		height: 3.25rem;
 		width: 3.25rem;
-		border-radius: 1rem;
-		@include border;
+		border-radius: 50%;
 	}
 	nav {
 		gap: 0.5rem;
@@ -232,7 +231,6 @@
 	:global(.footer-logo) {
 		height: 5rem;
 		width: 5rem;
-		@include border;
 		border-radius: 50%;
 	}
 	.footer-title {

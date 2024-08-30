@@ -26,6 +26,9 @@
 		if ($page.url.searchParams.get('status') === 'old') {
 			return program.status === 'old';
 		}
+		if (program.status === 'old') {
+			return false;
+		}
 		if ($page.url.searchParams.get('category')) {
 			return program.categories?.some(
 				(category) => category._ref === $page.url.searchParams.get('category')

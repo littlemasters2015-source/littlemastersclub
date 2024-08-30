@@ -1,10 +1,11 @@
 <script lang="ts">
-	import mg1 from '$lib/assets/mg1.png';
-	import mg2 from '$lib/assets/mg2.png';
-	import mg3 from '$lib/assets/mg3.png';
-	import mg4 from '$lib/assets/mg4.png';
-	import mg5 from '$lib/assets/mg5.png';
-	import mg6 from '$lib/assets/mg6.png';
+	import Img from '@zerodevx/svelte-img';
+	import mg1 from '$lib/assets/mg1.png?as=md';
+	import mg2 from '$lib/assets/mg2.png?as=md';
+	import mg3 from '$lib/assets/mg3.png?as=md';
+	import mg4 from '$lib/assets/mg4.png?as=md';
+	import mg5 from '$lib/assets/mg5.png?as=md';
+	import mg6 from '$lib/assets/mg6.png?as=md';
 </script>
 
 <div class="page">
@@ -33,7 +34,7 @@
 		<p>2. Click “Track Time” icon, refer to below screenshot</p>
 	</ul>
 
-	<img alt="mg" src={mg1} class="img1" />
+	<Img alt="Click “Track Time” icon" src={mg1} />
 	<ul>
 		<p>
 			3. You will be directed to the page as below. Search for “Little Masters Club”, then select
@@ -43,9 +44,12 @@
 			at Little Masters Club and click “next” at the bottom.
 		</p>
 	</ul>
-	<div class="after">
-		<img alt="mg" src={mg2} class="img" />
-		<img alt="mg" src={mg3} class="img" />
+	<div class="columns">
+		<Img alt="Select the project you want to donate to" src={mg2} />
+		<Img
+			alt="Input your volunteer date and the number of hours, then select “Company Match”"
+			src={mg3}
+		/>
 	</div>
 	<ul><p>4. Go to the next page and submit!</p></ul>
 
@@ -73,7 +77,7 @@
 			logo.
 		</p>
 	</ul>
-	<img alt="mg" src={mg4} class="img1" />
+	<Img alt="mg" src={mg4} />
 	<ul>
 		<p>
 			3. After adding Little Masters Club, select the donation type, amount and date. If you want to
@@ -81,9 +85,9 @@
 		</p>
 		<p>4. Click “Submit Match Request” and be done!</p>
 	</ul>
-	<div class="after">
-		<img alt="mg" src={mg5} class="img" />
-		<img alt="mg" src={mg6} class="img" />
+	<div class="columns">
+		<Img alt="mg" src={mg5} />
+		<Img alt="mg" src={mg6} />
 	</div>
 
 	<h2>Appendix</h2>
@@ -94,35 +98,8 @@
 </div>
 
 <style lang="scss">
-	.page {
-		margin: auto;
-		max-width: 55rem;
-		padding: 0rem 1.5rem;
-	}
-	.img {
-		float: left;
-		width: 50%;
-		padding: 5px;
-		margin-bottom: 20px;
-	}
-	.after:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-	.img1 {
-		display: block;
-		width: 100%;
-		max-width: 55rem;
-		height: auto;
-		margin-left: auto;
-		margin-right: auto;
-		padding: 20px 1.5rem;
-	}
-
-	@media screen and (max-width: 700px) {
-		.img {
-			width: 100%;
-		}
+	.columns {
+		display: flex;
+		gap: 1.25rem;
 	}
 </style>
