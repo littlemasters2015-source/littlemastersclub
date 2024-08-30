@@ -3,6 +3,7 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import { srcFor } from '$lib/sanity/image';
 	import Img from '@zerodevx/svelte-img';
+	import Image from '$lib/components/Image.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -18,7 +19,14 @@
 	{/if}
 	{#if newsletter.body}
 		<div class="content">
-			<PortableText components={{}} value={newsletter.body} />
+			<PortableText
+				components={{
+					types: {
+						image: Image
+					}
+				}}
+				value={newsletter.body}
+			/>
 		</div>
 	{/if}
 </div>
