@@ -2,7 +2,8 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import type { PageData } from './$types';
 	import { PortableText } from '@portabletext/svelte';
-	import { urlFor } from '$lib/sanity/image';
+	import { srcFor } from '$lib/sanity/image';
+	import Img from '@zerodevx/svelte-img';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -21,7 +22,7 @@
 					<PortableText components={{}} value={boardMember.body} />
 				</div>
 				{#if boardMember.image}
-					<img src={urlFor(boardMember.image).url()} alt={boardMember.name} />
+					<Img src={srcFor(boardMember.image, 'sm')} alt={boardMember.name} />
 				{/if}
 			</div>
 		{/each}
@@ -45,13 +46,11 @@
 		align-items: flex-start;
 		gap: 2.5rem;
 
-		img {
+		:global(picture) {
 			aspect-ratio: 5 / 6;
 			object-fit: cover;
 			width: 40%;
 			max-width: 20rem;
-			height: auto;
-			@include border;
 		}
 	}
 

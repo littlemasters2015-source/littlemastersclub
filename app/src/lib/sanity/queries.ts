@@ -84,11 +84,12 @@ export interface Category {
 	name: string;
 }
 
-export const boardMembersQuery = groq`*[_type == "boardMember" && published == true]`;
+export const boardMembersQuery = groq`*[_type == "boardMember" && published == true] | order(order asc)`;
 
 export interface BoardMember {
 	_type: 'boardMember';
 	name: string;
+	order: number;
 	image?: ImageAsset;
 	body: PortableTextBlock[];
 }

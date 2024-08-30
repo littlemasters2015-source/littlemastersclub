@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { PortableText } from '@portabletext/svelte';
 	import { useQuery } from '@sanity/svelte-loader';
-	import { urlFor } from '$lib/sanity/image';
+	import { srcFor } from '$lib/sanity/image';
+	import Img from '@zerodevx/svelte-img';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -13,7 +14,7 @@
 <div class="page">
 	<h1>{newsletter.title}</h1>
 	{#if newsletter.image}
-		<img src={urlFor(newsletter.image).url()} alt="Image for {newsletter.title}" />
+		<Img src={srcFor(newsletter.image)} alt="Image for {newsletter.title}" />
 	{/if}
 	{#if newsletter.body}
 		<div class="content">

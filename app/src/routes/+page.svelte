@@ -124,10 +124,10 @@
 		margin-bottom: 6rem;
 		max-width: 66rem;
 	}
-	.events-container :global(picture) {
+	.events-container > :global(picture) {
 		width: 30%;
 	}
-	.support :global(picture) {
+	.support > :global(picture) {
 		width: 60%;
 	}
 	.embla :global(picture) {

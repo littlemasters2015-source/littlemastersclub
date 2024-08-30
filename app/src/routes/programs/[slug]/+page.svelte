@@ -2,9 +2,10 @@
 	import { PortableText } from '@portabletext/svelte';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { formatDate } from '$lib/utils';
-	import { urlFor } from '$lib/sanity/image';
+	import { srcFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
 	import { stegaClean } from '@sanity/client/stega';
+	import Img from '@zerodevx/svelte-img';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -15,7 +16,7 @@
 <div class="page">
 	<h1>{program.title}</h1>
 	{#if program.image}
-		<img src={urlFor(program.image).url()} alt="Image for {stegaClean(program.title)}" />
+		<Img src={srcFor(program.image)} alt="Image for {stegaClean(program.title)}" />
 	{/if}
 	<p class="date">
 		{formatDate(program._createdAt)}

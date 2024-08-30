@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { formatDateTimeRange } from '$lib/utils';
 	import { useQuery } from '@sanity/svelte-loader';
-	import { urlFor } from '$lib/sanity/image';
 	import type { PageData } from './$types';
+	import NewsletterPreview from '$lib/components/NewsletterPreview.svelte';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -12,25 +11,17 @@
 
 <div class="page">
 	<h1>Newsletter</h1>
-	<div class="newsletters-container">
+	<div class="events-container">
 		{#each newsletters as newsletter}
-			<a class="newsletter" href={`/newsletter/${newsletter.slug.current}`}>
-				{#if newsletter.image}
-					<img src={urlFor(newsletter.image).url()} alt={newsletter.title} />
-				{/if}
-				<div class="info">
-					<h2>{newsletter.title}</h2>
-					<p>{newsletter.description}</p>
-				</div>
-			</a>
+			<NewsletterPreview {newsletter} />
 		{/each}
 	</div>
 </div>
 
 <style lang="scss">
 	.page {
-		max-width: 60rem;
 		width: 100%;
+		max-width: 60rem;
 	}
 	img {
 		width: 100%;
@@ -38,45 +29,9 @@
 		object-fit: cover;
 		@include border;
 	}
-	.newsletters-container {
+	.events-container {
 		gap: 1.25rem;
 		display: flex;
 		flex-direction: column;
-	}
-	.newsletter {
-		display: block;
-		text-decoration: none;
-		padding: 0;
-		position: relative;
-		height: 11rem;
-		background-color: var(--bg-2);
-		overflow: hidden;
-
-		img {
-			position: absolute;
-			top: -2px;
-			left: -2px;
-			height: 11rem;
-			width: 11rem;
-		}
-
-		.info {
-			padding: 1.25rem 1.5rem;
-			margin-left: 11rem;
-
-			h2 {
-				margin: 0;
-				font-size: 1.5rem;
-			}
-			p {
-				margin: 0.75rem 0;
-			}
-			.description {
-				@include line-clamp(2);
-			}
-		}
-
-		@include elevate;
-		@include border;
 	}
 </style>

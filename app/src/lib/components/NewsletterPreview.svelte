@@ -1,26 +1,20 @@
 <script>
-	import DateTimeRange from '$lib/components/DateTimeRange.svelte';
 	import { srcFor } from '$lib/sanity/image';
 	import { stegaClean } from '@sanity/client/stega';
 	import Img from '@zerodevx/svelte-img';
 
-	export let event;
+	export let newsletter;
 
-	console.log(typeof event.startTime);
+	console.log(typeof newsletter.startTime);
 </script>
 
-<a href={`/events/${event.slug.current}`} class="event">
-	{#if event.image}
-		<Img src={srcFor(event.image, 'xs')} alt="Image for {stegaClean(event.title)}" />
+<a href={`/newsletter/${newsletter.slug.current}`} class="event">
+	{#if newsletter.image}
+		<Img src={srcFor(newsletter.image, 'xs')} alt="Image for {stegaClean(newsletter.title)}" />
 	{/if}
 	<div class="info">
-		<h3>{event.title}</h3>
-		{#if event.startTime && event.endTime}
-			<div class="time">
-				<DateTimeRange start={event.startTime} end={event.endTime} />
-			</div>
-		{/if}
-		<p class="description">{event.description}</p>
+		<h3>{newsletter.title}</h3>
+		<p class="description">{newsletter.description}</p>
 	</div>
 </a>
 
@@ -47,11 +41,6 @@
 
 	.info {
 		padding: 1.25rem;
-	}
-
-	.time {
-		font-size: 1.125rem;
-		margin: 0.75rem 0;
 	}
 
 	h3 {

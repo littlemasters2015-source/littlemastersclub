@@ -2,7 +2,8 @@
 	import { PortableText } from '@portabletext/svelte';
 	import { useQuery } from '@sanity/svelte-loader';
 	import { isValidUrl } from '$lib/utils';
-	import { urlFor } from '$lib/sanity/image';
+	import { srcFor } from '$lib/sanity/image';
+	import Img from '@zerodevx/svelte-img';
 	import type { PageData } from './$types';
 	import DateTimeRange from '$lib/components/DateTimeRange.svelte';
 	import { stegaClean } from '@sanity/client/stega';
@@ -16,7 +17,7 @@
 <div class="page">
 	<h1>{event.title}</h1>
 	{#if event.image}
-		<img src={urlFor(event.image).url()} alt="Image for {stegaClean(event.title)}" />
+		<Img src={srcFor(event.image)} alt="Image for {stegaClean(event.title)}" />
 	{/if}
 	<h2>Details</h2>
 	{#if event.startTime && event.endTime}

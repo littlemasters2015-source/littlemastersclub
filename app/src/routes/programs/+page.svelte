@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { useQuery } from '@sanity/svelte-loader';
-	import { urlFor } from '$lib/sanity/image';
+	import { srcFor } from '$lib/sanity/image';
+	import Img from '@zerodevx/svelte-img';
 	import type { PageData } from './$types';
 	import { page } from '$app/stores';
 	import { stegaClean } from '@sanity/client/stega';
@@ -44,7 +45,7 @@
 		{#each filteredPrograms as program}
 			<a class="program" href={`/programs/${program.slug.current}`}>
 				{#if program.image}
-					<img src={urlFor(program.image).url()} alt="Image for {stegaClean(program.title)}" />
+					<Img src={srcFor(program.image, 'sm')} alt="Image for {stegaClean(program.title)}" />
 				{/if}
 				<div class="info">
 					<h2>{program.title}</h2>
@@ -75,14 +76,12 @@
 		overflow: hidden;
 		@include border;
 
-		img {
-			object-fit: cover;
+		:global(picture) {
 			width: calc(100% + 4px);
 			aspect-ratio: 16/9;
 			position: relative;
 			top: -2px;
 			left: -2px;
-			@include border;
 		}
 
 		@include elevate;
