@@ -20,7 +20,7 @@
 
 <div class="page">
 	<a class="back" href="/events">
-		<ArrowLeftIcon style="font-size: 1.2rem;" /> Back to Events
+		<ArrowLeftIcon style="font-size: 1.125rem;" /> Back to Events
 	</a>
 	<h1>{event.title}</h1>
 	{#if event.image}

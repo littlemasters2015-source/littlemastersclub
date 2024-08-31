@@ -15,7 +15,7 @@
 
 <div class="page">
 	<a class="back" href="/newsletter">
-		<ArrowLeftIcon style="font-size: 1.2rem;" /> Back to Newsletter
+		<ArrowLeftIcon style="font-size: 1.125rem;" /> Back to Newsletter
 	</a>
 	<h1>{newsletter.title}</h1>
 	{#if newsletter.image}

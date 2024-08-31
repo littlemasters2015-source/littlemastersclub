@@ -17,7 +17,7 @@
 
 <div class="page">
 	<a class="back" href="/programs">
-		<ArrowLeftIcon style="font-size: 1.2rem;" /> Back to Programs
+		<ArrowLeftIcon style="font-size: 1.125rem;" /> Back to Programs
 	</a>
 	<h1>{program.title}</h1>
 	{#if program.image}
