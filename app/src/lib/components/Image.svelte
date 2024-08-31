@@ -3,6 +3,14 @@
 	import Img from '@zerodevx/svelte-img';
 
 	export let portableText;
+
+	$: console.log(portableText);
 </script>
 
-<Img src={srcFor(portableText.value)} alt="" />
+<figure>
+	<Img src={srcFor(portableText.value)} alt="" />
+
+	{#if portableText.value.caption}
+		<figcaption>{portableText.value.caption}</figcaption>
+	{/if}
+</figure>

@@ -37,7 +37,6 @@ export function urlFor(source: Image) {
 }
 
 export function srcFor(source: Image, profile = 'md') {
-	console.log(source);
 	const widths = getWidths(profile);
 	const image = builder.image(source);
 	return {

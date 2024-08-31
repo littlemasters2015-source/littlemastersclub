@@ -6,8 +6,8 @@
 	import type { PageData } from './$types';
 	import { stegaClean } from '@sanity/client/stega';
 	import Img from '@zerodevx/svelte-img';
-	import Image from '$lib/components/Image.svelte';
 	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
+	import portableComponents from '$lib/utils/portableComponents';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -28,14 +28,7 @@
 	</p>
 	{#if program.body}
 		<div class="content">
-			<PortableText
-				components={{
-					types: {
-						image: Image
-					}
-				}}
-				value={program.body}
-			/>
+			<PortableText components={portableComponents} value={program.body} />
 		</div>
 	{/if}
 </div>
@@ -43,6 +36,5 @@
 <style lang="scss">
 	.page :global(img) {
 		max-height: 30rem;
-		margin: 0 0 1rem 0;
 	}
 </style>

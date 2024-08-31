@@ -3,9 +3,9 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import { srcFor } from '$lib/sanity/image';
 	import Img from '@zerodevx/svelte-img';
-	import Image from '$lib/components/Image.svelte';
 	import type { PageData } from './$types';
 	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
+	import portableComponents from '$lib/utils/portableComponents';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -23,14 +23,7 @@
 	{/if}
 	{#if newsletter.body}
 		<div class="content">
-			<PortableText
-				components={{
-					types: {
-						image: Image
-					}
-				}}
-				value={newsletter.body}
-			/>
+			<PortableText components={portableComponents} value={newsletter.body} />
 		</div>
 	{/if}
 </div>
@@ -38,6 +31,5 @@
 <style lang="scss">
 	.page :global(img) {
 		max-height: 30rem;
-		margin: 0 0 1rem 0;
 	}
 </style>

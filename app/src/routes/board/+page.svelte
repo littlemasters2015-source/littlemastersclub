@@ -5,6 +5,7 @@
 	import { srcFor } from '$lib/sanity/image';
 	import Img from '@zerodevx/svelte-img';
 	import Image from '$lib/components/Image.svelte';
+	import YoutubeEmbed from '$lib/components/YoutubeEmbed.svelte';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -20,14 +21,7 @@
 			<div class="board-member">
 				<div class="info">
 					<h2>{boardMember.name}</h2>
-					<PortableText
-						components={{
-							types: {
-								image: Image
-							}
-						}}
-						value={boardMember.body}
-					/>
+					<PortableText components={{}} value={boardMember.body} />
 				</div>
 				{#if boardMember.image}
 					<Img src={srcFor(boardMember.image, 'sm')} alt={boardMember.name} />

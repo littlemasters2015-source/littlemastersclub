@@ -7,15 +7,13 @@
 	import type { PageData } from './$types';
 	import DateTimeRange from '$lib/components/DateTimeRange.svelte';
 	import { stegaClean } from '@sanity/client/stega';
-	import Image from '$lib/components/Image.svelte';
 	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
+	import portableComponents from '$lib/utils/portableComponents';
 
 	export let data: PageData;
 	const q = useQuery(data);
 
 	$: ({ data: event } = $q);
-
-	$: console.log(event);
 </script>
 
 <div class="page">
@@ -48,14 +46,7 @@
 	{#if event.body}
 		<h2>Description</h2>
 		<div class="content">
-			<PortableText
-				components={{
-					types: {
-						image: Image
-					}
-				}}
-				value={event.body}
-			/>
+			<PortableText components={portableComponents} value={event.body} />
 		</div>
 	{/if}
 </div>
@@ -63,6 +54,5 @@
 <style lang="scss">
 	.page :global(img) {
 		max-height: 30rem;
-		margin: 0 0 1rem 0;
 	}
 </style>

@@ -4,8 +4,6 @@
 	import Img from '@zerodevx/svelte-img';
 
 	export let newsletter;
-
-	console.log(typeof newsletter.startTime);
 </script>
 
 <a href={`/newsletter/${newsletter.slug.current}`} class="event">

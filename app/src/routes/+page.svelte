@@ -29,7 +29,6 @@
 
 	function onInit(event: CustomEvent<EmblaCarouselType>) {
 		emblaApi = event.detail;
-		console.log(emblaApi.slideNodes());
 	}
 </script>
 

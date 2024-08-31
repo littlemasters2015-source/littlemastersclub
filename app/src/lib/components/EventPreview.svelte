@@ -5,8 +5,6 @@
 	import Img from '@zerodevx/svelte-img';
 
 	export let event;
-
-	console.log(typeof event.startTime);
 </script>
 
 <a href={`/events/${event.slug.current}`} class="event">

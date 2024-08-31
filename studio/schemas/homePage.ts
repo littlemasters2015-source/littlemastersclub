@@ -13,6 +13,13 @@ export default defineType({
         defineField({
           name: 'carouselImage',
           type: 'image',
+          fields: [
+            defineField({
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+            }),
+          ],
           options: {
             hotspot: true,
           },
@@ -42,6 +49,13 @@ export default defineType({
       name: 'supportImage',
       title: 'Support Image',
       type: 'image',
+      fields: [
+        defineField({
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+        }),
+      ],
       options: {
         hotspot: true,
       },
@@ -55,6 +69,13 @@ export default defineType({
       name: 'eventsImage',
       title: 'Events Image',
       type: 'image',
+      fields: [
+        defineField({
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+        }),
+      ],
       options: {
         hotspot: true,
       },
