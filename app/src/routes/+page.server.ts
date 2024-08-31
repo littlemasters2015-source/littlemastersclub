@@ -1,12 +1,19 @@
-import { eventsQuery as query, type Event } from '$lib/sanity/queries';
+import { eventsQuery, type Event, homePageQuery, type HomePage } from '$lib/sanity/queries';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
-	const initial = await loadQuery<Event[]>(query);
+	const homepage = await loadQuery<HomePage>(homePageQuery);
+	const events = await loadQuery<Event[]>(eventsQuery);
 
 	return {
-		query,
-		options: { initial }
+		homepage: {
+			query: homePageQuery,
+			options: { initial: homepage }
+		},
+		events: {
+			query: eventsQuery,
+			options: { initial: events }
+		}
 	};
 };

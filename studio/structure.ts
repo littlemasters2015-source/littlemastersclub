@@ -4,7 +4,12 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Content')
     .items([
-      ...S.documentTypeListItems().filter((item) => item.getId() !== 'program'),
+      S.listItem()
+        .title('Home Page')
+        .child(S.document().schemaType('homePage').documentId('homePage')),
+      ...S.documentTypeListItems().filter(
+        (item) => !['program', 'homePage'].includes(item.getId() ?? ''),
+      ),
       S.listItem()
         .title('Current Programs')
         .child(

@@ -10,14 +10,18 @@
 	import ArrowLeftIcon from '~icons/ph/arrow-left';
 	import ArrowRightIcon from '~icons/ph/arrow-right';
 	import Img from '@zerodevx/svelte-img';
+	import { srcFor } from '$lib/sanity/image';
 
 	import { useQuery } from '@sanity/svelte-loader';
 	import type { PageData } from './$types';
+	import { PortableText } from '@portabletext/svelte';
 
 	export let data: PageData;
-	const q = useQuery(data);
+	const homepageUse = useQuery(data.homepage);
+	const eventsUse = useQuery(data.events);
 
-	$: ({ data: events } = $q);
+	$: ({ data: events } = $eventsUse);
+	$: ({ data: homepage } = $homepageUse);
 
 	let emblaApi: EmblaCarouselType;
 	let options = { loop: true };
@@ -38,15 +42,11 @@
 				on:emblaInit={onInit}
 			>
 				<div class="embla__container">
-					<div class="embla__slide">
-						<Img src={banner} alt="banner" />
-					</div>
-					<div class="embla__slide">
-						<Img src={banner} alt="banner" />
-					</div>
-					<div class="embla__slide">
-						<Img src={banner} alt="banner" />
-					</div>
+					{#each homepage.carousel as carouselImage}
+						<div class="embla__slide">
+							<Img src={srcFor(carouselImage, 'lg')} alt="carousel image" />
+						</div>
+					{/each}
 				</div>
 			</div>
 			<button class="embla__prev" on:click={() => emblaApi.scrollPrev()}>
@@ -61,15 +61,7 @@
 				<h1>Every Kid is a Master.</h1>
 			</div>
 			<div class="box description">
-				<p>
-					Little Masters Club is a 501(c)(3) nonprofit organization that seeks to provide an
-					encouraging environment for kids to be learners, mentors, team players, and leaders. We
-					promote “learning by doing” through a multitude of fun projects.
-				</p>
-				<p>
-					Our goal is to connect children to their community, invoke their compassion and
-					motivation, develop their skills, and give them an opportunity to shine.
-				</p>
+				<PortableText components={{}} value={homepage.description} />
 			</div>
 			<a class="action big" href="/join">Get Involved</a>
 			<a class="action big" href="/about">Learn More</a>
@@ -80,7 +72,7 @@
 		<iframe
 			width="1056"
 			height="594"
-			src="https://www.youtube-nocookie.com/embed/AyDXMj-lnzU?si=d3so5hBTkQydBJIT"
+			src={homepage.video}
 			title="YouTube video player"
 			frameborder="0"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -90,13 +82,9 @@
 	</section>
 
 	<section class="support">
-		<Img src={support} alt="support" />
+		<Img src={srcFor(homepage.supportImage, 'sm')} alt="support" />
 		<div class="box">
-			<h2>Support Us</h2>
-			<p>
-				We rely on the generosity of our community to provide children with engaging projects and
-				events. Your support is greatly appreciated!
-			</p>
+			<PortableText components={{}} value={homepage.supportText} />
 			<a class="action" href="/donate">Donate</a>
 		</div>
 	</section>
@@ -109,7 +97,7 @@
 					<EventPreview {event} />
 				{/each}
 			</div>
-			<Img src={eventsImg} alt="events" />
+			<Img src={srcFor(homepage.eventsImage)} alt="events" />
 		</div>
 	</section>
 </div>
@@ -123,12 +111,6 @@
 		margin: auto;
 		margin-bottom: 6rem;
 		max-width: 66rem;
-	}
-	.events-container > :global(picture) {
-		width: 30%;
-	}
-	.support > :global(picture) {
-		width: 60%;
 	}
 	.embla :global(picture) {
 		height: 100%;
@@ -222,7 +204,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		p {
+		:global(p) {
 			margin: 0;
 			font-size: 1.2rem;
 		}
@@ -241,20 +223,26 @@
 	.support {
 		display: flex;
 		gap: 1.25rem;
-		height: 18rem;
-		img {
-			width: 60%;
+		// height: 18rem;
+		> :global(picture) {
+			flex: 0 0 55%;
+			display: block;
+			position: relative;
+			overflow: hidden;
+		}
+		> :global(picture) > :global(img) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 			object-fit: cover;
 		}
 		p {
 			margin: 1rem 0;
 		}
 		.box {
-			width: 40%;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: flex-start;
+			flex: 0 0 calc(45% - 1.25rem);
 		}
 	}
 	h2.large {
@@ -265,7 +253,7 @@
 		display: flex;
 		gap: 1.25rem;
 
-		img {
+		> :global(picture) {
 			width: 30%;
 		}
 		.events-list {

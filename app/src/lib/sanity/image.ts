@@ -12,7 +12,7 @@ function getWidths(profile: string) {
 			return [160, 320];
 		case 'sm':
 			return [160, 320, 640];
-		case 'xl':
+		case 'lg':
 			return [640, 1280, 1920, 2560];
 		default:
 			return [320, 640, 1280];
@@ -37,6 +37,7 @@ export function urlFor(source: Image) {
 }
 
 export function srcFor(source: Image, profile = 'md') {
+	console.log(source);
 	const widths = getWidths(profile);
 	const image = builder.image(source);
 	return {

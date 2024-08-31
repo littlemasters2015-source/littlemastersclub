@@ -93,3 +93,16 @@ export interface BoardMember {
 	image?: ImageAsset;
 	body: PortableTextBlock[];
 }
+
+export const homePageQuery = groq`*[_type == "homePage"][0]`;
+
+export interface HomePage {
+	_type: 'homePage';
+	carousel: { carouselImage: ImageAsset }[];
+	hero?: string;
+	description: PortableTextBlock[];
+	video?: string;
+	supportImage: ImageAsset;
+	supportText: PortableTextBlock[];
+	eventsImage: ImageAsset;
+}
