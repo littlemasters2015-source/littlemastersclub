@@ -7,6 +7,7 @@
 	import { stegaClean } from '@sanity/client/stega';
 	import Img from '@zerodevx/svelte-img';
 	import Image from '$lib/components/Image.svelte';
+	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -15,6 +16,9 @@
 </script>
 
 <div class="page">
+	<a class="back" href="/programs">
+		<ArrowLeftIcon style="font-size: 1.2rem;" /> Back to Programs
+	</a>
 	<h1>{program.title}</h1>
 	{#if program.image}
 		<Img src={srcFor(program.image)} alt="Image for {stegaClean(program.title)}" />

@@ -5,6 +5,7 @@
 	import Img from '@zerodevx/svelte-img';
 	import Image from '$lib/components/Image.svelte';
 	import type { PageData } from './$types';
+	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -13,6 +14,9 @@
 </script>
 
 <div class="page">
+	<a class="back" href="/newsletter">
+		<ArrowLeftIcon style="font-size: 1.2rem;" /> Back to Newsletter
+	</a>
 	<h1>{newsletter.title}</h1>
 	{#if newsletter.image}
 		<Img src={srcFor(newsletter.image)} alt="Image for {newsletter.title}" />

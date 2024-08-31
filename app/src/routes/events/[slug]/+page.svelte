@@ -8,6 +8,7 @@
 	import DateTimeRange from '$lib/components/DateTimeRange.svelte';
 	import { stegaClean } from '@sanity/client/stega';
 	import Image from '$lib/components/Image.svelte';
+	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -18,6 +19,9 @@
 </script>
 
 <div class="page">
+	<a class="back" href="/events">
+		<ArrowLeftIcon style="font-size: 1.2rem;" /> Back to Events
+	</a>
 	<h1>{event.title}</h1>
 	{#if event.image}
 		<Img src={srcFor(event.image)} alt="Image for {stegaClean(event.title)}" />
