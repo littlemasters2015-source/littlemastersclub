@@ -11,7 +11,8 @@ export default defineType({
     }),
     defineField({
       name: 'description',
-      type: 'string',
+      type: 'text',
+      rows: 3,
     }),
     defineField({
       name: 'slug',
