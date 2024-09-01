@@ -40,7 +40,7 @@ export const POST: RequestHandler = async ({ request }) => {
 		} else if (body?._type === 'newsletter') {
 			await revalidateSlug('newsletters');
 			await revalidateSlug(`/newsletters/${body.slug.current}`);
-		} else if (body?._type === 'page') {
+		} else {
 			await revalidateSlug(body.slug.current);
 		}
 
