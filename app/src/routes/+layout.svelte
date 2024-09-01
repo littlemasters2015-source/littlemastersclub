@@ -8,7 +8,10 @@
 	// import SearchIcon from '~icons/ph/magnifying-glass-bold';
 	import NavDropdown from '$lib/components/NavDropdown.svelte';
 	import Img from '@zerodevx/svelte-img';
+	import PageHead from '$lib/components/PageHead.svelte';
 </script>
+
+<PageHead />
 
 {#if $isPreviewing}
 	<a href={`/preview/disable?redirect=${$page.url.pathname}`} class="preview-toggle">

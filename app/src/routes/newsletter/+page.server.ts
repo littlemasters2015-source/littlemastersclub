@@ -7,6 +7,10 @@ export const load: PageServerLoad = async (event) => {
 
 	return {
 		query,
-		options: { initial }
+		options: { initial },
+		meta: {
+			title: 'Newsletter',
+			description: 'Read our newsletter to stay up to date with LMC news and events.'
+		}
 	};
 };

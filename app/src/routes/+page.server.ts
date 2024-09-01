@@ -14,6 +14,11 @@ export const load: PageServerLoad = async (event) => {
 		events: {
 			query: eventsQuery,
 			options: { initial: events }
+		},
+		meta: {
+			title: 'Little Masters Club',
+			description:
+				'Little Masters Club is a nonprofit organization that seeks to provide an encouraging environment for kids to be learners, mentors, team players, and leaders.'
 		}
 	};
 };

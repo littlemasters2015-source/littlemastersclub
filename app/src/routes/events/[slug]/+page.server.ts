@@ -1,6 +1,7 @@
 import { eventQuery as query, type Event } from '$lib/sanity/queries';
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
+import { stegaClean } from '@sanity/client/stega';
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
@@ -18,6 +19,10 @@ export const load: PageServerLoad = async (event) => {
 	return {
 		query,
 		params,
-		options: { initial }
+		options: { initial },
+		meta: {
+			title: stegaClean(initial.data.title),
+			description: stegaClean(initial.data.description)
+		}
 	};
 };

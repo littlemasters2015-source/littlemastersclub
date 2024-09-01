@@ -7,6 +7,10 @@ export const load: PageServerLoad = async (event) => {
 
 	return {
 		query,
-		options: { initial }
+		options: { initial },
+		meta: {
+			title: 'Events',
+			description: 'Explore our upcoming events and meet the Little Masters Club community.'
+		}
 	};
 };

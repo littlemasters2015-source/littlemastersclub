@@ -6,6 +6,7 @@
 	import type { PageData } from './$types';
 	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
 	import portableComponents from '$lib/utils/portableComponents';
+	import { stegaClean } from '@sanity/client/stega';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -19,7 +20,7 @@
 	</a>
 	<h1>{newsletter.title}</h1>
 	{#if newsletter.image}
-		<Img src={srcFor(newsletter.image)} alt="Image for {newsletter.title}" />
+		<Img src={srcFor(newsletter.image)} alt="Image for {stegaClean(newsletter.title)}" />
 	{/if}
 	{#if newsletter.body}
 		<div class="content">
@@ -31,5 +32,8 @@
 <style lang="scss">
 	.page :global(img) {
 		max-height: 30rem;
+	}
+	h1 {
+		margin-top: 1rem;
 	}
 </style>

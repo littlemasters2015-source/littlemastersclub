@@ -7,6 +7,10 @@ export const load: PageServerLoad = async (event) => {
 
 	return {
 		query,
-		options: { initial }
+		options: { initial },
+		meta: {
+			title: 'Board Members',
+			description: 'Meet the members of the Little Masters Club Board.'
+		}
 	};
 };
