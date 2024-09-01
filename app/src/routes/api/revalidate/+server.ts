@@ -30,15 +30,21 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	if (body.slug.current) {
 		console.log(JSON.stringify(body));
-		const ok = await revalidateSlug(body.slug.current);
+
 		if (body?._type === 'event') {
 			await revalidateSlug('events');
+			await revalidateSlug(`/events/${body.slug.current}`);
 		} else if (body?._type === 'program') {
 			await revalidateSlug('programs');
+			await revalidateSlug(`/programs/${body.slug.current}`);
 		} else if (body?._type === 'newsletter') {
 			await revalidateSlug('newsletters');
+			await revalidateSlug(`/newsletters/${body.slug.current}`);
+		} else if (body?._type === 'page') {
+			await revalidateSlug(body.slug.current);
 		}
-		return json({ ok });
+
+		return json({ ok: true });
 	}
 
 	throw error(404, 'Slug not found');
