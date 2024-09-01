@@ -22,7 +22,7 @@
 	</a>
 	<h1>{event.title}</h1>
 	{#if event.image}
-		<Img src={srcFor(event.image)} alt="Image for {stegaClean(event.title)}" />
+		<Img class="image" src={srcFor(event.image)} alt="Image for {stegaClean(event.title)}" />
 	{/if}
 	<h2>Details</h2>
 	{#if event.startTime && event.endTime}
@@ -52,7 +52,10 @@
 </div>
 
 <style lang="scss">
-	.page :global(img) {
+	.page :global(.image) {
 		max-height: 30rem;
+	}
+	h1 {
+		margin-top: 1rem;
 	}
 </style>

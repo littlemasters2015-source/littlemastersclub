@@ -17,6 +17,7 @@
 
 <style lang="scss">
 	.youtube {
+		margin: 1.5rem 0;
 		overflow: hidden;
 		@include border;
 		iframe {

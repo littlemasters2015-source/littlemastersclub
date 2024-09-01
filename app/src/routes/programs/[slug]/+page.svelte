@@ -37,4 +37,7 @@
 	.page :global(img) {
 		max-height: 30rem;
 	}
+	h1 {
+		margin-top: 1rem;
+	}
 </style>
