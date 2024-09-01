@@ -16,7 +16,7 @@ import groq from 'groq';
 // 	body: PortableTextBlock[];
 // }
 
-export const eventQuery = groq`*[_type == "event" && slug.current == $slug && published == true][0]`;
+export const eventQuery = groq`*[_type == "event" && slug.current == $slug][0]`;
 
 export const eventsQuery = groq`*[_type == "event" && defined(slug.current)] | order(startTime desc)`;
 
@@ -29,7 +29,6 @@ export interface Detail {
 export interface Event {
 	_type: 'event';
 	_createdAt: string;
-	published: boolean;
 	title?: string;
 	slug: Slug;
 	description?: string;
@@ -47,7 +46,6 @@ export const newslettersQuery = groq`*[_type == "newsletter" && defined(slug.cur
 export interface Newsletter {
 	_type: 'newsletter';
 	_createdAt: string;
-	published: boolean;
 	title?: string;
 	slug: Slug;
 	description?: string;
@@ -67,7 +65,6 @@ export const programsOldQuery = groq`*[_type == "program" && defined(slug.curren
 export interface Program {
 	_type: 'program';
 	_createdAt: string;
-	published: boolean;
 	status: 'old' | 'current';
 	title?: string;
 	slug: Slug;
