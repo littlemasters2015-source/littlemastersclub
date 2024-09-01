@@ -15,6 +15,7 @@
 		"@sanity/image-url": "^1.0.2",
 		"@sanity/svelte-loader": "^1.11.36",
 		"@sanity/visual-editing": "^2.1.9",
+		"@sanity/webhook": "^4.0.4",
 		"bits-ui": "^0.21.13",
 		"embla-carousel-autoplay": "^8.2.0",
 		"embla-carousel-svelte": "^8.2.0",
