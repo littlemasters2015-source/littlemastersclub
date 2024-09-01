@@ -5,7 +5,7 @@
 	import portableComponents from '$lib/utils/portableComponents';
 
 	export let data: PageData;
-	const q = useQuery(data);
+	$: q = useQuery(data);
 
 	$: ({ data: page } = $q);
 </script>
