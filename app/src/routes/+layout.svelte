@@ -9,6 +9,15 @@
 	import NavDropdown from '$lib/components/NavDropdown.svelte';
 	import Img from '@zerodevx/svelte-img';
 	import PageHead from '$lib/components/PageHead.svelte';
+	import { useQuery } from '@sanity/svelte-loader';
+	import type { LayoutData } from './$types';
+	import { stegaClean } from '@sanity/client/stega';
+
+	export let data: LayoutData;
+
+	const q = useQuery(data.categories);
+
+	$: ({ data: categories } = $q);
 </script>
 
 <PageHead />
@@ -47,6 +56,10 @@
 				title="Programs"
 				data={[
 					{ name: 'Programs', href: '/programs' },
+					...categories.map((category) => ({
+						name: category.name,
+						href: `/programs?category=${stegaClean(category.name)}`
+					})),
 					{ name: 'Old Programs', href: '/programs?status=old' }
 				]}
 				path={$page.url.pathname}

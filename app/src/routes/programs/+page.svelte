@@ -31,9 +31,7 @@
 			return false;
 		}
 		if ($page.url.searchParams.get('category')) {
-			return program.categories?.some(
-				(category) => category._ref === $page.url.searchParams.get('category')
-			);
+			return program.categories?.some((category) => category._ref === data.categoryRef);
 		}
 		return true;
 	});

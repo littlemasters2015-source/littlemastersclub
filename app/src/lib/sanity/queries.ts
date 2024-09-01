@@ -77,6 +77,7 @@ export interface Program {
 export const categoriesQuery = groq`*[_type == "category" && defined(name)]`;
 
 export interface Category {
+	_id: string | undefined;
 	_type: 'category';
 	name: string;
 }

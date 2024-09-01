@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from './$types';
-
+import { categoriesQuery, type Category } from '$lib/sanity/queries';
 import { BYPASS_TOKEN } from '$env/static/private';
 
 export const config = {
@@ -20,11 +20,20 @@ export const config = {
 	}
 };
 
-export const load: LayoutServerLoad = (event) => {
-	// The `event.locals.preview` value received here is set by the helper function
-	// in `hooks.server.ts`. It indicates whether the app is in preview mode or not.
-	const { preview } = event.locals;
-	// As `event.locals` is only available on the server, we can expose the value
-	// to the client by returning it here.
-	return { preview };
+export const load: LayoutServerLoad = async ({ params, locals }) => {
+	const { preview, loadQuery } = locals;
+	const { slug } = params;
+
+	const initial = await loadQuery<Category[]>(categoriesQuery, { slug });
+
+	// console.log(initial);
+
+	return {
+		categories: {
+			query: categoriesQuery,
+			params: { slug },
+			options: { initial }
+		},
+		preview
+	};
 };
