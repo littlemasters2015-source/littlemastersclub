@@ -3,7 +3,7 @@
 
 	$: title = $page.error ? $page.status : $page.data.meta.title;
 	$: description = $page.error ? $page.error.message : $page.data.meta.description;
-	$: type = $page.data.meta.type || 'website';
+	$: type = $page.error ? 'website' : $page.data.meta.type || 'website';
 	$: url = $page.url.href;
 </script>
 
