@@ -6,10 +6,6 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'published',
-      type: 'boolean',
-    }),
-    defineField({
       name: 'status',
       title: 'Status',
       type: 'string',

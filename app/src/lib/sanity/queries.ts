@@ -2,23 +2,23 @@ import type { PortableTextBlock } from '@portabletext/types';
 import type { ImageAsset, Slug } from '@sanity/types';
 import groq from 'groq';
 
-export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]`;
+// export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]`;
 
-export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
+// export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`;
 
-export interface Post {
-	_type: 'post';
-	_createdAt: string;
-	title?: string;
-	slug: Slug;
-	excerpt?: string;
-	mainImage?: ImageAsset;
-	body: PortableTextBlock[];
-}
+// export interface Post {
+// 	_type: 'post';
+// 	_createdAt: string;
+// 	title?: string;
+// 	slug: Slug;
+// 	excerpt?: string;
+// 	mainImage?: ImageAsset;
+// 	body: PortableTextBlock[];
+// }
 
 export const eventQuery = groq`*[_type == "event" && slug.current == $slug && published == true][0]`;
 
-export const eventsQuery = groq`*[_type == "event" && defined(slug.current) && published == true] | order(startTime desc)`;
+export const eventsQuery = groq`*[_type == "event" && defined(slug.current)] | order(startTime desc)`;
 
 export interface Detail {
 	_type: 'detail';
@@ -40,9 +40,9 @@ export interface Event {
 	body: PortableTextBlock[];
 }
 
-export const newsletterQuery = groq`*[_type == "newsletter" && slug.current == $slug && published == true][0]`;
+export const newsletterQuery = groq`*[_type == "newsletter" && slug.current == $slug][0]`;
 
-export const newslettersQuery = groq`*[_type == "newsletter" && defined(slug.current) && published == true] | order(date desc)`;
+export const newslettersQuery = groq`*[_type == "newsletter" && defined(slug.current)] | order(date desc)`;
 
 export interface Newsletter {
 	_type: 'newsletter';
@@ -56,13 +56,13 @@ export interface Newsletter {
 	body: PortableTextBlock[];
 }
 
-export const programQuery = groq`*[_type == "program" && slug.current == $slug && published == true][0]`;
+export const programQuery = groq`*[_type == "program" && slug.current == $slug][0]`;
 
-export const programsQuery = groq`*[_type == "program" && defined(slug.current) && published == true]`;
+export const programsQuery = groq`*[_type == "program" && defined(slug.current)]`;
 
-export const programsCategoryQuery = groq`*[_type == "program" && defined(slug.current) && published == true && references(*[ name == $category]._id)]`;
+export const programsCategoryQuery = groq`*[_type == "program" && defined(slug.current) && references(*[ name == $category]._id)]`;
 
-export const programsOldQuery = groq`*[_type == "program" && defined(slug.current) && published == true && status == "old"]`;
+export const programsOldQuery = groq`*[_type == "program" && defined(slug.current) && status == "old"]`;
 
 export interface Program {
 	_type: 'program';
@@ -84,7 +84,7 @@ export interface Category {
 	name: string;
 }
 
-export const boardMembersQuery = groq`*[_type == "boardMember" && published == true] | order(order asc)`;
+export const boardMembersQuery = groq`*[_type == "boardMember"] | order(order asc)`;
 
 export interface BoardMember {
 	_type: 'boardMember';

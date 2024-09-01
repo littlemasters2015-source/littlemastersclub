@@ -21,10 +21,6 @@ export const event = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'published',
-      type: 'boolean',
-    }),
-    defineField({
       name: 'title',
       type: 'string',
     }),

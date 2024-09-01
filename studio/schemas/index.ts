@@ -5,6 +5,7 @@ import category from './category'
 import newsletter from './newsletter'
 import boardMember from './boardMember'
 import homePage from './homePage'
+import page from './page'
 import youtubeEmbed from './youtubeEmbed'
 
 export const schemaTypes = [
@@ -15,6 +16,7 @@ export const schemaTypes = [
   newsletter,
   boardMember,
   homePage,
+  page,
   youtubeEmbed,
   blockContent,
 ]
