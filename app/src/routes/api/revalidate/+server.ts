@@ -6,7 +6,7 @@ type ResponseType = any;
 
 async function revalidateSlug(slug: string): Promise<boolean> {
 	// Set a delay to allow Sanity data to correctly propagate.
-	await new Promise((resolve) => setTimeout(resolve, 7000));
+	await new Promise((resolve) => setTimeout(resolve, 2000));
 	console.log(`Revalidating: ${env.SITE_URL}/${slug}`);
 	const res = await fetch(`${env.SITE_URL}/${slug}`, {
 		cache: 'no-store',

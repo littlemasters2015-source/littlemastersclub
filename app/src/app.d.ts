@@ -6,7 +6,9 @@ import 'unplugin-icons/types/svelte';
 declare global {
 	namespace App {
 		// interface Error {}
-		interface Locals extends LoaderLocals {}
+		interface Locals extends LoaderLocals {
+			revalidate: boolean;
+		}
 		// interface PageData {}
 		// interface Platform {}
 	}
