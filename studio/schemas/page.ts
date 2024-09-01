@@ -19,6 +19,7 @@ export default defineType({
       type: 'slug',
       validation: (Rule) => Rule.required(),
       options: {
+        source: 'title',
         maxLength: 96,
       },
     }),
