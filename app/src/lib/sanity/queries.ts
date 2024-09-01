@@ -106,3 +106,13 @@ export interface HomePage {
 	supportText: PortableTextBlock[];
 	eventsImage: ImageAsset;
 }
+
+export const pageQuery = groq`*[_type == "page" && slug.current == $slug][0]`;
+
+export interface Page {
+	_type: 'page';
+	title?: string;
+	description?: string;
+	slug: Slug;
+	body: PortableTextBlock[];
+}

@@ -210,13 +210,13 @@
 		display: flex;
 		align-items: center;
 	}
-	.search {
-		padding: 0.75rem;
-		font-size: 1.2rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+	// .search {
+	// 	padding: 0.75rem;
+	// 	font-size: 1.2rem;
+	// 	display: flex;
+	// 	justify-content: center;
+	// 	align-items: center;
+	// }
 	footer {
 		padding: 0 2rem;
 		margin-top: 6rem;

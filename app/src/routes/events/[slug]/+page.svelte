@@ -27,13 +27,16 @@
 	<h2>Details</h2>
 	{#if event.startTime && event.endTime}
 		<p>
-			<b>Date & Time:</b>&nbsp; <DateTimeRange start={event.startTime} end={event.endTime} />
+			<strong>Date & Time:</strong>&nbsp; <DateTimeRange
+				start={event.startTime}
+				end={event.endTime}
+			/>
 		</p>
 	{/if}
 	{#if event.details}
 		{#each event.details as detail}
 			<p>
-				<b>{detail.title}:</b>
+				<strong>{detail.title}:</strong>
 				{#if isValidUrl(detail.value)}
 					&nbsp;<a href={detail.value}>{detail.value}</a>
 				{:else}

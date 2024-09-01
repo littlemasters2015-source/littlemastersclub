@@ -54,8 +54,8 @@
 	<h2>Past Award Winners</h2>
 	<h3>Winners of 2023</h3>
 	<ul>
-		<li><b>Scholarship Award: </b> Esther Fang, Bailing Hou, Maggie Yan, Corey Zhang</li>
-		<li><b>Honorable Award: </b> Katie Chen, Yingying Luo</li>
+		<li><strong>Scholarship Award: </strong> Esther Fang, Bailing Hou, Maggie Yan, Corey Zhang</li>
+		<li><strong>Honorable Award: </strong> Katie Chen, Yingying Luo</li>
 	</ul>
 
 	<h2>How to Support the Scholarship</h2>
@@ -68,23 +68,23 @@
 	<h3>To Donate:</h3>
 	<ul>
 		<li>
-			Click the Search and Enter <b>Little Masters Club</b> as the cause in your company’s benevity.org
-			site, and follow the donation link and add a memo for “LMC Susu Scholarship”
+			Click the Search and Enter <strong>Little Masters Club</strong> as the cause in your company’s
+			benevity.org site, and follow the donation link and add a memo for “LMC Susu Scholarship”
 		</li>
 		<li>Or Zelle to sususcholarship@littlemastersclub.org</li>
 	</ul>
 	<p>
-		<b>Questions?</b> Please contact
+		<strong>Questions?</strong> Please contact
 		<a href="mailto:sususcholarship@littlemastersclub.org">
 			sususcholarship@littlemastersclub.org</a
 		>
 	</p>
 
 	<p>
-		<b>Disclaimer:</b> Funding of the Susu Scholarship comes from generous donation from Mrs. Susu’s
-		family and friends, and general public donation and company match to this specific funding account.
-		The application review and selection committee of Susu Scholarship (“the Committee” hereafter) is
-		composed of Susu’s family members and friends (with no LMC board members and project leads participation).
+		<strong>Disclaimer:</strong> Funding of the Susu Scholarship comes from generous donation from Mrs.
+		Susu’s family and friends, and general public donation and company match to this specific funding
+		account. The application review and selection committee of Susu Scholarship (“the Committee” hereafter)
+		is composed of Susu’s family members and friends (with no LMC board members and project leads participation).
 		The Committee is committed to the fairness of this scholarship process, but reserves the right to
 		review and adjust the awards at any time when necessary.
 	</p>

@@ -237,9 +237,6 @@
 			height: 100%;
 			object-fit: cover;
 		}
-		p {
-			margin: 1rem 0;
-		}
 		.box {
 			flex: 0 0 calc(45% - 1.25rem);
 		}
