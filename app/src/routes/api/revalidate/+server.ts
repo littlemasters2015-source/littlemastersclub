@@ -2,11 +2,7 @@ import { error, json, type RequestHandler } from '@sveltejs/kit';
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 import { env } from '$env/dynamic/private';
 
-type ResponseType = {
-	_id?: string;
-	slug?: string;
-	_type?: string;
-};
+type ResponseType = any;
 
 async function revalidateSlug(slug: string): Promise<boolean> {
 	// Set a delay to allow Sanity data to correctly propagate.
@@ -32,16 +28,16 @@ export const POST: RequestHandler = async ({ request }) => {
 		throw error(403, 'Forbidden');
 	}
 
-	if (body?.slug) {
+	if (body.slug.current) {
 		console.log(JSON.stringify(body));
-		const ok = await revalidateSlug(body.slug);
-		// if (body?._type === 'event') {
-		// 	await revalidateSlug('events');
-		// } else if (body?._type === 'program') {
-		// 	await revalidateSlug('programs');
-		// } else if (body?._type === 'newsletter') {
-		// 	await revalidateSlug('newsletters');
-		// }
+		const ok = await revalidateSlug(body.slug.current);
+		if (body?._type === 'event') {
+			await revalidateSlug('events');
+		} else if (body?._type === 'program') {
+			await revalidateSlug('programs');
+		} else if (body?._type === 'newsletter') {
+			await revalidateSlug('newsletters');
+		}
 		return json({ ok });
 	}
 
