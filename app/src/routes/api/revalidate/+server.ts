@@ -33,15 +33,15 @@ export const POST: RequestHandler = async ({ request }) => {
 	}
 
 	if (body?.slug) {
-		console.log(body?.slug);
+		console.log(JSON.stringify(body));
 		const ok = await revalidateSlug(body.slug);
-		if (body?._type === 'event') {
-			await revalidateSlug('events');
-		} else if (body?._type === 'program') {
-			await revalidateSlug('programs');
-		} else if (body?._type === 'newsletter') {
-			await revalidateSlug('newsletters');
-		}
+		// if (body?._type === 'event') {
+		// 	await revalidateSlug('events');
+		// } else if (body?._type === 'program') {
+		// 	await revalidateSlug('programs');
+		// } else if (body?._type === 'newsletter') {
+		// 	await revalidateSlug('newsletters');
+		// }
 		return json({ ok });
 	}
 
