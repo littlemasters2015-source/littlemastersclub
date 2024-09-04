@@ -1,27 +1,47 @@
 <script lang="ts">
 	import { DropdownMenu as DD } from 'bits-ui';
 	import { fade } from 'svelte/transition';
+	import { page } from '$app/stores';
 	import ArrowIcon from '~icons/ph/arrow-right-bold';
 
-	export let title: string;
-	export let data: { name: string; href: string }[];
-	export let path: string;
+	export let data: { category: string; pages: { name: string; href: string }[] }[];
 
-	$: isActive = data.some(({ href }) => path.startsWith(href));
+	$: path = $page.url.pathname;
+
+	$: isActive = (pages: { name: string; href: string }[]) => {
+		return pages.some(({ href }) => {
+			if (href === '/') return path === '/';
+			else return path.startsWith(href);
+		});
+	};
 </script>
 
-<DD.Root preventScroll={false}>
-	<DD.Trigger class={'nav-dropdown-trigger' + (isActive ? ' active' : '')}>{title}</DD.Trigger>
-	<DD.Content class="nav-dropdown-content" transition={fade} transitionConfig={{ duration: 50 }}>
-		{#each data as { name, href }}
-			<DD.Item asChild let:builder>
-				<a use:builder.action {...builder} class="nav-dropdown-link" {href}>
-					<ArrowIcon class="nav-arrow" />{name}
-				</a>
-			</DD.Item>
-		{/each}
-	</DD.Content>
-</DD.Root>
+{#each data as { category, pages }}
+	{#if category !== ''}
+		<DD.Root preventScroll={false}>
+			<DD.Trigger class={'nav-dropdown-trigger' + (isActive(pages) ? ' active' : '')}
+				>{category}</DD.Trigger
+			>
+			<DD.Content
+				class="nav-dropdown-content"
+				transition={fade}
+				transitionConfig={{ duration: 50 }}
+			>
+				{#each pages as { name, href }}
+					<DD.Item asChild let:builder>
+						<a use:builder.action {...builder} class="nav-dropdown-link" {href}>
+							<ArrowIcon class="nav-arrow" />{name}
+						</a>
+					</DD.Item>
+				{/each}
+			</DD.Content>
+		</DD.Root>
+	{:else}
+		<a class="nav-dropdown-trigger" class:active={isActive(pages)} href={pages[0].href}
+			>{pages[0].name}</a
+		>
+	{/if}
+{/each}
 
 <style lang="scss">
 	:global(.nav-dropdown-trigger),

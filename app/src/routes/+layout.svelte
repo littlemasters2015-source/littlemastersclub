@@ -6,7 +6,10 @@
 	import '@fontsource-variable/outfit';
 	import logo from '$lib/assets/logo.jpg?as=logo';
 	// import SearchIcon from '~icons/ph/magnifying-glass-bold';
-	import NavDropdown from '$lib/components/NavDropdown.svelte';
+	import ListIcon from '~icons/ph/list-bold';
+	import XIcon from '~icons/ph/x-bold';
+	import NavDropdowns from '$lib/components/NavDropdowns.svelte';
+	import NavAccordion from '$lib/components/NavAccordion.svelte';
 	import Img from '@zerodevx/svelte-img';
 	import PageHead from '$lib/components/PageHead.svelte';
 	import { useQuery } from '@sanity/svelte-loader';
@@ -18,6 +21,64 @@
 	const q = useQuery(data.categories);
 
 	$: ({ data: categories } = $q);
+
+	let menuOpen = false;
+
+	$: $page.url && (menuOpen = false);
+
+	function toggleMenu() {
+		menuOpen = !menuOpen;
+	}
+
+	$: pages = [
+		{
+			category: '',
+			pages: [{ name: 'Home', href: '/' }]
+		},
+		{
+			category: 'Events',
+			pages: [
+				{ name: 'Events', href: '/events' },
+				{ name: 'Event Calendar', href: '/calendar' }
+			]
+		},
+		{
+			category: 'Programs',
+			pages: [
+				{ name: 'Programs', href: '/programs' },
+				...categories.map((category) => ({
+					name: category.name,
+					href: `/programs?category=${stegaClean(category.name)}`
+				})),
+				{ name: 'Old Programs', href: '/programs?status=old' }
+			]
+		},
+		{
+			category: 'Get Involved',
+			pages: [
+				{ name: 'Join', href: '/join' },
+				{ name: 'Donate', href: '/donate' },
+				{ name: 'Volunteer', href: '/volunteer' }
+			]
+		},
+		{
+			category: 'Resources',
+			pages: [
+				{ name: 'Project Proposal', href: '/project-proposal' },
+				{ name: 'Susu Scholarship', href: '/susu-scholarship' },
+				{ name: 'Microsoft Giving', href: '/microsoft-giving' }
+			]
+		},
+		{
+			category: 'About',
+			pages: [
+				{ name: 'About Us', href: '/about' },
+				{ name: 'Contact Us', href: '/contact' },
+				{ name: 'Board Members', href: '/board' },
+				{ name: 'Privacy Policy', href: '/privacy-policy' }
+			]
+		}
+	];
 </script>
 
 <PageHead />
@@ -33,66 +94,18 @@
 	<header>
 		<a class="title" href="/">
 			<Img class="logo" src={logo} alt="Little Masters Club Logo" />
-			<h1>Little Masters Club | <span>小大师聚乐部</span></h1>
+			<h1>Little Masters Club <span> | </span><span class="chinese">小大师聚乐部</span></h1>
 		</a>
 		<nav>
-			<a class="nav-dropdown-trigger" class:active={$page.url.pathname === '/'} href="/">Home</a>
-			<NavDropdown
-				title="Events"
-				data={[
-					{ name: 'Events', href: '/events' },
-					{ name: 'Event Calendar', href: '/calendar' }
-				]}
-				path={$page.url.pathname}
-			/>
-			<!-- <a
-				class="nav-dropdown-trigger"
-				class:active={$page.url.pathname === '/newsletter'}
-				href="/newsletter"
-			>
-				Newsletter
-			</a> -->
-			<NavDropdown
-				title="Programs"
-				data={[
-					{ name: 'Programs', href: '/programs' },
-					...categories.map((category) => ({
-						name: category.name,
-						href: `/programs?category=${stegaClean(category.name)}`
-					})),
-					{ name: 'Old Programs', href: '/programs?status=old' }
-				]}
-				path={$page.url.pathname}
-			/>
-			<NavDropdown
-				title="Get Involved"
-				data={[
-					{ name: 'Join', href: '/join' },
-					{ name: 'Donate', href: '/donate' },
-					{ name: 'Volunteer', href: '/volunteer' }
-				]}
-				path={$page.url.pathname}
-			/>
-			<NavDropdown
-				title="Resources"
-				data={[
-					{ name: 'Project Proposal', href: '/project-proposal' },
-					{ name: 'Susu Scholarship', href: '/susu-scholarship' },
-					{ name: 'Microsoft Giving', href: '/microsoft-giving' }
-				]}
-				path={$page.url.pathname}
-			/>
-			<NavDropdown
-				title="About"
-				data={[
-					{ name: 'About Us', href: '/about' },
-					{ name: 'Contact Us', href: '/contact' },
-					{ name: 'Board Members', href: '/board' },
-					{ name: 'Privacy Policy', href: '/privacy-policy' }
-				]}
-				path={$page.url.pathname}
-			/>
+			<NavDropdowns data={pages} />
+			<button class="hamburger" on:click={toggleMenu}>
+				<ListIcon />
+			</button>
 			<!-- <button class="search"><SearchIcon /></button> -->
+		</nav>
+		<nav class="mobile-nav" class:open={menuOpen}>
+			<a class="" class:active={$page.url.pathname === '/'} href="/">Home</a>
+			<NavAccordion data={pages} />
 		</nav>
 	</header>
 	<main>
@@ -117,17 +130,13 @@
 			<div class="footer-links">
 				<div class="footer-links-column">
 					<div class="footer-group">
+						<h3>About</h3>
+						<a href="/about">About Us</a>
+						<a href="/contact">Contact Us</a>
+						<a href="/board">Board Members</a>
+					</div>
+					<div class="footer-group">
 						<h3>Socials</h3>
-						<a href="https://twitter.com/LMC_US" target="_blank" rel="noopener noreferrer">
-							Twitter
-						</a>
-						<a
-							href="https://www.facebook.com/LittleMastersClubUS/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Facebook
-						</a>
 						<a
 							href="https://www.instagram.com/littlemastersclub/"
 							target="_blank"
@@ -146,28 +155,28 @@
 				</div>
 				<div class="footer-links-column">
 					<div class="footer-group">
-						<h3>About</h3>
-						<a href="/about">About Us</a>
-						<a href="/contact">Contact Us</a>
-						<a href="/board">Board Members</a>
-					</div>
-					<div class="footer-group">
 						<h3>Events</h3>
 						<a href="/events">Events</a>
 						<a href="/calendar">Event Calendar</a>
 					</div>
+					<div class="footer-group">
+						<h3>Join</h3>
+						<a href="/join">Join</a>
+						<a href="/volunteer">Volunteer</a>
+						<a href="/resources">Resources</a>
+					</div>
 				</div>
+
 				<div class="footer-links-column">
 					<div class="footer-group">
 						<h3>Programs</h3>
-						<a href="/programs">All Programs</a>
-						<a href="/programs?category=culture">Culture</a>
-					</div>
-					<div class="footer-group">
-						<h3>Join</h3>
-						<a href="/join">Get Involved</a>
-						<a href="/volunteer">Volunteer</a>
-						<a href="/resources">Resources</a>
+						<a href="/programs">Programs</a>
+						{#each categories as category}
+							<a href={`/programs?category=${stegaClean(category.name)}`}>
+								{category.name}
+							</a>
+						{/each}
+						<a href="/programs?status=old">Old Programs</a>
 					</div>
 				</div>
 			</div>
@@ -207,7 +216,7 @@
 		margin: 0;
 		font-size: 1.5rem;
 	}
-	h1 span {
+	.chinese {
 		display: inline-block;
 		font-size: 0.8em;
 		margin-top: 0.2rem;
@@ -230,12 +239,43 @@
 	// 	justify-content: center;
 	// 	align-items: center;
 	// }
+
+	.mobile-nav {
+		display: block;
+		position: fixed;
+		top: 3.75rem;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: 1rem;
+		background-color: var(--bg);
+		z-index: 100;
+		transform: translateX(-105%);
+		transition: 0.15s;
+		@include border;
+	}
+	.mobile-nav.open {
+		transform: translateX(0);
+	}
+	:global(.container):has(.mobile-nav.open) {
+		overflow: hidden;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+	}
+	.hamburger {
+		display: none;
+		font-size: 1.5rem;
+		padding: 0.5rem;
+		align-items: center;
+	}
+
 	footer {
 		padding: 0 2rem;
 		margin-top: 6rem;
 	}
 	.footer-inner {
-		padding: 2rem 0rem 3rem 2rem;
+		padding: 1.75rem 0rem 3rem 1.75rem;
 		margin: 0 auto;
 		gap: 2rem;
 		display: flex;
@@ -260,7 +300,7 @@
 		}
 	}
 	.footer-left {
-		width: 27rem;
+		width: 28rem;
 		h4 {
 			margin: 1rem 0 0.5rem 0;
 		}
@@ -271,7 +311,7 @@
 		justify-content: space-evenly;
 	}
 	.footer-links-column {
-		gap: 4rem;
+		gap: 3rem;
 		display: flex;
 		flex-direction: column;
 		a {
@@ -284,12 +324,71 @@
 	}
 	.footer-group {
 		gap: 1rem;
-		width: 10rem;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		h3 {
 			margin: 0;
+		}
+	}
+
+	@media (max-width: 1150px) {
+		h1 span,
+		.chinese {
+			display: none;
+		}
+		:global(.nav-dropdown-trigger) {
+			font-size: 1rem;
+			padding: 0.75rem 0.75rem;
+		}
+	}
+
+	@media (max-width: 1000px) {
+		.footer-inner {
+			flex-direction: column;
+			padding-right: 1.75rem;
+		}
+		.footer-left {
+			width: 100%;
+		}
+		.footer-links {
+			justify-content: space-between;
+		}
+	}
+
+	@media (max-width: 950px) {
+		nav :global(.nav-dropdown-trigger) {
+			display: none;
+		}
+		.hamburger {
+			display: flex;
+		}
+	}
+
+	@media (max-width: 800px) {
+		footer {
+			padding: 0 1.25rem;
+		}
+		header {
+			padding-left: 1.25rem;
+			padding-right: 1.25rem;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.footer-links {
+			flex-wrap: wrap;
+			gap: 3rem 2rem;
+		}
+	}
+
+	@media (max-width: 500px) {
+		.footer-title {
+			flex-direction: column;
+			align-items: flex-start;
+			h2 {
+				font-size: 1.5rem;
+			}
 		}
 	}
 

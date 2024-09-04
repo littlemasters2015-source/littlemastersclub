@@ -128,6 +128,7 @@
 		position: relative;
 		grid-row: 1 / 3;
 		grid-column: 1 / 4;
+		min-height: 30rem;
 		height: 40vh;
 		overflow: hidden;
 		@include border;
@@ -165,7 +166,7 @@
 		@include border;
 		@include elevate;
 		& {
-			transition: 0.2s;
+			transition: 0.15s;
 		}
 	}
 	.embla__next {
@@ -191,6 +192,9 @@
 		grid-column: 1 / 3;
 		max-width: 21rem;
 		padding: 1.75rem 2rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.title h1 {
 		margin: 0;
@@ -262,9 +266,79 @@
 
 	.youtube {
 		overflow: hidden;
+		aspect-ratio: 16 / 9;
 		@include border;
 		iframe {
 			display: block;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	@media (max-width: 1150px) {
+		.head {
+			grid-template-rows: auto auto;
+			grid-template-columns: auto;
+			gap: 1.25rem;
+		}
+		.embla {
+			grid-row: 1;
+			grid-column: 1;
+		}
+		.container {
+			position: relative;
+			grid-row: 2;
+			grid-column: 1;
+			justify-self: center;
+			grid-template-rows: auto auto;
+			grid-template-columns: auto auto 1fr;
+			.action {
+				grid-row: 2;
+			}
+		}
+		.title {
+			position: absolute;
+			height: 5rem;
+			top: -7.5rem;
+			max-width: unset;
+			grid-column: auto;
+			margin: 0 1.25rem;
+			padding: 1.5rem;
+			h1 {
+				font-size: 2rem;
+			}
+		}
+		.description {
+			grid-row: 1;
+			grid-column: 1 / 4;
+		}
+	}
+
+	@media (max-width: 800px) {
+		.events-container {
+			> :global(picture) {
+				display: none;
+			}
+			.events-list {
+				width: 100%;
+			}
+		}
+		.support {
+			flex-direction: column;
+			> :global(picture) > :global(img) {
+				position: static;
+			}
+		}
+	}
+
+	@media (max-width: 500px) {
+		.title {
+			top: -6.5rem;
+			padding: 1rem;
+			height: 4rem;
+			h1 {
+				font-size: 1.5rem;
+			}
 		}
 	}
 </style>
