@@ -19,13 +19,13 @@
 	<div class="board-container">
 		{#each boardMembers as boardMember}
 			<div class="board-member">
+				{#if boardMember.image}
+					<Img src={srcFor(boardMember.image, 'sm')} alt={boardMember.name} />
+				{/if}
 				<div class="info">
 					<h2>{boardMember.name}</h2>
 					<PortableText components={{}} value={boardMember.body} />
 				</div>
-				{#if boardMember.image}
-					<Img src={srcFor(boardMember.image, 'sm')} alt={boardMember.name} />
-				{/if}
 			</div>
 		{/each}
 	</div>
@@ -44,15 +44,13 @@
 	}
 
 	.board-member {
-		display: flex;
-		align-items: flex-start;
-		gap: 2.5rem;
-
 		:global(picture) {
 			aspect-ratio: 5 / 6;
 			object-fit: cover;
 			width: 40%;
 			max-width: 20rem;
+			float: right;
+			margin: 2.5rem;
 		}
 	}
 
@@ -60,6 +58,17 @@
 		flex: 1;
 		h2 {
 			margin: 0;
+		}
+	}
+
+	@media (max-width: 500px) {
+		.board-member {
+			:global(picture) {
+				float: none;
+				margin: 0 0 1.25rem 0;
+				width: 100%;
+				max-width: unset;
+			}
 		}
 	}
 </style>

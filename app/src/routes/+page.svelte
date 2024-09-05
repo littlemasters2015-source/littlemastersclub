@@ -55,15 +55,18 @@
 				<ArrowRightIcon style="font-size: 1.5rem;" />
 			</button>
 		</div>
+		<div class="box mobile-title">
+			<h1>{homepage.hero}</h1>
+		</div>
 		<div class="container">
 			<div class="box title">
-				<h1>Every Kid is a Master.</h1>
+				<h1>{homepage.hero}</h1>
 			</div>
 			<div class="box description">
 				<PortableText components={{}} value={homepage.description} />
 			</div>
-			<a class="action big" href="/join">Get Involved</a>
-			<a class="action big" href="/about">Learn More</a>
+			<a class="action" href="/join">Get Involved</a>
+			<a class="action" href="/about">Learn More</a>
 		</div>
 	</section>
 
@@ -195,10 +198,25 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		h1 {
+			margin: 0;
+			font-size: 3rem;
+		}
 	}
-	.title h1 {
-		margin: 0;
-		font-size: 3rem;
+	.mobile-title {
+		display: none;
+		grid-row: 1;
+		grid-column: 1;
+		justify-self: left;
+		align-self: flex-end;
+		z-index: 1;
+		margin: 1.25rem;
+		border-radius: 1.5rem;
+		padding: 1rem 1.25rem;
+		h1 {
+			margin: 0;
+			font-size: 2rem;
+		}
 	}
 	.description {
 		grid-row: 1 / 3;
@@ -290,23 +308,17 @@
 			grid-row: 2;
 			grid-column: 1;
 			justify-self: center;
-			grid-template-rows: auto auto;
+			grid-template-rows: auto;
 			grid-template-columns: auto auto 1fr;
 			.action {
 				grid-row: 2;
 			}
 		}
 		.title {
-			position: absolute;
-			height: 5rem;
-			top: -7.5rem;
-			max-width: unset;
-			grid-column: auto;
-			margin: 0 1.25rem;
-			padding: 1.5rem;
-			h1 {
-				font-size: 2rem;
-			}
+			display: none;
+		}
+		.mobile-title {
+			display: block;
 		}
 		.description {
 			grid-row: 1;
@@ -332,13 +344,27 @@
 	}
 
 	@media (max-width: 500px) {
-		.title {
-			top: -6.5rem;
-			padding: 1rem;
-			height: 4rem;
+		.mobile-title {
+			padding: 0.75rem 1rem;
 			h1 {
 				font-size: 1.5rem;
 			}
+		}
+	}
+
+	@media (max-width: 400px) {
+		.mobile-title {
+			justify-self: stretch;
+			text-align: center;
+		}
+		.container {
+			grid-template-columns: 1fr 1fr;
+		}
+		.description {
+			grid-column: 1 / 3;
+		}
+		.container .action {
+			padding: 0.75rem 1rem;
 		}
 	}
 </style>

@@ -23,7 +23,7 @@
 </a>
 
 <style lang="scss">
-	a {
+	.event {
 		display: flex;
 		text-decoration: none;
 		position: relative;
@@ -63,5 +63,26 @@
 	}
 	.description {
 		@include line-clamp(2);
+	}
+
+	@media (max-width: 500px) {
+		.event {
+			flex-direction: column;
+			height: auto;
+		}
+		.event :global(picture) {
+			width: calc(100% + 4px);
+			aspect-ratio: 16/9;
+			height: auto;
+			position: relative;
+			top: -2px;
+			left: -2px;
+		}
+		.info {
+			padding: 1rem 1.25rem 1.5rem 1.25rem;
+			h3 {
+				font-size: 1.25rem;
+			}
+		}
 	}
 </style>

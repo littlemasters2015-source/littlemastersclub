@@ -99,13 +99,19 @@
 		<nav>
 			<NavDropdowns data={pages} />
 			<button class="hamburger" on:click={toggleMenu}>
-				<ListIcon />
+				{#if menuOpen}
+					<XIcon />
+				{:else}
+					<ListIcon />
+				{/if}
 			</button>
 			<!-- <button class="search"><SearchIcon /></button> -->
 		</nav>
 		<nav class="mobile-nav" class:open={menuOpen}>
-			<a class="" class:active={$page.url.pathname === '/'} href="/">Home</a>
-			<NavAccordion data={pages} />
+			<!-- <a class="" class:active={$page.url.pathname === '/'} href="/">Home</a> -->
+			<div class="mobile-nav-inner">
+				<NavAccordion data={pages} />
+			</div>
 		</nav>
 	</header>
 	<main>
@@ -243,19 +249,25 @@
 	.mobile-nav {
 		display: block;
 		position: fixed;
-		top: 3.75rem;
+		top: 3.5rem;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		margin: 1rem;
 		background-color: var(--bg);
 		z-index: 100;
-		transform: translateX(-105%);
+		transform: translateX(calc(-100% - 2rem));
 		transition: 0.15s;
 		@include border;
+		overflow: hidden;
 	}
 	.mobile-nav.open {
 		transform: translateX(0);
+	}
+	.mobile-nav-inner {
+		padding: 1rem;
+		overflow: auto;
+		height: 100%;
 	}
 	:global(.container):has(.mobile-nav.open) {
 		overflow: hidden;
@@ -265,7 +277,7 @@
 	}
 	.hamburger {
 		display: none;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 		padding: 0.5rem;
 		align-items: center;
 	}
@@ -337,6 +349,13 @@
 		.chinese {
 			display: none;
 		}
+		h1 {
+			font-size: 1.25rem;
+		}
+		:global(.logo) {
+			height: 3rem;
+			width: 3rem;
+		}
 		:global(.nav-dropdown-trigger) {
 			font-size: 1rem;
 			padding: 0.75rem 0.75rem;
@@ -356,7 +375,7 @@
 		}
 	}
 
-	@media (max-width: 950px) {
+	@media (max-width: 900px) {
 		nav :global(.nav-dropdown-trigger) {
 			display: none;
 		}
