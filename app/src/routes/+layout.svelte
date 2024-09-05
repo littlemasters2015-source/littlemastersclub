@@ -98,7 +98,13 @@
 		</a>
 		<nav>
 			<NavDropdowns data={pages} />
-			<button class="hamburger" on:click={toggleMenu}>
+			<button
+				class="hamburger"
+				aria-label={menuOpen ? 'Close mobile navigation' : 'Open mobile navigation'}
+				aria-expanded={menuOpen}
+				aria-controls="mobile-nav"
+				on:click={toggleMenu}
+			>
 				{#if menuOpen}
 					<XIcon />
 				{:else}
@@ -107,10 +113,15 @@
 			</button>
 			<!-- <button class="search"><SearchIcon /></button> -->
 		</nav>
-		<nav class="mobile-nav" class:open={menuOpen}>
-			<!-- <a class="" class:active={$page.url.pathname === '/'} href="/">Home</a> -->
+		<nav
+			id="mobile-nav"
+			class="mobile-nav"
+			aria-label="Mobile navigation"
+			aria-hidden={!menuOpen}
+			class:open={menuOpen}
+		>
 			<div class="mobile-nav-inner">
-				<NavAccordion data={pages} />
+				<NavAccordion data={pages} {menuOpen} />
 			</div>
 		</nav>
 	</header>
@@ -128,9 +139,9 @@
 					Little Masters Club is a 501(c)(3) nonprofit organization that seeks to provide an
 					encouraging environment for kids to be learners, mentors, team players, and leaders.
 				</p>
-				<h4>Address</h4>
+				<h3>Address</h3>
 				<span>15015 Main Street Suite 208, Bellevue WA 98007</span>
-				<h4>Email</h4>
+				<h3>Email</h3>
 				<a href="mailto:info@littlemastersclub.org">info@littlemastersclub.org</a>
 			</div>
 			<div class="footer-links">
@@ -313,7 +324,7 @@
 	}
 	.footer-left {
 		width: 28rem;
-		h4 {
+		h3 {
 			margin: 1rem 0 0.5rem 0;
 		}
 	}

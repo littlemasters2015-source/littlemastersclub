@@ -48,10 +48,14 @@
 					{/each}
 				</div>
 			</div>
-			<button class="embla__prev" on:click={() => emblaApi.scrollPrev()}>
+			<button
+				class="embla__prev"
+				aria-label="Previous Image"
+				on:click={() => emblaApi.scrollPrev()}
+			>
 				<ArrowLeftIcon style="font-size: 1.5rem;" />
 			</button>
-			<button class="embla__next" on:click={() => emblaApi.scrollNext()}>
+			<button class="embla__next" aria-label="Next Image" on:click={() => emblaApi.scrollNext()}>
 				<ArrowRightIcon style="font-size: 1.5rem;" />
 			</button>
 		</div>
@@ -66,7 +70,7 @@
 				<PortableText components={{}} value={homepage.description} />
 			</div>
 			<a class="action" href="/join">Get Involved</a>
-			<a class="action" href="/about">Learn More</a>
+			<a class="action" href="/about">About Us</a>
 		</div>
 	</section>
 

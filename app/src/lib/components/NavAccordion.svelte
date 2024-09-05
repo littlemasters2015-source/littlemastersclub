@@ -5,6 +5,7 @@
 	import CaretDownIcon from '~icons/ph/caret-down-bold';
 
 	export let data: { category: string; pages: { name: string; href: string }[] }[];
+	export let menuOpen: boolean;
 
 	$: path = $page.url.pathname;
 
@@ -28,8 +29,8 @@
 				class={'accordion-nav-item' + (isCategoryActive(pages) ? ' active' : '')}
 				value={category}
 			>
-				<Accordion.Header class="accordion-nav-header">
-					<Accordion.Trigger class="accordion-nav-trigger">
+				<Accordion.Header class="accordion-nav-header" level={2} data-heading-level="2">
+					<Accordion.Trigger class="accordion-nav-trigger" tabindex={menuOpen ? 0 : -1}>
 						{category}
 						<span class="accordion-nav-arrow">
 							<CaretDownIcon />
@@ -50,7 +51,8 @@
 			<a
 				class="accordion-nav-link-alone"
 				class:active={isPageActive(pages[0].href)}
-				href={pages[0].href}>{pages[0].name}</a
+				href={pages[0].href}
+				tabindex={menuOpen ? 0 : -1}>{pages[0].name}</a
 			>
 		{/if}
 	{/each}
