@@ -46,7 +46,7 @@
 					<Img src={srcFor(program.image, 'sm')} alt="Image for {stegaClean(program.title)}" />
 				{/if}
 				<div class="info">
-					<h3>{program.title}</h3>
+					<h2>{program.title}</h2>
 					<p>{program.description}</p>
 				</div>
 			</a>
@@ -93,7 +93,7 @@
 	.info {
 		padding: 1rem 1.25rem 1.5rem 1.25rem;
 
-		h3 {
+		h2 {
 			margin: 0;
 			font-size: 1.5rem;
 			@include line-clamp(1);

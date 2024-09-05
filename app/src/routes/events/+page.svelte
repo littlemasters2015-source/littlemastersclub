@@ -13,7 +13,7 @@
 	<h1>Upcoming Events</h1>
 	<div class="events-container">
 		{#each events as event}
-			<EventPreview {event} />
+			<EventPreview {event} headingLevel={2} />
 		{/each}
 	</div>
 </div>

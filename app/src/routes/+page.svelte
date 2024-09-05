@@ -1,8 +1,4 @@
 <script lang="ts">
-	import banner from '$lib/assets/banner.jpg?as=lg';
-	import support from '$lib/assets/signin.jpg?as=md';
-	import eventsImg from '$lib/assets/hands.jpg?as=md';
-
 	import EventPreview from '$lib/components/EventPreview.svelte';
 	import emblaCarouselSvelte from 'embla-carousel-svelte';
 	import type { EmblaCarouselType } from 'embla-carousel';
@@ -100,7 +96,7 @@
 		<div class="events-container">
 			<div class="events-list">
 				{#each events as event}
-					<EventPreview {event} />
+					<EventPreview {event} headingLevel={3} />
 				{/each}
 			</div>
 			<Img src={srcFor(homepage.eventsImage)} alt="events" />

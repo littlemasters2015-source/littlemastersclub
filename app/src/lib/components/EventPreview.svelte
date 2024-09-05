@@ -5,6 +5,7 @@
 	import Img from '@zerodevx/svelte-img';
 
 	export let event;
+	export let headingLevel;
 </script>
 
 <a href={`/events/${event.slug.current}`} class="event">
@@ -12,7 +13,7 @@
 		<Img src={srcFor(event.image, 'xs')} alt="Image for {stegaClean(event.title)}" />
 	{/if}
 	<div class="info">
-		<h3>{event.title}</h3>
+		<h3 aria-level={headingLevel}>{event.title}</h3>
 		{#if event.startTime && event.endTime}
 			<div class="time">
 				<DateTimeRange start={event.startTime} end={event.endTime} />
