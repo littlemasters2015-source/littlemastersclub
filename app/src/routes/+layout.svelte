@@ -43,6 +43,10 @@
 			]
 		},
 		{
+			category: 'Newsletter',
+			pages: [{ name: 'Newsletter', href: '/newsletter' }]
+		},
+		{
 			category: 'Programs',
 			pages: [
 				{ name: 'Programs', href: '/programs' },
@@ -177,13 +181,16 @@
 						<a href="/calendar">Event Calendar</a>
 					</div>
 					<div class="footer-group">
+						<h3>Newsletter</h3>
+						<a href="/newsletter">Newsletter</a>
+					</div>
+					<div class="footer-group">
 						<h3>Join</h3>
 						<a href="/join">Join</a>
 						<a href="/volunteer">Volunteer</a>
 						<a href="/resources">Resources</a>
 					</div>
 				</div>
-
 				<div class="footer-links-column">
 					<div class="footer-group">
 						<h3>Programs</h3>

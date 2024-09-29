@@ -4,9 +4,10 @@
 	import { srcFor } from '$lib/sanity/image';
 	import Img from '@zerodevx/svelte-img';
 	import type { PageData } from './$types';
+	import { stegaClean } from '@sanity/client/stega';
 	import ArrowLeftIcon from '~icons/ph/arrow-left-bold';
 	import portableComponents from '$lib/utils/portableComponents';
-	import { stegaClean } from '@sanity/client/stega';
+	import { formatDate } from '$lib/utils';
 
 	export let data: PageData;
 	const q = useQuery(data);
@@ -16,11 +17,20 @@
 
 <div class="page">
 	<a class="back" href="/newsletter">
-		<ArrowLeftIcon style="font-size: 1.125rem;" /> Back to Newsletter
+		<ArrowLeftIcon style="font-size: 1.125rem;" /> Back to All Newsletters
 	</a>
 	<h1>{newsletter.title}</h1>
+	{#if newsletter.date}
+		<p class="date">
+			{formatDate(newsletter.date)}
+		</p>
+	{/if}
 	{#if newsletter.image}
-		<Img src={srcFor(newsletter.image)} alt="Image for {stegaClean(newsletter.title)}" />
+		<Img
+			class="image"
+			src={srcFor(newsletter.image)}
+			alt="Image for {stegaClean(newsletter.title)}"
+		/>
 	{/if}
 	{#if newsletter.body}
 		<div class="content">
@@ -30,10 +40,16 @@
 </div>
 
 <style lang="scss">
-	.page :global(img) {
+	.page :global(.image) {
 		max-height: 30rem;
 	}
 	h1 {
 		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	.date {
+		font-size: 1.25rem;
+		font-weight: 500;
+		margin-bottom: 1.5rem;
 	}
 </style>

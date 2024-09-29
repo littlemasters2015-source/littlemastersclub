@@ -13,7 +13,7 @@
 	<h1>Newsletter</h1>
 	<div class="events-container">
 		{#each newsletters as newsletter}
-			<NewsletterPreview {newsletter} />
+			<NewsletterPreview {newsletter} headingLevel={2} />
 		{/each}
 	</div>
 </div>

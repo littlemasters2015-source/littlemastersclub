@@ -4,6 +4,7 @@
 	import Img from '@zerodevx/svelte-img';
 
 	export let newsletter;
+	export let headingLevel;
 </script>
 
 <a href={`/newsletter/${newsletter.slug.current}`} class="event">
@@ -11,13 +12,13 @@
 		<Img src={srcFor(newsletter.image, 'xs')} alt="Image for {stegaClean(newsletter.title)}" />
 	{/if}
 	<div class="info">
-		<h3>{newsletter.title}</h3>
+		<h3 aria-level={headingLevel}>{newsletter.title}</h3>
 		<p class="description">{newsletter.description}</p>
 	</div>
 </a>
 
 <style lang="scss">
-	a {
+	.event {
 		display: flex;
 		text-decoration: none;
 		position: relative;
@@ -41,6 +42,11 @@
 		padding: 1.25rem;
 	}
 
+	.time {
+		font-size: 1.125rem;
+		margin: 0.75rem 0;
+	}
+
 	h3 {
 		margin: 0;
 		font-size: 1.5rem;
@@ -52,5 +58,26 @@
 	}
 	.description {
 		@include line-clamp(2);
+	}
+
+	@media (max-width: 500px) {
+		.event {
+			flex-direction: column;
+			height: auto;
+		}
+		.event :global(picture) {
+			width: calc(100% + 4px);
+			aspect-ratio: 16/9;
+			height: auto;
+			position: relative;
+			top: -2px;
+			left: -2px;
+		}
+		.info {
+			padding: 1rem 1.25rem 1.5rem 1.25rem;
+			h3 {
+				font-size: 1.25rem;
+			}
+		}
 	}
 </style>

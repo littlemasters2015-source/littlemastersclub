@@ -23,12 +23,6 @@
 		width: 100%;
 		max-width: 60rem;
 	}
-	img {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
-		@include border;
-	}
 	.events-container {
 		gap: 1.25rem;
 		display: flex;
