@@ -12,9 +12,11 @@ export const load: LayoutLoad = ({ data }) => {
 	setPreviewing(preview);
 
 	if (browser) {
+		console.log();
 		posthog.init('phc_casjJqwZZBcMdLSlSPxXi6M6MBCqIr9C5zGib0n2i8Y', {
 			api_host: 'https://littlemastersclub.vercel.app/ingest',
-			ui_host: 'https://us.posthog.com'
+			ui_host: 'https://us.posthog.com',
+			person_profiles: 'identified_only'
 		});
 	}
 
