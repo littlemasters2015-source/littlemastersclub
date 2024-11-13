@@ -15,6 +15,14 @@
 	import { useQuery } from '@sanity/svelte-loader';
 	import type { LayoutData } from './$types';
 	import { stegaClean } from '@sanity/client/stega';
+	import posthog from 'posthog-js';
+	import { browser } from '$app/environment';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
+
+	if (browser) {
+		beforeNavigate(() => posthog.capture('$pageleave'));
+		afterNavigate(() => posthog.capture('$pageview'));
+	}
 
 	export let data: LayoutData;
 

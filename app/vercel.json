@@ -1,10 +1,6 @@
 {
 	"rewrites": [
 		{
-			"source": "/ingest/vitals.js",
-			"destination": "https://us-assets.i.posthog.com/static/web-vitals.js"
-		},
-		{
 			"source": "/ingest/static/:path(.*)",
 			"destination": "https://us-assets.i.posthog.com/static/:path*"
 		},
