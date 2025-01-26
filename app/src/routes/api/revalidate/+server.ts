@@ -28,6 +28,8 @@ export const POST: RequestHandler = async ({ request }) => {
 		throw error(403, 'Forbidden');
 	}
 
+	console.log(JSON.stringify(body));
+
 	if (body.slug.current) {
 		console.log(JSON.stringify(body));
 
