@@ -37,13 +37,13 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		if (body?._type === 'event') {
 			await revalidateSlug('events');
-			await revalidateSlug(`/events${body.slug.current}`);
+			await revalidateSlug(`events/${body.slug.current}`);
 		} else if (body?._type === 'program') {
 			await revalidateSlug('programs');
-			await revalidateSlug(`/programs${body.slug.current}`);
+			await revalidateSlug(`programs/${body.slug.current}`);
 		} else if (body?._type === 'newsletter') {
 			await revalidateSlug('newsletters');
-			await revalidateSlug(`/newsletters${body.slug.current}`);
+			await revalidateSlug(`newsletters/${body.slug.current}`);
 		} else {
 			await revalidateSlug(body.slug.current);
 		}
