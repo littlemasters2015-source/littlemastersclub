@@ -10,9 +10,11 @@ async function revalidateSlug(slug: string): Promise<boolean> {
 	console.log(`Revalidating: ${env.SITE_URL}/${slug}`);
 	const res = await fetch(`${env.SITE_URL}/${slug}`, {
 		cache: 'no-store',
-		headers: {
-			'x-prerender-revalidate': env.BYPASS_TOKEN
-		}
+		headers: env.BYPASS_TOKEN
+			? {
+					'x-prerender-revalidate': env.BYPASS_TOKEN
+				}
+			: {}
 	});
 	if (!res.ok) {
 		console.log(`Could not revalidate ${env.SITE_URL}/${slug}`);
@@ -24,7 +26,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	const signature = request.headers.get(SIGNATURE_HEADER_NAME) ?? '';
 	const body = (await request.clone().json()) as ResponseType;
 
-	if (!(await isValidSignature(JSON.stringify(body), signature, env.BYPASS_TOKEN))) {
+	if (!(await isValidSignature(JSON.stringify(body), signature, env.BYPASS_TOKEN ?? ''))) {
 		throw error(403, 'Forbidden');
 	}
 
@@ -35,13 +37,13 @@ export const POST: RequestHandler = async ({ request }) => {
 
 		if (body?._type === 'event') {
 			await revalidateSlug('events');
-			await revalidateSlug(`/events/${body.slug.current}`);
+			await revalidateSlug(`/events${body.slug.current}`);
 		} else if (body?._type === 'program') {
 			await revalidateSlug('programs');
-			await revalidateSlug(`/programs/${body.slug.current}`);
+			await revalidateSlug(`/programs${body.slug.current}`);
 		} else if (body?._type === 'newsletter') {
 			await revalidateSlug('newsletters');
-			await revalidateSlug(`/newsletters/${body.slug.current}`);
+			await revalidateSlug(`/newsletters${body.slug.current}`);
 		} else {
 			await revalidateSlug(body.slug.current);
 		}
