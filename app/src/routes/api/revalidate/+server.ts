@@ -12,7 +12,8 @@ async function revalidateSlug(slug: string): Promise<boolean> {
 		cache: 'no-store',
 		headers: env.BYPASS_TOKEN
 			? {
-					'x-prerender-revalidate': env.BYPASS_TOKEN
+					'x-prerender-revalidate': env.BYPASS_TOKEN,
+					'Cache-Control': 'no-cache, no-store, must-revalidate'
 				}
 			: {}
 	});
