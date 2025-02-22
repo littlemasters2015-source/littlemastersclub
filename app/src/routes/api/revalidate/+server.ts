@@ -32,26 +32,28 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	console.log(JSON.stringify(body));
 
-	if (body.slug.current) {
-		console.log(JSON.stringify(body));
-
-		if (body?._type === 'event') {
-			await revalidateSlug('events');
-			await revalidateSlug(`events/${body.slug.current}`);
-		} else if (body?._type === 'program') {
-			await revalidateSlug('programs');
-			await revalidateSlug(`programs/${body.slug.current}`);
-		} else if (body?._type === 'newsletter') {
-			await revalidateSlug('newsletters');
-			await revalidateSlug(`newsletters/${body.slug.current}`);
-		} else {
-			await revalidateSlug(body.slug.current);
-		}
-
-		return json({ ok: true });
+	if (body?._type === 'homePage') {
+		await revalidateSlug('');
+	} else if (body?._type === 'boardMember') {
+		await revalidateSlug('board');
+	} else if (body?._type === 'category') {
+		await revalidateSlug('');
+	} else if (body?._type === 'event') {
+		await revalidateSlug('events');
+		await revalidateSlug(`events/${body.slug.current}`);
+	} else if (body?._type === 'program') {
+		await revalidateSlug('programs');
+		await revalidateSlug(`programs/${body.slug.current}`);
+	} else if (body?._type === 'newsletter') {
+		await revalidateSlug('newsletter');
+		await revalidateSlug(`newsletter/${body.slug.current}`);
+	} else {
+		await revalidateSlug(body.slug.current);
 	}
 
-	throw error(404, 'Slug not found');
+	return json({ ok: true });
+
+	// throw error(404, 'Slug not found');
 };
 
 // Next.js will by default parse the body, which can lead to invalid signatures
