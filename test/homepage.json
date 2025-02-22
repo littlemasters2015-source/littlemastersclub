@@ -1,0 +1,101 @@
+{
+  "_type": "homePage",
+  "_createdAt": "2024-08-31T01:50:01Z",
+  "hero": "Every Kid is a Master.s",
+  "video": "https://www.youtube-nocookie.com/embed/AyDXMj-lnzU?si=UINW66vIHeS92D2L",
+  "eventsImage": {
+    "_type": "image",
+    "asset": {
+      "_ref": "image-98bc563a3d83553211a465d5dff1cf3844a6e2c6-1200x900-jpg",
+      "_type": "reference"
+    }
+  },
+  "supportText": [
+    {
+      "_key": "f8e06f9fe5d3",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Support Us",
+          "_key": "986a5a3ac62b0"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "_key": "5511c3a647f1",
+      "_type": "block",
+      "children": [
+        {
+          "text": "We rely on the generosity of our community to provide children with engaging projects and events. Your support is greatly appreciated!",
+          "_key": "e87a088562800",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "_rev": "kmFkowIxhvI4M7aF05AIjv",
+  "carousel": [
+    {
+      "_key": "09eb55b2422b",
+      "_type": "carouselImage",
+      "asset": {
+        "_ref": "image-6bd5744ce9483ade12891ef3de90ffbe6d96b639-2048x1362-jpg",
+        "_type": "reference"
+      }
+    },
+    {
+      "_key": "b172fcabf44c",
+      "_type": "carouselImage",
+      "asset": {
+        "_ref": "image-cecc4916b3960e4c90b3d923bcfc4cf550f03cbc-3981x2399-jpg",
+        "_type": "reference"
+      }
+    }
+  ],
+  "description": [
+    {
+      "_key": "ba3178d3ce73",
+      "_type": "block",
+      "children": [
+        {
+          "marks": [],
+          "text": "Little Masters Club is a 501(c)(3) nonprofit organization that seeks to provide an encouraging environment for kids to be learners, mentors, team players, and leaders. We promote “learning by doing” through a multitude of fun projects.",
+          "_key": "677cd1c62c150",
+          "_type": "span"
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "style": "normal",
+      "_key": "190249b4cb8a",
+      "_type": "block",
+      "children": [
+        {
+          "text": "Our goal is to connect children to their community, invoke their compassion and motivation, develop their skills, and give them an opportunity to shine.",
+          "_key": "c1bc9f2451b5",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "markDefs": []
+    }
+  ],
+  "supportImage": {
+    "_type": "image",
+    "asset": {
+      "_ref": "image-8642cdc0941e6460933699e15ccb198089986f20-5760x3840-jpg",
+      "_type": "reference"
+    }
+  },
+  "_id": "homePage",
+  "_updatedAt": "2025-02-22T00:54:00Z"
+}

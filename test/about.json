@@ -1,0 +1,68 @@
+{
+  "description": "Little Masters Club is a nonprofit organization that seeks to provide an encouraging environment for kids to be learners, mentors, team players, and leaders.",
+  "_updatedAt": "2025-02-22T01:02:24Z",
+  "_createdAt": "2024-09-01T08:16:42Z",
+  "_id": "73d8d506-2f7b-426c-a568-2bae3dbb472d",
+  "_rev": "pj7o5sC4V7hxLirwPQVnb0",
+  "body": [
+    {
+      "_key": "82099c88169f",
+      "_type": "block",
+      "children": [
+        {
+          "marks": [],
+          "text": "Who We Are",
+          "_key": "3e937ad0ac7a0",
+          "_type": "span"
+        }
+      ],
+      "markDefs": [],
+      "style": "h2"
+    },
+    {
+      "children": [
+        {
+          "text": "Little Masters Club (LMC) is a 501(c)(3) non-profit organization that seeks to provide an encouraging environment and open platform for kids to be learners, mentors, team players, and leaders. Our goal is to invoke the kids’ passion of serving our community, build up their leadership and teamwork skills, and encourage them to flourish in a multicultural society.",
+          "_key": "44275d3bee5f0",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "markDefs": [],
+      "style": "normal",
+      "_key": "f479240e3ac9",
+      "_type": "block"
+    },
+    {
+      "markDefs": [],
+      "style": "h2",
+      "_key": "fb70cc9c5066",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "37f0ab11411c0",
+          "_type": "span",
+          "marks": [],
+          "text": "What We Do"
+        }
+      ]
+    },
+    {
+      "_key": "ad868b494a57",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "a299c9f4711e0",
+          "_type": "span",
+          "marks": [],
+          "text": "LMC projects are led by kids with adult guidance as needed. Our projects vary from community service, extra-curriculum activities, education support to traditional culture exploration. We encourage all kids to be creative and come up with their own ideas of how to contribute to the community. Whether it’s creating art, spreading knowledge, exchanging culture, or fundraising for a good cause, we’re making it happen! Through our variety of accessible opportunities, kids explore their interests with friends, mentor younger members, and discover their full potential to make things possible."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    }
+  ],
+  "slug": { "_type": "slug", "current": "about" },
+  "_type": "page",
+  "title": "About Us"
+}

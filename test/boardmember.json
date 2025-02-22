@@ -1,0 +1,31 @@
+{
+  "_id": "923ad52b-24e9-4b39-a211-d99d260cb59d",
+  "_type": "boardMember",
+  "_createdAt": "2024-08-28T17:02:14Z",
+  "image": {
+    "_type": "image",
+    "asset": {
+      "_type": "reference",
+      "_ref": "image-fe2cc8c1b8ae7ef6ff10443422d065c0ed6c3ffc-699x699-jpg"
+    }
+  },
+  "name": "Qiong Chen (advisor)s",
+  "body": [
+    {
+      "markDefs": [],
+      "style": "normal",
+      "_key": "e82ec9b91146",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Qiong Chen, President of Little Masters Club from 2017~2018, has been serving on the LMC board since 2015. Qiong holds MS degree in Computer Science and is a former employee of China Telecom and Microsoft. As a mother of 2 lovely daughters, she truly believes leading by example is the best way to teach kids. Her whole family actively serve the local community, to help themselves and people around them to become better. Qiong is one of the core members who initiated varies projects at LMC, such as Art Group, Bike-A-Thon, GEST, Children's Choir, Blood Donation Outreach, and President Service Award program. Qiong is also a board member of International School PTSA and vice chair of HUST Alumni Association of Seattle. In her spare time, she enjoys swimming, hiking and flower arrangement.",
+          "_key": "4a1ea17c60f10"
+        }
+      ]
+    }
+  ],
+  "_updatedAt": "2025-02-22T01:04:33Z",
+  "_rev": "pj7o5sC4V7hxLirwPQXSvW"
+}
