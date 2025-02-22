@@ -6,7 +6,7 @@ type ResponseType = any;
 
 async function revalidateSlug(slug: string): Promise<boolean> {
 	// Set a delay to allow Sanity data to correctly propagate.
-	await new Promise((resolve) => setTimeout(resolve, 3000));
+	await new Promise((resolve) => setTimeout(resolve, 8000));
 	console.log(`Revalidating: ${env.SITE_URL}/${slug}`);
 	const res = await fetch(`${env.SITE_URL}/${slug}`, {
 		cache: 'no-store',
@@ -39,14 +39,17 @@ export const POST: RequestHandler = async ({ request }) => {
 	} else if (body?._type === 'category') {
 		await revalidateSlug('');
 	} else if (body?._type === 'event') {
-		await revalidateSlug('events');
-		await revalidateSlug(`events/${body.slug.current}`);
+		await Promise.all([revalidateSlug('events'), revalidateSlug(`events/${body.slug.current}`)]);
 	} else if (body?._type === 'program') {
-		await revalidateSlug('programs');
-		await revalidateSlug(`programs/${body.slug.current}`);
+		await Promise.all([
+			revalidateSlug('programs'),
+			revalidateSlug(`programs/${body.slug.current}`)
+		]);
 	} else if (body?._type === 'newsletter') {
-		await revalidateSlug('newsletter');
-		await revalidateSlug(`newsletter/${body.slug.current}`);
+		await Promise.all([
+			revalidateSlug('newsletter'),
+			revalidateSlug(`newsletter/${body.slug.current}`)
+		]);
 	} else {
 		await revalidateSlug(body.slug.current);
 	}
