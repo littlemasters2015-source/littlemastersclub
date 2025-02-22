@@ -1,0 +1,245 @@
+{
+  "_id": "d8c742bf-dc9f-4962-ba2c-dcb367b7d785",
+  "image": {
+    "hotspot": {
+      "width": 1,
+      "x": 0.5,
+      "y": 0.49632516867475784,
+      "_type": "sanity.imageHotspot",
+      "height": 0.9926503373495157
+    },
+    "_type": "image",
+    "asset": {
+      "_type": "reference",
+      "_ref": "image-aa87c9ed26ad7a1f3dc5f7698378823dfb8c1eb6-1125x1123-jpg"
+    },
+    "crop": {
+      "bottom": 0.007349662650484312,
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "_type": "sanity.imageCrop"
+    }
+  },
+  "_rev": "kmFkowIxhvI4M7aF05FQx5",
+  "body": [
+    {
+      "markDefs": [],
+      "style": "normal",
+      "_key": "3f03f217ee34",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "2cf41a9c983e0",
+          "_type": "span",
+          "marks": [],
+          "text": "This class is open to high school students (grades 9-12) only. The teachers come from Amazon’s AWS team."
+        }
+      ]
+    },
+    {
+      "_key": "6300b69d006f",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "4770b0bbfa9e0",
+          "_type": "span",
+          "marks": [],
+          "text": "In the Exploring Generative AI with AWS PartyRock, attendees will gain insights of Generative Artificial Intelligence, and the data-driven processes behind large language models. Through demonstrations, they will learn the capabilities of AI. Attendees will have the opportunity to interact with Amazon’s PartyRock, a powerful Generative AI tool based on AWS BedRock, and discover how natural conversations can unlock its potential. During hands-on sessions, attendees will build their own AI-powered applications or games using PartyRock, connecting their learning with real-world applications and exploring the possibilities of Generative AI."
+        }
+      ],
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "style": "normal",
+      "_key": "75ff55f1b423",
+      "_type": "block",
+      "children": [
+        {
+          "text": "In this unit, attendees will:",
+          "_key": "c8be82583dad0",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "children": [
+        {
+          "_key": "fe9bb71116ca0",
+          "_type": "span",
+          "marks": [],
+          "text": "Gain insights into the fundamental concepts of Generative Artificial Intelligence"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal",
+      "_key": "64cdc9e573da"
+    },
+    {
+      "style": "normal",
+      "_key": "d2421ea5cffb",
+      "_type": "block",
+      "children": [
+        {
+          "marks": [],
+          "text": "Understand the data-driven processes behind training large language models",
+          "_key": "6b860e4325000",
+          "_type": "span"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "markDefs": [],
+      "style": "normal",
+      "_key": "f7cecb646843",
+      "_type": "block",
+      "children": [
+        {
+          "marks": [],
+          "text": "Witness AI’s capabilities through demonstrations, including AI applications and image generation",
+          "_key": "4e5e7064b0030",
+          "_type": "span"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet"
+    },
+    {
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal",
+      "_key": "620612ae57d3",
+      "_type": "block",
+      "children": [
+        {
+          "text": "Explore the possibilities of Generative AI",
+          "_key": "fb535375da6e0",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "level": 1
+    },
+    {
+      "children": [
+        {
+          "marks": [],
+          "text": "Learn how to build applications on PartyRock and learn the impact of adjusting AI model settings",
+          "_key": "fdf30befa20f0",
+          "_type": "span"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal",
+      "_key": "bd40775eea78",
+      "_type": "block"
+    },
+    {
+      "_key": "b50518a66ed5",
+      "_type": "block",
+      "children": [
+        {
+          "_key": "0d059b2765350",
+          "_type": "span",
+          "marks": [],
+          "text": "Create their own AI-powered applications or games using PartyRock without coding required"
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal"
+    },
+    {
+      "_type": "block",
+      "children": [
+        {
+          "text": "Technical requirements:",
+          "_key": "24f79bd7f0c80",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "markDefs": [],
+      "style": "normal",
+      "_key": "765ce5f45c3d"
+    },
+    {
+      "style": "normal",
+      "_key": "a84ddbbcb970",
+      "_type": "block",
+      "children": [
+        {
+          "text": "Access to a Windows or Mac laptop, or a Chromebook.",
+          "_key": "4afddc8ca9a00",
+          "_type": "span",
+          "marks": []
+        }
+      ],
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": []
+    },
+    {
+      "level": 1,
+      "listItem": "bullet",
+      "markDefs": [],
+      "style": "normal",
+      "_key": "8ea2251331e6",
+      "_type": "block",
+      "children": [
+        {
+          "_type": "span",
+          "marks": [],
+          "text": "Have at least one of the three accounts to register for PartyRock: Amazon, Apple, Google",
+          "_key": "9452877c5e100"
+        }
+      ]
+    }
+  ],
+  "_createdAt": "2024-03-24T03:24:12Z",
+  "startTime": "2024-06-22T21:00:00.000Z",
+  "_updatedAt": "2025-02-22T01:28:43Z",
+  "description": "Explore generative AI",
+  "details": [
+    {
+      "_key": "f4b866ba22c0",
+      "_type": "detail",
+      "title": "Price",
+      "value": "$10/person (This is to reserve a spot, you will get refund on the event day when you show up to participate)"
+    },
+    {
+      "_key": "5e556e31686a",
+      "_type": "detail",
+      "title": "Registration Link",
+      "value": "https://www.jotform.com/form/241521057770149"
+    },
+    {
+      "value": "15 students",
+      "_key": "9df3b43c6efb",
+      "_type": "detail",
+      "title": "Class Size"
+    },
+    {
+      "_key": "9968ce476691",
+      "_type": "detail",
+      "title": "Location",
+      "value": "15015 Main St Suite 208, Bellevue, WA 98007"
+    }
+  ],
+  "endTime": "2024-06-22T23:00:00.000Z",
+  "_type": "event",
+  "slug": { "current": "event-3", "_type": "slug" },
+  "title": "2024 AWS Education Camp – Explore Generative AI"
+}
