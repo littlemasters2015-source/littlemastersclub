@@ -20,7 +20,9 @@ export const load: PageServerLoad = async ({ locals, parent, url }) => {
 
 	const { loadQuery } = locals;
 
-	const initial = await loadQuery<Program[]>(query);
+	const initial = await loadQuery<Program[]>(query, undefined, {
+		useCdn: false
+	});
 
 	return {
 		categoryRef,

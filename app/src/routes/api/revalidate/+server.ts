@@ -12,8 +12,7 @@ async function revalidateSlug(slug: string): Promise<boolean> {
 		cache: 'no-store',
 		headers: env.BYPASS_TOKEN
 			? {
-					'x-prerender-revalidate': env.BYPASS_TOKEN,
-					'Cache-Control': 'no-cache, no-store, must-revalidate'
+					'x-prerender-revalidate': env.BYPASS_TOKEN
 				}
 			: {}
 	});
@@ -40,7 +39,11 @@ export const POST: RequestHandler = async ({ request }) => {
 	} else if (body?._type === 'category') {
 		await revalidateSlug('');
 	} else if (body?._type === 'event') {
-		await Promise.all([revalidateSlug('events'), revalidateSlug(`events/${body.slug.current}`)]);
+		await Promise.all([
+			revalidateSlug(''),
+			revalidateSlug('events'),
+			revalidateSlug(`events/${body.slug.current}`)
+		]);
 	} else if (body?._type === 'program') {
 		await Promise.all([
 			revalidateSlug('programs'),

@@ -8,7 +8,9 @@ export const load: PageServerLoad = async (event) => {
 	const { slug } = event.params;
 
 	const params = { slug };
-	const initial = await loadQuery<Program>(query, params);
+	const initial = await loadQuery<Program>(query, params, {
+		useCdn: false
+	});
 
 	if (!initial.data) {
 		error(404, {
