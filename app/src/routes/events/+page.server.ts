@@ -3,7 +3,9 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
-	const initial = await loadQuery<Event[]>(query);
+	const initial = await loadQuery<Event[]>(query, undefined, {
+		useCdn: false
+	});
 	console.log(initial);
 
 	return {
