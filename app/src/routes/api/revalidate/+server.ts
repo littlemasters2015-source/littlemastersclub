@@ -54,7 +54,7 @@ export const POST: RequestHandler = async ({ request }) => {
 			revalidateSlug('newsletter'),
 			revalidateSlug(`newsletter/${body.slug.current}`)
 		]);
-	} else {
+	} else if (body?.slug?.current) {
 		await revalidateSlug(body.slug.current);
 	}
 
