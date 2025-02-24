@@ -3,8 +3,12 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async (event) => {
 	const { loadQuery } = event.locals;
-	const homepage = await loadQuery<HomePage>(homePageQuery);
-	const events = await loadQuery<Event[]>(eventsQuery);
+	const homepage = await loadQuery<HomePage>(homePageQuery, undefined, {
+		useCdn: false
+	});
+	const events = await loadQuery<Event[]>(eventsQuery, undefined, {
+		useCdn: false
+	});
 
 	return {
 		homepage: {

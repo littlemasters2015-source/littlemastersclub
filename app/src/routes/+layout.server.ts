@@ -24,7 +24,13 @@ export const load: LayoutServerLoad = async ({ params, locals }) => {
 	const { preview, loadQuery } = locals;
 	const { slug } = params;
 
-	const initial = await loadQuery<Category[]>(categoriesQuery, { slug });
+	const initial = await loadQuery<Category[]>(
+		categoriesQuery,
+		{ slug },
+		{
+			useCdn: false
+		}
+	);
 
 	// console.log(initial);
 
