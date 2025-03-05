@@ -23,9 +23,6 @@
 	{#if program.image}
 		<Img src={srcFor(program.image)} alt="Image for {stegaClean(program.title)}" />
 	{/if}
-	<p class="date">
-		{formatDate(program._createdAt)}
-	</p>
 	{#if program.body}
 		<div class="content">
 			<PortableText components={portableComponents} value={program.body} />
@@ -36,6 +33,7 @@
 <style lang="scss">
 	.page :global(img) {
 		max-height: 30rem;
+		margin-bottom: 1rem;
 	}
 	h1 {
 		margin-top: 1rem;
