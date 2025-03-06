@@ -18,7 +18,7 @@ import groq from 'groq';
 
 export const eventQuery = groq`*[_type == "event" && slug.current == $slug][0]`;
 
-export const eventsQuery = groq`*[_type == "event" && defined(slug.current)] | order(startTime desc)`;
+export const eventsQuery = groq`*[_type == "event" && defined(slug.current) && visible == true] | order(startTime asc)`;
 
 export interface Detail {
 	_type: 'detail';
@@ -29,6 +29,7 @@ export interface Detail {
 export interface Event {
 	_type: 'event';
 	_createdAt: string;
+	visible: boolean;
 	title?: string;
 	slug: Slug;
 	description?: string;

@@ -21,6 +21,12 @@ export const event = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'visible',
+      type: 'boolean',
+      title: 'Visible on events page',
+      initialValue: true,
+    }),
+    defineField({
       name: 'title',
       type: 'string',
     }),
