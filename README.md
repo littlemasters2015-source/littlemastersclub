@@ -1,74 +1,79 @@
-# A minimal SvelteKit site with Sanity Studio
+# Little Masters Club Website
 
-This starter uses [SvelteKit](https://kit.svelte.dev/) for the frontend and [Sanity](https://sanity.io/) to handle its content.
+Website for Little Masters Club. Built with SvelteKit and Sanity.
 
-## Featuring
+## Project Structure
 
-- How to fetch content as data from [the Sanity Content Lake](https://www.sanity.io/docs/datastore)
-- How to render block content with [Portable Text](https://www.sanity.io/docs/presenting-block-text)
-- A [Sanity Studio](https://www.sanity.io/docs/sanity-studio) to create and edit content
-- Visual editing with live updates through [Presentation](https://www.sanity.io/docs/presentation)
-- How to crop and render images with [Sanity Image URLs](https://www.sanity.io/docs/image-url)
+- `/app` - SvelteKit application (website and serverless backend)
+  - `/src` - Main source code
+    - `/lib` - Components, scripts, utilities, and assets
+    - `/routes` - SvelteKit pages and layouts
+  - `/static` - Static assets
+- `/studio` - Sanity Studio (content management backend)
+  - `/schemas` - Sanity schemas
+- `/test` - Miscellaneous files for testing
 
-> **Note**
->
-> This starter features an `/app` and a `/studio` folder. The `/app` folder contains the frontend code, and the `/studio` folder contains the Sanity Studio code.
->
-> It is configured as a monorepo using [pnpm workspaces](https://pnpm.io/workspaces), but you can treat these directories as separate projects if you prefer.
-
-## Prerequisities
-
-- [Node.js](https://nodejs.org/en/) (v14.18 or later)
-- [Sanity CLI](https://www.sanity.io/docs/getting-started-with-sanity-cli) (optional)
-
-## Getting started
+## Setup
 
 Run the following commands to prepare both applications, each step should be executed from the **root directory**:
 
-1. Install dependencies.
+Install dependencies.
 
 ```sh
 pnpm install
 ```
 
-2. Select or create a Sanity project and dataset, and output the details to a `.env` file.
+Initialize Sanity Studio. When prompted, select the `lmc [60juzmgp]` project and the `production` dataset.
 
 ```sh
-cd studio && pnpm sanity init --env .env
+cd studio
+pnpm exec sanity init --env .env
 ```
 
-3. [Generate a token](https://www.sanity.io/docs/http-auth#4c21d7b829fe) with read permissions for use in the next step.
-
-```sh
-pnpm sanity manage
-```
-
-4. Copy the example app `.env` file and populate it with the required values.
+Copy the example app `.env` file.
 
 ```sh
 cp ./app/.env.example ./app/.env
 ```
 
-5.  Start the development servers:
+Populate these variables in the `.env` file.
+
+```
+# Required - The ID of your Sanity project
+PUBLIC_SANITY_PROJECT_ID=""
+# Required - The dataset of your Sanity project
+PUBLIC_SANITY_DATASET=""
+# Required - The generated read token, used to fetch data on the server
+SANITY_API_READ_TOKEN=""
+```
+
+Finally, start the development server.
+
+To run both the website and Sanity Studio, run this in the **root directory**:
 
 ```sh
 pnpm dev
 ```
 
-- Your SvelteKit app should now be running on [http://localhost:5173/](http://localhost:5173/).
-- Your Studio should now be running on [http://localhost:3333/](http://localhost:3333/).
+To run only the website, cd into the `/app` directory:
 
-### Add content
+```sh
+cd app
+pnpm dev
+```
 
-1. Visit the Studio and create and publish a new `Post` document
-2. Visit the App and refresh the page to see your content rendered on the page
+To run only the Sanity Studio, cd into the `/studio` directory:
 
-The schema for the `Post` document is defined in the `/studio/schemas` folder. You can add more documents and schemas to the Studio to suit your needs.
+```sh
+cd studio
+pnpm dev
+```
 
-## Deployments
+## Deploy Sanity
 
-The `/app` and `/studio` folders are meant to be deployed separately.
+You'd usually do this after you've made changes to schemas in Studio and want to update the live instance (you don't need to do this if you're just running Studio locally).
 
-Make sure that after `/app` is deployed the `.env` file in `/studio` is updated with its deployment URL under `SANITY_STUDIO_PREVIEW_URL`.
-
-And `/app` has a `.env` file with `PUBLIC_SANITY_STUDIO_URL` that points to the Studio's deployment URL.
+```sh
+cd studio
+pnpm exec sanity deploy
+```

@@ -6,7 +6,6 @@ export const load: PageServerLoad = async (event) => {
 	const initial = await loadQuery<Event[]>(query, undefined, {
 		useCdn: false
 	});
-	console.log(initial);
 
 	return {
 		query,
