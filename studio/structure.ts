@@ -27,8 +27,8 @@ export const structure: StructureResolver = (S) =>
             .filter('_type == "program" && status == "current"'),
         ),
       S.listItem()
-        .title('Old Programs')
+        .title('Previous Programs')
         .child(
-          S.documentList().title('Old Programs').filter('_type == "program" && status == "old"'),
+          S.documentList().title('Previous Programs').filter('_type == "program" && status == "previous"'),
         ),
     ])

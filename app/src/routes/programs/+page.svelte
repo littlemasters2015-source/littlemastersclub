@@ -13,8 +13,8 @@
 
 	let title: string = 'Programs';
 
-	$: if ($page.url.searchParams.get('status') === 'old') {
-		title = 'Old Programs';
+	$: if ($page.url.searchParams.get('status') === 'previous') {
+		title = 'Previous Programs';
 	} else if ($page.url.searchParams.get('category')) {
 		const category = $page.url.searchParams.get('category') || '';
 		const capitalized = category.charAt(0).toUpperCase() + category.slice(1).toLowerCase();
@@ -24,10 +24,10 @@
 	}
 
 	$: filteredPrograms = programs.filter((program) => {
-		if ($page.url.searchParams.get('status') === 'old') {
-			return program.status === 'old';
+		if ($page.url.searchParams.get('status') === 'previous') {
+			return program.status === 'previous';
 		}
-		if (program.status === 'old') {
+		if (program.status === 'previous') {
 			return false;
 		}
 		if ($page.url.searchParams.get('category')) {

@@ -36,6 +36,26 @@
 			pages: [{ name: 'Home', href: '/' }]
 		},
 		{
+			category: 'About',
+			pages: [
+				{ name: 'About Us', href: '/about' },
+				{ name: 'Contact Us', href: '/contact' },
+				{ name: 'Board Members', href: '/board' },
+				{ name: 'Privacy Policy', href: '/privacy-policy' }
+			]
+		},
+		{
+			category: 'Programs',
+			pages: [
+				{ name: 'Programs', href: '/programs' },
+				...categories.map((category) => ({
+					name: category.name,
+					href: `/programs?category=${stegaClean(category.name)}`
+				})),
+				{ name: 'Previous Programs', href: '/programs?status=previous' }
+			]
+		},
+		{
 			category: 'Events',
 			pages: [
 				{ name: 'Events', href: '/events' },
@@ -47,20 +67,9 @@
 			pages: [{ name: 'Newsletter', href: '/newsletter' }]
 		},
 		{
-			category: 'Programs',
-			pages: [
-				{ name: 'Programs', href: '/programs' },
-				...categories.map((category) => ({
-					name: category.name,
-					href: `/programs?category=${stegaClean(category.name)}`
-				})),
-				{ name: 'Old Programs', href: '/programs?status=old' }
-			]
-		},
-		{
 			category: 'Get Involved',
 			pages: [
-				{ name: 'Join', href: '/join' },
+				{ name: 'Join LMC', href: '/join-lmc' },
 				{ name: 'Donate', href: '/donate' },
 				{ name: 'Volunteer', href: '/volunteer' }
 			]
@@ -71,15 +80,6 @@
 				{ name: 'Project Proposal', href: '/project-proposal' },
 				{ name: 'Susu Scholarship', href: '/susu-scholarship' },
 				{ name: 'Microsoft Giving', href: '/microsoft-giving' }
-			]
-		},
-		{
-			category: 'About',
-			pages: [
-				{ name: 'About Us', href: '/about' },
-				{ name: 'Contact Us', href: '/contact' },
-				{ name: 'Board Members', href: '/board' },
-				{ name: 'Privacy Policy', href: '/privacy-policy' }
 			]
 		}
 	];
@@ -186,9 +186,9 @@
 					</div>
 					<div class="footer-group">
 						<h3>Join</h3>
-						<a href="/join">Join</a>
+						<a href="/join-lmc">Join LMC</a>
 						<a href="/volunteer">Volunteer</a>
-						<a href="/resources">Resources</a>
+						<a href="/donate">Donate</a>
 					</div>
 				</div>
 				<div class="footer-links-column">
@@ -200,7 +200,7 @@
 								{category.name}
 							</a>
 						{/each}
-						<a href="/programs?status=old">Old Programs</a>
+						<a href="/programs?status=previous">Previous Programs</a>
 					</div>
 				</div>
 			</div>

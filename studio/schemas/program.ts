@@ -12,7 +12,7 @@ export default defineType({
       options: {
         list: [
           {title: 'Current', value: 'current'},
-          {title: 'Old', value: 'old'},
+          {title: 'Previous', value: 'previous'},
         ],
         layout: 'radio',
       },

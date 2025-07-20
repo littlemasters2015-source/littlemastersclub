@@ -65,7 +65,7 @@
 			<div class="box description">
 				<PortableText components={{}} value={homepage.description} />
 			</div>
-			<a class="action" href="/join">Get Involved</a>
+			<a class="action" href="/join-lmc">Get Involved</a>
 			<a class="action" href="/about">About Us</a>
 		</div>
 	</section>
