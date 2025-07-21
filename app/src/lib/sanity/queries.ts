@@ -76,12 +76,13 @@ export interface Program {
 	body: PortableTextBlock[];
 }
 
-export const categoriesQuery = groq`*[_type == "category" && defined(name)]`;
+export const categoriesQuery = groq`*[_type == "category" && defined(name)] | order(order asc)`;
 
 export interface Category {
 	_id: string | undefined;
 	_type: 'category';
 	name: string;
+	order: number;
 }
 
 export const boardMembersQuery = groq`*[_type == "boardMember"] | order(order asc)`;

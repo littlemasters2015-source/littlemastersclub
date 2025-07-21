@@ -4,12 +4,15 @@
 	import { page } from '$app/stores';
 	import CaretDownIcon from '~icons/ph/caret-down-bold';
 
-	export let data: { category: string; pages: { name: string; href: string }[] }[];
+	export let data: {
+		category: string;
+		pages: { name: string; href: string; isCategory?: boolean }[];
+	}[];
 	export let menuOpen: boolean;
 
 	$: path = $page.url.pathname;
 
-	$: isCategoryActive = (pages: { name: string; href: string }[]) => {
+	$: isCategoryActive = (pages: { name: string; href: string; isCategory?: boolean }[]) => {
 		return pages.some(({ href }) => {
 			if (href === '/') return path === '/';
 			else return path.startsWith(href);
@@ -42,8 +45,13 @@
 					transition={slide}
 					transitionConfig={{ duration: 150 }}
 				>
-					{#each pages as { name, href }}
-						<a class="accordion-nav-link" class:active={isPageActive(href)} {href}>{name}</a>
+					{#each pages as { name, href, isCategory }}
+						<a
+							class="accordion-nav-link"
+							class:category={isCategory}
+							class:active={isPageActive(href)}
+							{href}>{name}</a
+						>
 					{/each}
 				</Accordion.Content>
 			</Accordion.Item>
@@ -94,6 +102,11 @@
 		text-decoration: none;
 		padding: 0.5rem;
 		padding-left: 2rem;
+	}
+	.accordion-nav-link.category {
+		padding-left: 3rem;
+		font-size: 1.125rem;
+		opacity: 0.9;
 	}
 	.accordion-nav-link-alone {
 		font-size: 1.5rem;

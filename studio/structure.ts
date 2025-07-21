@@ -8,7 +8,10 @@ export const structure: StructureResolver = (S) =>
         .title('Home Page')
         .child(S.document().schemaType('homePage').documentId('homePage')),
       ...S.documentTypeListItems()
-        .filter((item) => !['program', 'boardMember', 'homePage'].includes(item.getId() ?? ''))
+        .filter(
+          (item) =>
+            !['program', 'boardMember', 'category', 'homePage'].includes(item.getId() ?? ''),
+        )
         .toSorted((a, b) => {
           // always put pages at the front, sort alphabetically otherwise
           if (a.getId() === 'page' && b.getId() !== 'page') {
@@ -19,6 +22,14 @@ export const structure: StructureResolver = (S) =>
             return (a.getId() ?? '').localeCompare(b.getId() ?? '')
           }
         }),
+      S.listItem()
+        .title('Categories')
+        .child(
+          S.documentList()
+            .title('Categories')
+            .filter('_type == "category"')
+            .defaultOrdering([{field: 'order', direction: 'asc'}]),
+        ),
       S.listItem()
         .title('Board Members')
         .child(

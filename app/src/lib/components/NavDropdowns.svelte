@@ -4,7 +4,10 @@
 	import { page } from '$app/stores';
 	import ArrowIcon from '~icons/ph/arrow-right-bold';
 
-	export let data: { category: string; pages: { name: string; href: string }[] }[];
+	export let data: {
+		category: string;
+		pages: { name: string; href: string; isCategory?: boolean }[];
+	}[];
 
 	$: path = $page.url.pathname;
 
@@ -27,9 +30,15 @@
 				transition={fade}
 				transitionConfig={{ duration: 50 }}
 			>
-				{#each pages as { name, href }}
+				{#each pages as { name, href, isCategory }}
 					<DD.Item asChild let:builder>
-						<a use:builder.action {...builder} class="nav-dropdown-link" {href}>
+						<a
+							use:builder.action
+							{...builder}
+							class="nav-dropdown-link"
+							class:category={isCategory}
+							{href}
+						>
 							<ArrowIcon class="nav-arrow" />{name}
 						</a>
 					</DD.Item>
@@ -77,8 +86,16 @@
 		display: flex;
 		align-items: center;
 	}
+	:global(.nav-dropdown-link.category) {
+		padding-left: 1.5rem;
+		font-size: 1rem;
+		opacity: 0.9;
+	}
 	:global(.nav-dropdown-link:hover) {
 		transform: translateX(0);
+	}
+	:global(.nav-dropdown-link.category:hover) {
+		transform: translateX(0.5rem);
 	}
 	:global(.nav-arrow) {
 		font-size: 0.9rem;

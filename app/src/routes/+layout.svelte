@@ -50,7 +50,8 @@
 				{ name: 'Programs', href: '/programs' },
 				...categories.map((category) => ({
 					name: category.name,
-					href: `/programs?category=${stegaClean(category.name)}`
+					href: `/programs?category=${stegaClean(category.name)}`,
+					isCategory: true
 				})),
 				{ name: 'Previous Programs', href: '/programs?status=previous' }
 			]
