@@ -70,7 +70,7 @@ export interface Program {
 	title?: string;
 	slug: Slug;
 	description?: string;
-	categories?: { _ref: string }[];
+	category?: { _ref: string };
 	image?: ImageAsset;
 	body: PortableTextBlock[];
 }

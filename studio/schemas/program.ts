@@ -35,15 +35,9 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'categories',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          name: 'category',
-          type: 'reference',
-          to: [{type: 'category'}],
-        }),
-      ],
+      name: 'category',
+      type: 'reference',
+      to: [{type: 'category'}],
     }),
     defineField({
       name: 'image',
@@ -66,7 +60,6 @@ export default defineType({
     }),
   ],
   initialValue: {
-    published: false,
     status: 'current',
   },
 })
