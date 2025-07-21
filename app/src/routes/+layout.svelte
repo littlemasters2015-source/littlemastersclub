@@ -69,7 +69,7 @@
 		{
 			category: 'Get Involved',
 			pages: [
-				{ name: 'Join LMC', href: '/join-lmc' },
+				{ name: 'Join LMC', href: '/join' },
 				{ name: 'Donate', href: '/donate' },
 				{ name: 'Volunteer', href: '/volunteer' }
 			]
@@ -186,7 +186,7 @@
 					</div>
 					<div class="footer-group">
 						<h3>Join</h3>
-						<a href="/join-lmc">Join LMC</a>
+						<a href="/join">Join LMC</a>
 						<a href="/volunteer">Volunteer</a>
 						<a href="/donate">Donate</a>
 					</div>
