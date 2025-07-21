@@ -8,7 +8,7 @@ export const structure: StructureResolver = (S) =>
         .title('Home Page')
         .child(S.document().schemaType('homePage').documentId('homePage')),
       ...S.documentTypeListItems()
-        .filter((item) => !['program', 'homePage'].includes(item.getId() ?? ''))
+        .filter((item) => !['program', 'boardMember', 'homePage'].includes(item.getId() ?? ''))
         .toSorted((a, b) => {
           // always put pages at the front, sort alphabetically otherwise
           if (a.getId() === 'page' && b.getId() !== 'page') {
@@ -20,15 +20,27 @@ export const structure: StructureResolver = (S) =>
           }
         }),
       S.listItem()
+        .title('Board Members')
+        .child(
+          S.documentList()
+            .title('Board Members')
+            .filter('_type == "boardMember"')
+            .defaultOrdering([{field: 'order', direction: 'asc'}]),
+        ),
+      S.listItem()
         .title('Current Programs')
         .child(
           S.documentList()
             .title('Current Programs')
-            .filter('_type == "program" && status == "current"'),
+            .filter('_type == "program" && status == "current"')
+            .defaultOrdering([{field: 'order', direction: 'asc'}]),
         ),
       S.listItem()
         .title('Previous Programs')
         .child(
-          S.documentList().title('Previous Programs').filter('_type == "program" && status == "previous"'),
+          S.documentList()
+            .title('Previous Programs')
+            .filter('_type == "program" && status == "previous"')
+            .defaultOrdering([{field: 'order', direction: 'asc'}]),
         ),
     ])

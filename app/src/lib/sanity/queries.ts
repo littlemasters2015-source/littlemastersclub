@@ -57,16 +57,17 @@ export interface Newsletter {
 
 export const programQuery = groq`*[_type == "program" && slug.current == $slug][0]`;
 
-export const programsQuery = groq`*[_type == "program" && defined(slug.current)]`;
+export const programsQuery = groq`*[_type == "program" && defined(slug.current)] | order(order asc)`;
 
-export const programsCategoryQuery = groq`*[_type == "program" && defined(slug.current) && references(*[ name == $category]._id)]`;
+export const programsCategoryQuery = groq`*[_type == "program" && defined(slug.current) && references(*[ name == $category]._id)] | order(order asc)`;
 
-export const programsOldQuery = groq`*[_type == "program" && defined(slug.current) && status == "previous"]`;
+export const programsOldQuery = groq`*[_type == "program" && defined(slug.current) && status == "previous"] | order(order asc)`;
 
 export interface Program {
 	_type: 'program';
 	_createdAt: string;
 	status: 'previous' | 'current';
+	order?: number;
 	title?: string;
 	slug: Slug;
 	description?: string;
