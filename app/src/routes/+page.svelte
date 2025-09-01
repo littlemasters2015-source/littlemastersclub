@@ -26,6 +26,8 @@
 	function onInit(event: CustomEvent<EmblaCarouselType>) {
 		emblaApi = event.detail;
 	}
+
+	// test
 </script>
 
 <div class="page">
