@@ -5,7 +5,6 @@
 	import '../global.scss';
 	import '@fontsource-variable/outfit';
 	import logo from '$lib/assets/logo.jpg?as=logo';
-	// import SearchIcon from '~icons/ph/magnifying-glass-bold';
 	import ListIcon from '~icons/ph/list-bold';
 	import XIcon from '~icons/ph/x-bold';
 	import NavDropdowns from '$lib/components/NavDropdowns.svelte';
