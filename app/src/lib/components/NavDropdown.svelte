@@ -15,15 +15,15 @@
 	<DD.Content class="nav-dropdown-content" transition={fade} transitionConfig={{ duration: 50 }}>
 		{#each data as { name, href }}
 			<DD.Item asChild let:builder>
-				<a 
-    			use:builder.action 
-    			{...builder} 
-    			class="nav-dropdown-link" 
-    			{href}
-    			target={href.startsWith('http') ? '_blank' : '_self'}
-    			rel={href.startsWith('http') ? 'noopener noreferrer' : ''}
+				<a
+					use:builder.action
+					{...builder}
+					class="nav-dropdown-link"
+					{href}
+					target={href.startsWith('http') ? '_blank' : '_self'}
+					rel={href.startsWith('http') ? 'noopener noreferrer' : ''}
 				>
-    			<ArrowIcon class="nav-arrow" />{name}
+					<ArrowIcon class="nav-arrow" />{name}
 				</a>
 			</DD.Item>
 		{/each}

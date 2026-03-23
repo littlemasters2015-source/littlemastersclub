@@ -76,11 +76,11 @@
 		},
 		{
 			category: 'Resources',
-   			pages: [
-        		{ name: 'Project Proposal', href: '/project-proposal' },
-        		{ name: 'Susu Scholarship', href: '/susu-scholarship' },
-        		{ name: 'Microsoft Giving', href: '/microsoft-giving' },
-        		{ name: 'Old Website', href: 'https://sg.littlemastersclub.org' }
+			pages: [
+				{ name: 'Project Proposal', href: '/project-proposal' },
+				{ name: 'Susu Scholarship', href: '/susu-scholarship' },
+				{ name: 'Microsoft Giving', href: '/microsoft-giving' },
+				{ name: 'Old Website', href: 'https://sg.littlemastersclub.org' }
 			]
 		}
 	];
@@ -192,13 +192,14 @@
 						<a href="/donate">Donate</a>
 					</div>
 					<div class="footer-group">
-					<h3>Resources</h3>
-					<a href="/project-proposal">Project Proposal</a>
-					<a href="/susu-scholarship">Susu Scholarship</a>
-					<a href="/microsoft-giving">Microsoft Giving</a>
-					<a href="https://sg.littlemastersclub.org" target="_blank" rel="noopener noreferrer">
-					Old Website
-				</div>
+						<h3>Resources</h3>
+						<a href="/project-proposal">Project Proposal</a>
+						<a href="/susu-scholarship">Susu Scholarship</a>
+						<a href="/microsoft-giving">Microsoft Giving</a>
+						<a href="https://sg.littlemastersclub.org" target="_blank" rel="noopener noreferrer">
+							Old Website
+						</a>
+					</div>
 				</div>
 				<div class="footer-links-column">
 					<div class="footer-group">

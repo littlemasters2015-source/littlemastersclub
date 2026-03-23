@@ -27,7 +27,7 @@ export default defineType({
       name: 'externalUrl',
       title: 'External URL',
       type: 'url',
-      description: 'If this is set, clicking the page in the menu will go here instead.'
+      description: 'If this is set, clicking the page in the menu will go here instead.',
     }),
     defineField({
       name: 'body',
