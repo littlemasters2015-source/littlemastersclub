@@ -50,8 +50,12 @@
 							class="accordion-nav-link"
 							class:category={isCategory}
 							class:active={isPageActive(href)}
-							{href}>{name}</a
+							{href}
+							target={href.startsWith('http') ? '_blank' : '_self'}
+							rel={href.startsWith('http') ? 'noopener noreferrer' : ''}
 						>
+							{name}
+						</a>
 					{/each}
 				</Accordion.Content>
 			</Accordion.Item>
