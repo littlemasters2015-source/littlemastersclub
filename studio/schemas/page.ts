@@ -24,6 +24,12 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'externalUrl',
+      title: 'External URL',
+      type: 'url',
+      description: 'If this is set, clicking the page in the menu will go here instead.'
+    }),
+    defineField({
       name: 'body',
       type: 'blockContent',
     }),
