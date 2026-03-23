@@ -14,19 +14,28 @@
 	<DD.Trigger class={'nav-dropdown-trigger' + (isActive ? ' active' : '')}>{title}</DD.Trigger>
 	<DD.Content class="nav-dropdown-content" transition={fade} transitionConfig={{ duration: 50 }}>
 		{#each data as { name, href }}
-			<DD.Item asChild let:builder>
-				<a
-					use:builder.action
-					{...builder}
-					class="nav-dropdown-link"
-					{href}
-					target={href.startsWith('http') ? '_blank' : '_self'}
-					rel={href.startsWith('http') ? 'noopener noreferrer' : ''}
-				>
-					<ArrowIcon class="nav-arrow" />{name}
-				</a>
-			</DD.Item>
-		{/each}
+            <DD.Item asChild let:builder>
+                {#if href.includes('http')}
+                    <a 
+                        class="nav-dropdown-link" 
+                        {href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        <ArrowIcon class="nav-arrow" />{name}
+                    </a>
+                {:else}
+                    <a 
+                        use:builder.action 
+                        {...builder} 
+                        class="nav-dropdown-link" 
+                        {href}
+                    >
+                        <ArrowIcon class="nav-arrow" />{name}
+                    </a>
+                {/if}
+            </DD.Item>
+        {/each}
 	</DD.Content>
 </DD.Root>
 
