@@ -77,3 +77,4 @@ You'd usually do this after you've made changes to schemas in Studio and want to
 cd studio
 pnpm exec sanity deploy
 ```
+ 
