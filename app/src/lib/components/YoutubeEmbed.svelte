@@ -4,8 +4,8 @@
 
 <div class="youtube">
 	<iframe
-		width="816"
-		height="459"
+		width="100%"
+		height="100%"
 		src={portableText.value.url}
 		title="YouTube video player"
 		frameborder="0"
@@ -19,9 +19,12 @@
 	.youtube {
 		margin: 1.5rem 0;
 		overflow: hidden;
+		aspect-ratio: 16 / 9;
 		@include border;
 		iframe {
 			display: block;
+			width: 100%;
+			height: 100%;
 		}
 	}
 </style>

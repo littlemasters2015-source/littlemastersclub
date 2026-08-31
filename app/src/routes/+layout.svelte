@@ -148,6 +148,7 @@
 				<span>15015 Main Street Suite 208, Bellevue WA 98007</span>
 				<h3>Email</h3>
 				<a href="mailto:info@littlemastersclub.org">info@littlemastersclub.org</a>
+				<p class="site-credit">Site managed by Jerry Zhang</p>
 			</div>
 			<div class="footer-links">
 				<div class="footer-links-column">
@@ -370,6 +371,12 @@
 		h3 {
 			margin: 0;
 		}
+	}
+	.site-credit {
+		margin: 1rem 0 0.5rem 0;
+		font-weight: 600;
+		line-height: 1.3;
+		font-size: 1rem;
 	}
 
 	@media (max-width: 1150px) {

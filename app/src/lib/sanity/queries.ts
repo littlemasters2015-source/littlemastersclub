@@ -55,7 +55,17 @@ export interface Newsletter {
 	body: PortableTextBlock[];
 }
 
-export const programQuery = groq`*[_type == "program" && slug.current == $slug][0]`;
+export const programQuery = groq`*[_type == "program" && slug.current == $slug][0] {
+	...,
+	"tiles": *[_type == "programTile" && references(^._id)] | order(order asc)
+}`;
+
+export const programTileQuery = groq`*[_type == "programTile" && slug.current == $tileSlug && references(*[_type == "program" && slug.current == $programSlug]._id)][0] {
+	...,
+	"pages": *[_type == "programTilePage" && references(^._id)] | order(order asc)
+}`;
+
+export const programTilePageQuery = groq`*[_type == "programTilePage" && slug.current == $pageSlug && references(*[_type == "programTile" && slug.current == $tileSlug && references(*[_type == "program" && slug.current == $programSlug]._id)]._id)][0]`;
 
 export const programsQuery = groq`*[_type == "program" && defined(slug.current)] | order(order asc)`;
 
@@ -74,6 +84,33 @@ export interface Program {
 	category?: { _ref: string };
 	image?: ImageAsset;
 	body: PortableTextBlock[];
+	tiles?: ProgramTile[];
+}
+
+export interface ProgramTile {
+	_type: 'programTile';
+	_createdAt: string;
+	program: { _ref: string };
+	order?: number;
+	title: string;
+	slug: Slug;
+	description?: string;
+	image?: ImageAsset;
+	body: PortableTextBlock[];
+	pages?: ProgramTilePage[];
+}
+
+export interface ProgramTilePage {
+	_type: 'programTilePage';
+	_createdAt: string;
+	parentTile: { _ref: string };
+	order?: number;
+	title: string;
+	slug: Slug;
+	description?: string;
+	image?: ImageAsset;
+	body: PortableTextBlock[];
+	videos?: { _type: 'youtube'; url: string }[];
 }
 
 export const categoriesQuery = groq`*[_type == "category" && defined(name)] | order(order asc)`;
