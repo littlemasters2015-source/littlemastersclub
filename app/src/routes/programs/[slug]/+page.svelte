@@ -43,6 +43,23 @@
 			{/each}
 		</div>
 	{/if}
+	{#if program.teamMembers?.length}
+		<section class="team" aria-labelledby="team-title">
+			<h2 id="team-title">Meet the Team</h2>
+			<div class="tiles">
+				{#each program.teamMembers as member}
+					<a class="tile" href={`/programs/${program.slug.current}/team/${member.slug.current}`}>
+						{#if member.image}
+							<Img src={srcFor(member.image, 'sm')} alt={stegaClean(member.name)} />
+						{/if}
+						<div class="tile-info">
+							<h3>{member.name}</h3>
+						</div>
+					</a>
+				{/each}
+			</div>
+		</section>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -58,6 +75,12 @@
 		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 		gap: 1.25rem;
 		margin-top: 2rem;
+	}
+	.team {
+		margin-top: 3rem;
+	}
+	.team h2 {
+		margin-bottom: 1rem;
 	}
 	.tile {
 		display: flex;
@@ -75,6 +98,10 @@
 	.tile-info {
 		padding: 1rem 1.25rem 1.25rem;
 		h2 {
+			margin: 0;
+			font-size: 1.25rem;
+		}
+		h3 {
 			margin: 0;
 			font-size: 1.25rem;
 		}

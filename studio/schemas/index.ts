@@ -6,6 +6,7 @@ import programTilePage from './programTilePage'
 import category from './category'
 import newsletter from './newsletter'
 import boardMember from './boardMember'
+import teamMember from './teamMember'
 import homePage from './homePage'
 import page from './page'
 import youtubeEmbed from './youtubeEmbed'
@@ -19,6 +20,7 @@ export const schemaTypes = [
   category,
   newsletter,
   boardMember,
+  teamMember,
   homePage,
   page,
   youtubeEmbed,

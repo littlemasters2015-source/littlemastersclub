@@ -57,8 +57,11 @@ export interface Newsletter {
 
 export const programQuery = groq`*[_type == "program" && slug.current == $slug][0] {
 	...,
-	"tiles": *[_type == "programTile" && references(^._id)] | order(order asc)
+	"tiles": *[_type == "programTile" && references(^._id)] | order(order asc),
+	"teamMembers": *[_type == "teamMember" && references(^._id)] | order(order asc)
 }`;
+
+export const teamMemberQuery = groq`*[_type == "teamMember" && slug.current == $memberSlug && references(*[_type == "program" && slug.current == $programSlug]._id)][0]`;
 
 export const programTileQuery = groq`*[_type == "programTile" && slug.current == $tileSlug && references(*[_type == "program" && slug.current == $programSlug]._id)][0] {
 	...,
@@ -85,6 +88,18 @@ export interface Program {
 	image?: ImageAsset;
 	body: PortableTextBlock[];
 	tiles?: ProgramTile[];
+	teamMembers?: TeamMember[];
+}
+
+export interface TeamMember {
+	_type: 'teamMember';
+	_createdAt: string;
+	program: { _ref: string };
+	order?: number;
+	name: string;
+	slug: Slug;
+	image?: ImageAsset;
+	body?: PortableTextBlock[];
 }
 
 export interface ProgramTile {
